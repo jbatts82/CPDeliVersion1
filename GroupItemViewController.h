@@ -9,13 +9,17 @@
 #import <UIKit/UIKit.h>
 
 @interface GroupItemViewController : UITableViewController<NSURLConnectionDelegate,NSXMLParserDelegate>
+{
+    NSMutableData *responseData;
+}
+
 
 
 
 #pragma mark -
 #pragma mark Class Methods
+
 - (void) retrieveData;
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;
 
 @end
