@@ -16,6 +16,5 @@
 #pragma mark Class Methods
 - (void) retrieveData;
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;
 
 @end

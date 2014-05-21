@@ -17,10 +17,6 @@
 
 @implementation GroupItemViewController
 
-NSMutableData *responseData;
-NSMutableString *currentElement;
-#pragma mark NSURLConnection Delegate Methods
-
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -130,33 +126,7 @@ NSMutableString *currentElement;
 - (void) retrieveData
 {
     
-    NSURL *url = [NSURL URLWithString:getDataURL];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    [request setHTTPMethod: @"POST"];
-    
-    
-    NSURLConnection *conn=[[NSURLConnection alloc]initWithRequest:request delegate:self ];
-    
   
-    //[self connection:conn didReceiveResponse:responseData];
-      
-    
- 
-    
-    
-    
-    
-    
-    
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    // A response has been received, this is where we initialize the instance var you created
-    // so that we can append data to it in the didReceiveData method
-    // Furthermore, this method is called each time there is a redirect so reinitializing it
-    // also serves to clear it
-    responseData = [[NSMutableData alloc] init];
-    
 }
 
 @end
