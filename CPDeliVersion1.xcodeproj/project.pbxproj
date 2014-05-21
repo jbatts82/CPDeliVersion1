@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F6A0A5B8192BC58F00C8CCFD /* GroupItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A0A5B7192BC58F00C8CCFD /* GroupItemViewController.m */; };
 		F6B00054192A7EC2001257C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B00053192A7EC2001257C9 /* Foundation.framework */; };
 		F6B00056192A7EC2001257C9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B00055192A7EC2001257C9 /* CoreGraphics.framework */; };
 		F6B00058192A7EC2001257C9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B00057192A7EC2001257C9 /* UIKit.framework */; };
@@ -14,7 +15,6 @@
 		F6B00060192A7EC2001257C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B0005F192A7EC2001257C9 /* main.m */; };
 		F6B00064192A7EC2001257C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B00063192A7EC2001257C9 /* AppDelegate.m */; };
 		F6B00067192A7EC2001257C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6B00065192A7EC2001257C9 /* Main.storyboard */; };
-		F6B0006A192A7EC2001257C9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B00069192A7EC2001257C9 /* ViewController.m */; };
 		F6B0006C192A7EC2001257C9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6B0006B192A7EC2001257C9 /* Images.xcassets */; };
 		F6B00073192A7EC3001257C9 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B00072192A7EC3001257C9 /* XCTest.framework */; };
 		F6B00074192A7EC3001257C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B00053192A7EC2001257C9 /* Foundation.framework */; };
@@ -34,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F6A0A5B6192BC58F00C8CCFD /* GroupItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupItemViewController.h; path = ../GroupItemViewController.h; sourceTree = "<group>"; };
+		F6A0A5B7192BC58F00C8CCFD /* GroupItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupItemViewController.m; path = ../GroupItemViewController.m; sourceTree = "<group>"; };
 		F6B00050192A7EC2001257C9 /* CPDeliVersion1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPDeliVersion1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6B00053192A7EC2001257C9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F6B00055192A7EC2001257C9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -45,8 +47,6 @@
 		F6B00062192A7EC2001257C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F6B00063192A7EC2001257C9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F6B00066192A7EC2001257C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F6B00068192A7EC2001257C9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F6B00069192A7EC2001257C9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F6B0006B192A7EC2001257C9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F6B00071192A7EC3001257C9 /* CPDeliVersion1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CPDeliVersion1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6B00072192A7EC3001257C9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -112,11 +112,11 @@
 		F6B00059192A7EC2001257C9 /* CPDeliVersion1 */ = {
 			isa = PBXGroup;
 			children = (
+				F6A0A5B6192BC58F00C8CCFD /* GroupItemViewController.h */,
+				F6A0A5B7192BC58F00C8CCFD /* GroupItemViewController.m */,
 				F6B00062192A7EC2001257C9 /* AppDelegate.h */,
 				F6B00063192A7EC2001257C9 /* AppDelegate.m */,
 				F6B00065192A7EC2001257C9 /* Main.storyboard */,
-				F6B00068192A7EC2001257C9 /* ViewController.h */,
-				F6B00069192A7EC2001257C9 /* ViewController.m */,
 				F6B0006B192A7EC2001257C9 /* Images.xcassets */,
 				F6B0005A192A7EC2001257C9 /* Supporting Files */,
 			);
@@ -199,6 +199,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "John Battaglia";
 				TargetAttributes = {
+					F6B0004F192A7EC2001257C9 = {
+						DevelopmentTeam = 3HAU548465;
+					};
 					F6B00070192A7EC3001257C9 = {
 						TestTargetID = F6B0004F192A7EC2001257C9;
 					};
@@ -249,9 +252,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6B0006A192A7EC2001257C9 /* ViewController.m in Sources */,
 				F6B00064192A7EC2001257C9 /* AppDelegate.m in Sources */,
 				F6B00060192A7EC2001257C9 /* main.m in Sources */,
+				F6A0A5B8192BC58F00C8CCFD /* GroupItemViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +379,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CPDeliVersion1/CPDeliVersion1-Prefix.pch";
 				INFOPLIST_FILE = "CPDeliVersion1/CPDeliVersion1-Info.plist";
@@ -389,6 +393,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CPDeliVersion1/CPDeliVersion1-Prefix.pch";
 				INFOPLIST_FILE = "CPDeliVersion1/CPDeliVersion1-Info.plist";
@@ -456,6 +461,7 @@
 				F6B00084192A7EC3001257C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F6B00085192A7EC3001257C9 /* Build configuration list for PBXNativeTarget "CPDeliVersion1Tests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +470,7 @@
 				F6B00087192A7EC3001257C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
