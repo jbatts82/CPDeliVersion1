@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GroupItemViewController : UITableViewController<NSURLConnectionDelegate,NSXMLParserDelegate>
+@interface GroupItemViewController : UITableViewController
 
 
 
