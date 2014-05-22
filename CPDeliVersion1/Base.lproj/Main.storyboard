@@ -52,16 +52,25 @@
             </objects>
             <point key="canvasLocation" x="1622" y="-275"/>
         </scene>
-        <!--View Controller - About Us-->
+        <!--About Us - About Us-->
         <scene sceneID="7l8-aG-9G3">
             <objects>
-                <viewController id="5Ih-ED-zZK" sceneMemberID="viewController">
+                <viewController id="5Ih-ED-zZK" customClass="AboutUs" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NDc-HF-wsa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="wfc-Ba-IJe">
+                                <rect key="frame" x="0.0" y="94" width="320" height="343"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.48400733643369664" green="1" blue="0.39182176094537247" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="About Us" id="HAy-zd-KMv"/>
+                    <connections>
+                        <outlet property="aboutUsImage1" destination="wfc-Ba-IJe" id="tKc-fe-0Em"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIF-5F-f3o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

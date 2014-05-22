@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F661CA87192D9C2D0061DCF7 /* AboutUs.m in Sources */ = {isa = PBXBuildFile; fileRef = F661CA86192D9C2D0061DCF7 /* AboutUs.m */; };
+		F661CA89192D9E510061DCF7 /* aboutUs.png in Resources */ = {isa = PBXBuildFile; fileRef = F661CA88192D9E510061DCF7 /* aboutUs.png */; };
 		F6A0A5B8192BC58F00C8CCFD /* GroupItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A0A5B7192BC58F00C8CCFD /* GroupItemViewController.m */; };
 		F6B00054192A7EC2001257C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B00053192A7EC2001257C9 /* Foundation.framework */; };
 		F6B00056192A7EC2001257C9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B00055192A7EC2001257C9 /* CoreGraphics.framework */; };
@@ -34,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F661CA85192D9C2D0061DCF7 /* AboutUs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUs.h; sourceTree = "<group>"; };
+		F661CA86192D9C2D0061DCF7 /* AboutUs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUs.m; sourceTree = "<group>"; };
+		F661CA88192D9E510061DCF7 /* aboutUs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aboutUs.png; sourceTree = "<group>"; };
 		F6A0A5B6192BC58F00C8CCFD /* GroupItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupItemViewController.h; path = ../GroupItemViewController.h; sourceTree = "<group>"; };
 		F6A0A5B7192BC58F00C8CCFD /* GroupItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupItemViewController.m; path = ../GroupItemViewController.m; sourceTree = "<group>"; };
 		F6B00050192A7EC2001257C9 /* CPDeliVersion1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPDeliVersion1.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,11 +117,14 @@
 		F6B00059192A7EC2001257C9 /* CPDeliVersion1 */ = {
 			isa = PBXGroup;
 			children = (
+				F661CA88192D9E510061DCF7 /* aboutUs.png */,
 				F6A0A5B6192BC58F00C8CCFD /* GroupItemViewController.h */,
 				F6A0A5B7192BC58F00C8CCFD /* GroupItemViewController.m */,
 				F6B00062192A7EC2001257C9 /* AppDelegate.h */,
 				F6B00063192A7EC2001257C9 /* AppDelegate.m */,
 				F6B00065192A7EC2001257C9 /* Main.storyboard */,
+				F661CA85192D9C2D0061DCF7 /* AboutUs.h */,
+				F661CA86192D9C2D0061DCF7 /* AboutUs.m */,
 				F6B0006B192A7EC2001257C9 /* Images.xcassets */,
 				F6B0005A192A7EC2001257C9 /* Supporting Files */,
 			);
@@ -232,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6B0006C192A7EC2001257C9 /* Images.xcassets in Resources */,
+				F661CA89192D9E510061DCF7 /* aboutUs.png in Resources */,
 				F6B0005E192A7EC2001257C9 /* InfoPlist.strings in Resources */,
 				F6B00067192A7EC2001257C9 /* Main.storyboard in Resources */,
 			);
@@ -255,6 +264,7 @@
 				F6B00064192A7EC2001257C9 /* AppDelegate.m in Sources */,
 				F6B00060192A7EC2001257C9 /* main.m in Sources */,
 				F6A0A5B8192BC58F00C8CCFD /* GroupItemViewController.m in Sources */,
+				F661CA87192D9C2D0061DCF7 /* AboutUs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
