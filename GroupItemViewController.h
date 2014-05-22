@@ -14,7 +14,6 @@
 
 #pragma mark -
 #pragma mark Class Methods
-- (void) retrieveData;
 
 
 @end

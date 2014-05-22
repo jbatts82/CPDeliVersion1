@@ -8,9 +8,6 @@
 
 #import "GroupItemViewController.h"
 
-#define getDataURL @"http://71.238.152.229:1985/CPDeliWebService.asmx/GetGroupItemsJSON"
-
-
 @interface GroupItemViewController ()
 
 @end
@@ -29,12 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    //set the title of our VC
-    self.title = @"Group Items";
-    
-    //load data
-    [self retrieveData];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -123,10 +114,5 @@
 }
 */
 
-- (void) retrieveData
-{
-    
-  
-}
 
 @end
