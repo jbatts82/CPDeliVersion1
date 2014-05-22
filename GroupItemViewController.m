@@ -17,8 +17,9 @@
 
 @implementation GroupItemViewController
 
-NSMutableData *responseData;
-NSMutableString *currentElement;
+NSMutableData *responseData; //raw xml array
+NSMutableString *currentElement; //raw json array
+
 #pragma mark NSURLConnection Delegate Methods
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -129,21 +130,10 @@ NSMutableString *currentElement;
 
 - (void) retrieveData
 {
-    
- /*
-    NSURL *url = [NSURL URLWithString:getDataURL];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    [request setHTTPMethod: @"POST"];
-    
-    
-    NSURLConnection *conn=[[NSURLConnection alloc]initWithRequest:request delegate:self ];
-*/
-    
-    
     //Create the request
     NSURL *url = [NSURL URLWithString:getDataURL];
     NSURLRequest * request = [NSURLRequest requestWithURL:url];
-    
+
     //Create URL connection and fire request
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
@@ -175,15 +165,60 @@ didReceiveResponse:(NSURLResponse *)response {
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     // The request is complete and data has been received
     // You can parse the stuff in your instance variable now
+    NSXMLParser *parser=[[NSXMLParser alloc] initWithData:responseData];
+    [parser setDelegate:self];
+    [parser parse];
 }
     
 - (void)connection:(NSURLConnection *)connection
   didFailWithError:(NSError *)error {
     // The request has failed for some reason!
     // Check the error var
-}
+    NSLog(@"Error : %@",[error localizedDescription]);
     
+}
 
+#pragma mark Parse Methods
+
+- (void)parserDidStartDocument:(NSXMLParser *)parser
+{
+    NSLog(@"Parser start");
+}
+
+- (void) parser: (NSXMLParser *) parser
+didStartElement: (NSString *) elementName
+   namespaceURI: (NSString *) namespaceURI
+  qualifiedName: (NSString *) qName
+     attributes: (NSDictionary *) attributeDict
+{
+    if ([elementName isEqualToString:@"string"])
+    {
+        currentElement = [[NSMutableString alloc] init];
+        return;
+    }
+}
+
+- (void)parser:(NSXMLParser *)parser
+foundCharacters:(NSString *)string
+{
+    [currentElement appendString:string];
+}
+
+- (void)parser:(NSXMLParser *)parser
+ didEndElement:(NSString *)elementName
+  namespaceURI:(NSString *)namespaceURI
+ qualifiedName:(NSString *)qName
+{
+    if([elementName isEqualToString:@"string"])
+    {
+        return;
+    }
+}
+
+- (void)parserDidEndDocument:(NSXMLParser *)parser
+{
+    
+}
 
 
 @end
