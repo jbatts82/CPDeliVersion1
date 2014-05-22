@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CFE59552192E6D7900141BB4 /* MenuGroups.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE59551192E6D7900141BB4 /* MenuGroups.m */; };
 		F661CA87192D9C2D0061DCF7 /* AboutUs.m in Sources */ = {isa = PBXBuildFile; fileRef = F661CA86192D9C2D0061DCF7 /* AboutUs.m */; };
 		F661CA89192D9E510061DCF7 /* aboutUs.png in Resources */ = {isa = PBXBuildFile; fileRef = F661CA88192D9E510061DCF7 /* aboutUs.png */; };
 		F6A0A5B8192BC58F00C8CCFD /* GroupItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A0A5B7192BC58F00C8CCFD /* GroupItemViewController.m */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CFE59550192E6D7900141BB4 /* MenuGroups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuGroups.h; sourceTree = "<group>"; };
+		CFE59551192E6D7900141BB4 /* MenuGroups.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuGroups.m; sourceTree = "<group>"; };
 		F661CA85192D9C2D0061DCF7 /* AboutUs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUs.h; sourceTree = "<group>"; };
 		F661CA86192D9C2D0061DCF7 /* AboutUs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUs.m; sourceTree = "<group>"; };
 		F661CA88192D9E510061DCF7 /* aboutUs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aboutUs.png; sourceTree = "<group>"; };
@@ -125,6 +128,8 @@
 				F6B00065192A7EC2001257C9 /* Main.storyboard */,
 				F661CA85192D9C2D0061DCF7 /* AboutUs.h */,
 				F661CA86192D9C2D0061DCF7 /* AboutUs.m */,
+				CFE59550192E6D7900141BB4 /* MenuGroups.h */,
+				CFE59551192E6D7900141BB4 /* MenuGroups.m */,
 				F6B0006B192A7EC2001257C9 /* Images.xcassets */,
 				F6B0005A192A7EC2001257C9 /* Supporting Files */,
 			);
@@ -264,6 +269,7 @@
 				F6B00064192A7EC2001257C9 /* AppDelegate.m in Sources */,
 				F6B00060192A7EC2001257C9 /* main.m in Sources */,
 				F6A0A5B8192BC58F00C8CCFD /* GroupItemViewController.m in Sources */,
+				CFE59552192E6D7900141BB4 /* MenuGroups.m in Sources */,
 				F661CA87192D9C2D0061DCF7 /* AboutUs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
