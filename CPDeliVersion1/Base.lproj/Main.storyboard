@@ -61,8 +61,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="wfc-Ba-IJe">
-                                <rect key="frame" x="0.0" y="94" width="320" height="343"/>
+                                <rect key="frame" x="0.0" y="41" width="320" height="215"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="dop-ee-DRC">
+                                <rect key="frame" x="35" y="280" width="250" height="217"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.48400733643369664" green="1" blue="0.39182176094537247" alpha="1" colorSpace="calibratedRGB"/>
@@ -70,6 +74,7 @@
                     <tabBarItem key="tabBarItem" title="About Us" id="HAy-zd-KMv"/>
                     <connections>
                         <outlet property="aboutUsImage1" destination="wfc-Ba-IJe" id="tKc-fe-0Em"/>
+                        <outlet property="aboutUsImage2" destination="dop-ee-DRC" id="KZf-fy-Ac4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIF-5F-f3o" userLabel="First Responder" sceneMemberID="firstResponder"/>

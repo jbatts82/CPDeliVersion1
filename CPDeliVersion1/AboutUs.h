@@ -12,4 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *aboutUsImage1;
 
+@property (weak, nonatomic) IBOutlet UIImageView *aboutUsImage2;
+
 @end

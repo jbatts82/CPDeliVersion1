@@ -8,6 +8,8 @@
 
 #import "AboutUs.h"
 
+#define underConstruction @"http://img2.wikia.nocookie.net/__cb20130401173051/gtawiki/images/1/14/Under_Construction.png"
+
 @interface AboutUs ()
 
 @end
@@ -15,6 +17,7 @@
 @implementation AboutUs
 
 @synthesize aboutUsImage1;
+@synthesize aboutUsImage2;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,8 +32,11 @@
 {
     
     UIImage *img1 = [UIImage imageNamed:@"aboutUs.png"];
-    
     [aboutUsImage1 setImage:img1];
+    
+    
+    aboutUsImage2.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:underConstruction]]];
+    
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
