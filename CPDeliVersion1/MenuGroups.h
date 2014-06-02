@@ -14,4 +14,5 @@
 @property (weak, nonatomic) NSString *groupItem;
 @property (weak, nonatomic) NSURL *imageURL;
 
+
 @end
