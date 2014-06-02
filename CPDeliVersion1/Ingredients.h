@@ -1,0 +1,19 @@
+//
+//  Ingredients.h
+//  CPDeliVersion1
+//
+//  Created by UMDGuest on 5/26/14.
+//  Copyright (c) 2014 John Battaglia. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface Ingredients : NSObject
+
+@property (weak, nonatomic) NSNumber *ingredientsID;
+@property (weak, nonatomic) NSString *ingredientsName;
+@property (weak, nonatomic) NSNumber *price;
+@property (weak, nonatomic) NSString *dayRequired;
+@property (weak, nonatomic) NSNumber *percentageBased;
+
+@end

@@ -10,5 +10,8 @@
 
 @interface MenuGroups : NSObject
 
+@property (weak, nonatomic) NSNumber *groupID;
+@property (weak, nonatomic) NSString *groupItem;
+@property (weak, nonatomic) NSURL *imageURL;
 
 @end
