@@ -11,6 +11,9 @@
 @interface GroupItemViewController : UITableViewController
 
 
+@property (nonatomic, strong) NSMutableArray *jsonArray;
+@property (nonatomic, strong) NSMutableArray *menuArray;
+
 
 #pragma mark -
 #pragma mark Class Methods
