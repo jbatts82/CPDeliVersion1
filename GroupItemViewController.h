@@ -14,6 +14,8 @@
 }
 
 
+@property (nonatomic, strong) NSMutableArray *jsonArray;
+@property (nonatomic, strong) NSMutableArray *menuArray;
 
 
 #pragma mark -
