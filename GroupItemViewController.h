@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GroupItemViewController : UITableViewController
+@interface GroupItemViewController : UITableViewController<NSURLConnectionDelegate,NSXMLParserDelegate>
+{
+    NSMutableData *responseData;
+}
 
 
 @property (nonatomic, strong) NSMutableArray *jsonArray;
@@ -17,6 +20,8 @@
 
 #pragma mark -
 #pragma mark Class Methods
+
+- (void) retrieveData;
 
 
 @end

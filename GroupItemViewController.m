@@ -6,13 +6,22 @@
 //  Copyright (c) 2014 John Battaglia. All rights reserved.
 //
 //
+
 #import "GroupItemViewController.h"
+
+#define getDataURL @"http://71.238.152.229:1985/CPDeliWebService.asmx/GetGroupItemsJSON"
+
 
 @interface GroupItemViewController ()
 
 @end
 
 @implementation GroupItemViewController
+
+NSMutableData *responseData; //raw xml array
+NSMutableString *currentElement; //raw json array
+
+#pragma mark NSURLConnection Delegate Methods
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,6 +35,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self retrieveData];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -114,6 +125,99 @@
 }
 */
 
+- (void) retrieveData
+{
+    //Create the request
+    NSURL *url = [NSURL URLWithString:getDataURL];
+    NSURLRequest * request = [NSURLRequest requestWithURL:url];
+
+    //Create URL connection and fire request
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+}//end retrieveData
+    
+#pragma mark NSURLConnection Delegate Methods
+    
+- (void)connection:(NSURLConnection *)connection
+didReceiveResponse:(NSURLResponse *)response {
+    // A response has been received, this is where we initialize the instance var you created
+    // so that we can append data to it in the didReceiveData method
+    // Furthermore, this method is called each time there is a redirect so reinitializing it
+    // also serves to clear it
+    responseData = [[NSMutableData alloc] init];
+}
+    
+- (void)connection:(NSURLConnection *)connection
+    didReceiveData:(NSData *)data {
+    // Append the new data to the instance variable you declared
+    [responseData appendData:data];
+}
+    
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
+    // Return nil to indicate not necessary to store a cached response for this connection
+    return nil;
+}
+    
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    // The request is complete and data has been received
+    // You can parse the stuff in your instance variable now
+    NSXMLParser *parser=[[NSXMLParser alloc] initWithData:responseData];
+    [parser setDelegate:self];
+    [parser parse];
+}
+    
+- (void)connection:(NSURLConnection *)connection
+  didFailWithError:(NSError *)error {
+    // The request has failed for some reason!
+    // Check the error var
+    NSLog(@"Error : %@",[error localizedDescription]);
+    
+}
+
+#pragma mark Parse Methods
+
+- (void)parserDidStartDocument:(NSXMLParser *)parser
+{
+    NSLog(@"Parser start");
+}
+
+- (void) parser: (NSXMLParser *) parser
+didStartElement: (NSString *) elementName
+   namespaceURI: (NSString *) namespaceURI
+  qualifiedName: (NSString *) qName
+     attributes: (NSDictionary *) attributeDict
+{
+    if ([elementName isEqualToString:@"string"])
+    {
+        currentElement = [[NSMutableString alloc] init];
+        return;
+    }
+}
+
+- (void)parser:(NSXMLParser *)parser
+foundCharacters:(NSString *)string
+{
+    [currentElement appendString:string];
+}
+
+- (void)parser:(NSXMLParser *)parser
+ didEndElement:(NSString *)elementName
+  namespaceURI:(NSString *)namespaceURI
+ qualifiedName:(NSString *)qName
+{
+    if([elementName isEqualToString:@"string"])
+    {
+        return;
+    }
+}
+
+- (void)parserDidEndDocument:(NSXMLParser *)parser
+{
+    
+    
+    
+}
 
 
 @end
