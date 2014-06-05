@@ -8,6 +8,7 @@
 //
 
 #import "GroupItemViewController.h"
+#import "MenuGroups.h"
 
 #define getDataURL @"http://71.238.152.229:1985/CPDeliWebService.asmx/GetGroupItemsJSON"
 
@@ -18,8 +19,11 @@
 
 @implementation GroupItemViewController
 
+@synthesize jsonArray, menuGroupArray, menuGroupDictionary, tempArray;
+
 NSMutableData *responseData; //raw xml array
 NSMutableString *currentElement; //raw json array
+NSData *menuGroupData; //json in data format for use with jsonserialization
 
 #pragma mark NSURLConnection Delegate Methods
 
@@ -35,6 +39,11 @@ NSMutableString *currentElement; //raw json array
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    //NSURL *testURL = [
+   // NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL urlWithString:getDataURL]];
+
     
     [self retrieveData];
     
@@ -214,7 +223,50 @@ foundCharacters:(NSString *)string
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser
 {
+    //convert string to dataObject
+    menuGroupData = [currentElement dataUsingEncoding:NSUTF8StringEncoding];
     
+    //remove trailing \0 for use with NSJSONSerilaization:JSONObjectWithData
+    //menuGroupData = [menuGroupData subdataWithRange:NSMakeRange(0, [menuGroupData length] -1)];
+    
+    NSError *error;
+    menuGroupDictionary = [NSJSONSerialization JSONObjectWithData:menuGroupData options:NSJSONReadingMutableContainers error:&error];
+    
+    if(error)
+    {
+        NSLog(@"%@", [error localizedDescription]);
+    }
+    else
+    {
+        tempArray = menuGroupDictionary[@"MenuGroupsTable"];
+        
+    }
+    
+    menuGroupArray = [[NSMutableArray alloc] init];
+    
+    for(int i = 0; i<tempArray.count; i++)
+    {
+        //create our menuGroupObjects
+        //objectForKey value must match exactly to JSON string keys
+        NSNumber *gID = [[tempArray objectAtIndex:i] objectForKey:@"GroupID"];
+        NSString *gItem = [[tempArray objectAtIndex:i] objectForKey:@"GroupItem"];
+        NSString *gImageURL = [[tempArray objectAtIndex:i] objectForKey:@"ImageURL"];
+        
+        
+        
+                             
+        
+        [menuGroupArray addObject:[[MenuGroups alloc]initWithGroupID:gID andGroupItem:gItem andImageURL:gImageURL]];
+        
+    }
+    
+    
+    
+    
+   
+    
+    //reload our table view
+    //[self.tableView reloadData];
     
     
 }

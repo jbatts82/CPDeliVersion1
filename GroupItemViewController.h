@@ -14,8 +14,12 @@
 }
 
 
+
 @property (nonatomic, strong) NSMutableArray *jsonArray;
-@property (nonatomic, strong) NSMutableArray *menuArray;
+@property (nonatomic, strong) NSMutableArray *menuGroupArray;
+@property (nonatomic, strong) NSMutableArray *tempArray;
+@property (nonatomic, strong) NSMutableDictionary *menuGroupDictionary;
+
 
 
 #pragma mark -

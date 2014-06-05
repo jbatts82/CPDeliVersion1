@@ -10,9 +10,21 @@
 
 @interface MenuGroups : NSObject
 
-@property (weak, nonatomic) NSNumber *groupID;
-@property (weak, nonatomic) NSString *groupItem;
-@property (weak, nonatomic) NSURL *imageURL;
+@property (strong, nonatomic) NSNumber *groupID;
+@property (strong, nonatomic) NSString *groupItem;
+@property (strong, nonatomic) NSString *imageURL;
+@property (strong, nonatomic) UIImage *theImage;
+@property (strong, nonatomic) NSMutableArray *individualItemsArray;
+
+
+
+#pragma mark - 
+#pragma mark Class Methods
+
+- (id)initWithGroupID: (NSNumber *)gID
+         andGroupItem: (NSString *)gItem
+          andImageURL: (NSString *)gURL;
+
 
 
 @end
