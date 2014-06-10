@@ -10,7 +10,9 @@
 #import "GroupItemViewController.h"
 #import "MenuGroups.h"
 
-#define getDataURL @"http://71.238.152.229:1985/CPDeliWebService.asmx/GetGroupItemsJSON"
+#define getGroupItemsJSONURL @"http://71.238.152.229:1985/CPDeliWebService.asmx/GetGroupItemsJSON"
+#define getIndividualItemsJSONURL @"http://71.238.152.229:1985/CPDeliWebService.asmx/GetIndividualItemsJSON"
+#define getIngredientsTableJSONURL @"http://71.238.152.229:1985/CPDeliWebService.asmx/GetIngredientsTableJSON"
 
 
 @interface GroupItemViewController ()
@@ -20,10 +22,13 @@
 @implementation GroupItemViewController
 
 @synthesize jsonArray, menuGroupArray, menuGroupDictionary, tempArray;
+@synthesize connection1, connection2, connection3;
 
 NSMutableData *responseData; //raw xml array
 NSMutableString *currentElement; //raw json array
 NSData *menuGroupData; //json in data format for use with jsonserialization
+
+int connectionFlag = 0;
 
 #pragma mark NSURLConnection Delegate Methods
 
@@ -137,11 +142,25 @@ NSData *menuGroupData; //json in data format for use with jsonserialization
 - (void) retrieveData
 {
     //Create the request
-    NSURL *url = [NSURL URLWithString:getDataURL];
-    NSURLRequest * request = [NSURLRequest requestWithURL:url];
-
+    NSURL *groupItemsURL = [NSURL URLWithString:getGroupItemsJSONURL];
+    NSURLRequest *groupItemsRequest = [NSURLRequest requestWithURL:groupItemsURL];
     //Create URL connection and fire request
-    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    connection1 = [[NSURLConnection alloc] initWithRequest:groupItemsRequest delegate:self];
+    
+    //create the request
+    NSURL *individualItemsURL = [NSURL URLWithString:getIndividualItemsJSONURL];
+    NSURLRequest *individualItemsRequest = [NSURLRequest requestWithURL:individualItemsURL];
+    //Create URL connection and fire request
+    connection2 = [[NSURLConnection alloc] initWithRequest:individualItemsRequest delegate:self];
+    
+    //create the request
+    NSURL *ingredientsTableURL = [NSURL URLWithString:getIngredientsTableJSONURL];
+    NSURLRequest *ingredientsTableRequest = [NSURLRequest requestWithURL:ingredientsTableURL];
+    //Create URL connection and fire request
+    connection3 = [[NSURLConnection alloc] initWithRequest:ingredientsTableRequest delegate:self];
+    
+    
+    
     
 }//end retrieveData
     
@@ -171,6 +190,25 @@ didReceiveResponse:(NSURLResponse *)response {
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     // The request is complete and data has been received
     // You can parse the stuff in your instance variable now
+    
+    if(connection == connection1)
+    {
+        
+    }
+    else if(connection == connection2)
+    {
+        
+    }
+    else if(connection == connection3)
+    {
+        
+    }
+    else
+    {
+        NSLog(@"Unknown NSURLConnection");
+    }
+    
+    
     NSXMLParser *parser=[[NSXMLParser alloc] initWithData:responseData];
     [parser setDelegate:self];
     [parser parse];
@@ -253,9 +291,7 @@ foundCharacters:(NSString *)string
         NSString *gImageURL = [[tempArray objectAtIndex:i] objectForKey:@"ImageURL"];
         
         
-        
-                             
-        
+    
         [menuGroupArray addObject:[[MenuGroups alloc]initWithGroupID:gID andGroupItem:gItem andImageURL:gImageURL]];
         
     }

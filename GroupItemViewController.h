@@ -20,7 +20,9 @@
 @property (nonatomic, strong) NSMutableArray *tempArray;
 @property (nonatomic, strong) NSMutableDictionary *menuGroupDictionary;
 
-
+@property (nonatomic, strong) NSURLConnection *connection1;
+@property (nonatomic, strong) NSURLConnection *connection2;
+@property (nonatomic, strong) NSURLConnection *connection3;
 
 #pragma mark -
 #pragma mark Class Methods
