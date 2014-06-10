@@ -159,9 +159,6 @@ int connectionFlag = 0;
     //Create URL connection and fire request
     connection3 = [[NSURLConnection alloc] initWithRequest:ingredientsTableRequest delegate:self];
     
-    
-    
-    
 }//end retrieveData
     
 #pragma mark NSURLConnection Delegate Methods
@@ -193,15 +190,15 @@ didReceiveResponse:(NSURLResponse *)response {
     
     if(connection == connection1)
     {
-        
+        connectionFlag = 1;
     }
     else if(connection == connection2)
     {
-        
+        connectionFlag = 2;
     }
     else if(connection == connection3)
     {
-        
+        connectionFlag = 3;
     }
     else
     {
@@ -261,40 +258,59 @@ foundCharacters:(NSString *)string
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser
 {
-    //convert string to dataObject
-    menuGroupData = [currentElement dataUsingEncoding:NSUTF8StringEncoding];
     
-    //remove trailing \0 for use with NSJSONSerilaization:JSONObjectWithData
-    //menuGroupData = [menuGroupData subdataWithRange:NSMakeRange(0, [menuGroupData length] -1)];
-    
-    NSError *error;
-    menuGroupDictionary = [NSJSONSerialization JSONObjectWithData:menuGroupData options:NSJSONReadingMutableContainers error:&error];
-    
-    if(error)
+    if(connectionFlag == 1)
     {
-        NSLog(@"%@", [error localizedDescription]);
+        NSLog(@"connection1");
+        //convert string to dataObject
+        menuGroupData = [currentElement dataUsingEncoding:NSUTF8StringEncoding];
+        
+        //remove trailing \0 for use with NSJSONSerilaization:JSONObjectWithData
+        //menuGroupData = [menuGroupData subdataWithRange:NSMakeRange(0, [menuGroupData length] -1)];
+        
+        NSError *error;
+        menuGroupDictionary = [NSJSONSerialization JSONObjectWithData:menuGroupData options:NSJSONReadingMutableContainers error:&error];
+        
+        if(error)
+        {
+            NSLog(@"%@", [error localizedDescription]);
+        }
+        else
+        {
+            tempArray = menuGroupDictionary[@"MenuGroupsTable"];
+            
+        }
+        
+        menuGroupArray = [[NSMutableArray alloc] init];
+        
+        for(int i = 0; i<tempArray.count; i++)
+        {
+            //create our menuGroupObjects
+            //objectForKey value must match exactly to JSON string keys
+            NSNumber *gID = [[tempArray objectAtIndex:i] objectForKey:@"GroupID"];
+            NSString *gItem = [[tempArray objectAtIndex:i] objectForKey:@"GroupItem"];
+            NSString *gImageURL = [[tempArray objectAtIndex:i] objectForKey:@"ImageURL"];
+
+            [menuGroupArray addObject:[[MenuGroups alloc]initWithGroupID:gID andGroupItem:gItem andImageURL:gImageURL]];
+            
+        }
+        
+    }
+    else if(connectionFlag == 2)
+    {
+        NSLog(@"connection2");
+    }
+    else if(connectionFlag == 3)
+    {
+        NSLog(@"connection3");
+        
     }
     else
     {
-        tempArray = menuGroupDictionary[@"MenuGroupsTable"];
-        
+        NSLog(@"Unknown ConnectionFlag");
     }
     
-    menuGroupArray = [[NSMutableArray alloc] init];
     
-    for(int i = 0; i<tempArray.count; i++)
-    {
-        //create our menuGroupObjects
-        //objectForKey value must match exactly to JSON string keys
-        NSNumber *gID = [[tempArray objectAtIndex:i] objectForKey:@"GroupID"];
-        NSString *gItem = [[tempArray objectAtIndex:i] objectForKey:@"GroupItem"];
-        NSString *gImageURL = [[tempArray objectAtIndex:i] objectForKey:@"ImageURL"];
-        
-        
-    
-        [menuGroupArray addObject:[[MenuGroups alloc]initWithGroupID:gID andGroupItem:gItem andImageURL:gImageURL]];
-        
-    }
     
     
     
