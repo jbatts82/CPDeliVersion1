@@ -19,4 +19,18 @@
 @property (weak, nonatomic) NSNumber *price;
 @property (weak, nonatomic) NSString *additionalItems;
 
+
+#pragma mark - 
+#pragma mark Class Methods
+
+- (id)initWithItemID:(NSNumber *)iID
+         andItemName:(NSString *)iName
+  andItemDescription:(NSString *)iDescription
+      andIngredients:(NSString *)iIngredients
+andDeluxeIngredients:(NSString *)iDeluxeIngredients
+        andGroupName:(NSString *)iGroupName
+            andPrice:(NSNumber *)iPrice
+  andAdditionalItems:(NSString *)iAdditionalItems;
+
+
 @end

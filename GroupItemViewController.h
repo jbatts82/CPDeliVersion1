@@ -13,12 +13,13 @@
     NSMutableData *responseData;
 }
 
-
+@property (nonatomic, strong) NSMutableArray *groupItemArray;
+@property (nonatomic, strong) NSMutableArray *individualItemArray;
+@property (nonatomic, strong) NSMutableArray *ingredientsTableArray;
 
 @property (nonatomic, strong) NSMutableArray *jsonArray;
-@property (nonatomic, strong) NSMutableArray *menuGroupArray;
-@property (nonatomic, strong) NSMutableArray *tempArray;
-@property (nonatomic, strong) NSMutableDictionary *menuGroupDictionary;
+//@property (nonatomic, strong) NSMutableArray *tempArray;
+//@property (nonatomic, strong) NSMutableDictionary *menuGroupDictionary;
 
 @property (nonatomic, strong) NSURLConnection *connection1;
 @property (nonatomic, strong) NSURLConnection *connection2;

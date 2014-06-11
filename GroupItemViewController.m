@@ -9,6 +9,7 @@
 
 #import "GroupItemViewController.h"
 #import "MenuGroups.h"
+#import "IndividualItems.h"
 
 #define getGroupItemsJSONURL @"http://71.238.152.229:1985/CPDeliWebService.asmx/GetGroupItemsJSON"
 #define getIndividualItemsJSONURL @"http://71.238.152.229:1985/CPDeliWebService.asmx/GetIndividualItemsJSON"
@@ -21,12 +22,21 @@
 
 @implementation GroupItemViewController
 
-@synthesize jsonArray, menuGroupArray, menuGroupDictionary, tempArray;
+@synthesize jsonArray, groupItemArray, individualItemArray, ingredientsTableArray;
 @synthesize connection1, connection2, connection3;
 
 NSMutableData *responseData; //raw xml array
 NSMutableString *currentElement; //raw json array
-NSData *menuGroupData; //json in data format for use with jsonserialization
+
+NSData *groupItemData; //json in data format for use with jsonserialization
+NSMutableDictionary *groupItemDictionary;
+NSMutableArray *tempGroupItemArray;
+
+NSData *individualItemData;
+NSMutableDictionary *individualItemDictionary;
+NSMutableArray *tempIndividualItemArray;
+
+
 
 int connectionFlag = 0;
 
@@ -44,11 +54,6 @@ int connectionFlag = 0;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-    //NSURL *testURL = [
-   // NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL urlWithString:getDataURL]];
-
     
     [self retrieveData];
     
@@ -69,6 +74,7 @@ int connectionFlag = 0;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    NSLog(@"tableStuff");
     return 0;
 }
 
@@ -262,43 +268,79 @@ foundCharacters:(NSString *)string
     if(connectionFlag == 1)
     {
         NSLog(@"connection1");
+        
         //convert string to dataObject
-        menuGroupData = [currentElement dataUsingEncoding:NSUTF8StringEncoding];
+        groupItemData = [currentElement dataUsingEncoding:NSUTF8StringEncoding];
         
-        //remove trailing \0 for use with NSJSONSerilaization:JSONObjectWithData
-        //menuGroupData = [menuGroupData subdataWithRange:NSMakeRange(0, [menuGroupData length] -1)];
+        NSError *groupItemError;
+        groupItemDictionary = [NSJSONSerialization JSONObjectWithData:groupItemData options:NSJSONReadingMutableContainers error:&groupItemError];
         
-        NSError *error;
-        menuGroupDictionary = [NSJSONSerialization JSONObjectWithData:menuGroupData options:NSJSONReadingMutableContainers error:&error];
-        
-        if(error)
+        if(groupItemError)
         {
-            NSLog(@"%@", [error localizedDescription]);
+            NSLog(@"%@", [groupItemError localizedDescription]);
         }
         else
         {
-            tempArray = menuGroupDictionary[@"MenuGroupsTable"];
-            
+            tempGroupItemArray = groupItemDictionary[@"MenuGroupsTable"];
         }
         
-        menuGroupArray = [[NSMutableArray alloc] init];
+        groupItemArray = [[NSMutableArray alloc] init];
         
-        for(int i = 0; i<tempArray.count; i++)
+        for(int i = 0; i<tempGroupItemArray.count; i++)
         {
-            //create our menuGroupObjects
+            //create our groupItemObjects
             //objectForKey value must match exactly to JSON string keys
-            NSNumber *gID = [[tempArray objectAtIndex:i] objectForKey:@"GroupID"];
-            NSString *gItem = [[tempArray objectAtIndex:i] objectForKey:@"GroupItem"];
-            NSString *gImageURL = [[tempArray objectAtIndex:i] objectForKey:@"ImageURL"];
+            NSNumber *gID = [[tempGroupItemArray objectAtIndex:i] objectForKey:@"GroupID"];
+            NSString *gItem = [[tempGroupItemArray objectAtIndex:i] objectForKey:@"GroupItem"];
+            NSString *gImageURL = [[tempGroupItemArray objectAtIndex:i] objectForKey:@"ImageURL"];
 
-            [menuGroupArray addObject:[[MenuGroups alloc]initWithGroupID:gID andGroupItem:gItem andImageURL:gImageURL]];
-            
+            [groupItemArray addObject:[[MenuGroups alloc]initWithGroupID:gID andGroupItem:gItem andImageURL:gImageURL]];
         }
+        
+        //clear responseData to it can be reused for other connections
+        [responseData setLength:0];
         
     }
     else if(connectionFlag == 2)
     {
         NSLog(@"connection2");
+        
+        //convert string to dataObject
+        individualItemData = [currentElement dataUsingEncoding:NSUTF8StringEncoding];
+        
+        NSError *individualItemError;
+        individualItemDictionary = [NSJSONSerialization JSONObjectWithData:individualItemData options:NSJSONReadingMutableContainers error:&individualItemError];
+        
+        if(individualItemError)
+        {
+            NSLog(@"%@", [individualItemError localizedDescription]);
+        }
+        else
+        {
+            tempIndividualItemArray = individualItemDictionary[@"IndividualItemsTable"];
+        }
+        
+        individualItemArray = [[NSMutableArray alloc] init];
+        
+        for(int i = 0; i<tempIndividualItemArray.count; i++)
+        {
+            //create our individualItem objects
+            //objectForKey value must match exactly to JSON string keys
+            NSNumber *iID = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ItemID"];
+            NSString *iName = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ItemName"];
+            NSString *iDescription = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ItemDescription"];
+            NSString *iIngredients = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"Ingredients"];
+            NSString *iDeluxeIngredients = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"DeluxeIngredients"];
+            NSString *iGroupName = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"GroupName"];
+            NSNumber *iPrice = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"Price"];
+            NSString *iAdditionalItems = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"AdditionalSideItems"];
+            
+            [individualItemArray addObject:[[IndividualItems alloc]initWithItemID:iID andItemName:iName andItemDescription:iDescription andIngredients:iIngredients andDeluxeIngredients:iDeluxeIngredients andGroupName:iGroupName andPrice:iPrice andAdditionalItems:iAdditionalItems]];
+        }
+        
+        //clear responseData to it can be reused for other connections
+        [responseData setLength:0];
+
     }
     else if(connectionFlag == 3)
     {

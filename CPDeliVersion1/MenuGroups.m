@@ -12,7 +12,6 @@
 
 @synthesize groupID, groupItem, imageURL, theImage, individualItemsArray;
 
-
 - (id)initWithGroupID: (NSNumber *)gID
          andGroupItem: (NSString *)gItem
           andImageURL: (NSString *)gURL
