@@ -26,25 +26,25 @@
 @synthesize groupItemArray, individualItemArray, ingredientsTableArray;
 @synthesize connection1, connection2, connection3;
 
-NSMutableData *responseData;                    //raw xml array
-NSMutableString *currentElement;                //raw json array
+NSMutableData *responseData;                        //raw xml array
+NSMutableString *currentElement;                    //raw json array
 
-NSData *groupItemData;                          //json in data format for use with jsonserialization
-NSMutableDictionary *groupItemDictionary;       //data in dictionary form
-NSMutableArray *tempGroupItemArray;             //temp data array
+NSData *groupItemData;                              //json in data format for use with jsonserialization
+NSMutableDictionary *groupItemDictionary;           //data in dictionary form
+NSMutableArray *tempGroupItemArray;                 //temp data array
 
-NSData *individualItemData;
-NSMutableDictionary *individualItemDictionary;
-NSMutableArray *tempIndividualItemArray;
+NSData *individualItemData;                         //json in data format for use with jsonserialization
+NSMutableDictionary *individualItemDictionary;      //data in dictionary form
+NSMutableArray *tempIndividualItemArray;            //temp data array
 
-NSData *ingredientsTableData;
-NSMutableDictionary *ingredientsTableDictionary;
-NSMutableArray *tempIngredientsTableArray;
+NSData *ingredientsTableData;                       //json in data format for use with jsonserialization
+NSMutableDictionary *ingredientsTableDictionary;    //data in dictionary form
+NSMutableArray *tempIngredientsTableArray;          //temp data array
 
-int connectionFlag = 0;
-bool groupItemsFetched = false;
-bool individualItemsFetched = false;
-bool ingredientsTableFetched = false;
+int connectionFlag = 0;                             //determines which connection is being worked with
+bool groupItemsFetched = false;                     //mark groupItems fetched with true
+bool individualItemsFetched = false;                //mark individualItems fetched with true
+bool ingredientsTableFetched = false;               //mark ingredientsTable fetched with true
 
 #pragma mark NSURLConnection Delegate Methods
 
@@ -88,8 +88,6 @@ bool ingredientsTableFetched = false;
 {
     return 0;
 }
-
-
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -153,6 +151,7 @@ bool ingredientsTableFetched = false;
 
 - (void) retrieveData
 {
+    
     //Create the request
     NSURL *groupItemsURL = [NSURL URLWithString:getGroupItemsJSONURL];
     NSURLRequest *groupItemsRequest = [NSURLRequest requestWithURL:groupItemsURL];
@@ -171,7 +170,7 @@ bool ingredientsTableFetched = false;
     //Create URL connection and fire request
     connection3 = [[NSURLConnection alloc] initWithRequest:ingredientsTableRequest delegate:self];
     
-}//end retrieveData
+}
     
 #pragma mark NSURLConnection Delegate Methods
     
@@ -217,10 +216,10 @@ didReceiveResponse:(NSURLResponse *)response {
         NSLog(@"Unknown NSURLConnection");
     }
     
-    
     NSXMLParser *parser=[[NSXMLParser alloc] initWithData:responseData];
     [parser setDelegate:self];
     [parser parse];
+    
 }
     
 - (void)connection:(NSURLConnection *)connection
@@ -228,7 +227,6 @@ didReceiveResponse:(NSURLResponse *)response {
     // The request has failed for some reason!
     // Check the error var
     NSLog(@"Error : %@",[error localizedDescription]);
-    
 }
 
 #pragma mark Parse Methods
@@ -309,6 +307,15 @@ foundCharacters:(NSString *)string
         //mark as fetched
         groupItemsFetched = true;
         
+        
+        //if all menu items fetched create the data structure
+        if(groupItemsFetched && individualItemsFetched && ingredientsTableFetched)
+        {
+            [self createTheDataStructure];
+        }
+        
+        
+        
     }
     else if(connectionFlag == 2)
     {
@@ -352,6 +359,12 @@ foundCharacters:(NSString *)string
         
         //mark as fetched
         individualItemsFetched = true;
+        
+        //if all menu items fetched create the data structure
+        if(groupItemsFetched && individualItemsFetched && ingredientsTableFetched)
+        {
+            [self createTheDataStructure];
+        }
 
     }
     else if(connectionFlag == 3)
@@ -397,23 +410,28 @@ foundCharacters:(NSString *)string
         //mark as fetched
         ingredientsTableFetched = true;
         
+        //if all menu items fetched create the data structure
+        if(groupItemsFetched && individualItemsFetched && ingredientsTableFetched)
+        {
+            [self createTheDataStructure];
+        }
+        
     }
     else
     {
         NSLog(@"Unknown ConnectionFlag");
     }
     
-    
-    
-    
-    
-    
-   
-    
     //reload our table view
     //[self.tableView reloadData];
     
     
+}
+
+- (void) createTheDataStructure
+{
+    NSLog(@"createTheDataStructure");
+    [self.tableView reloadData];
 }
 
 
