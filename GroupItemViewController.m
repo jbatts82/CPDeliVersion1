@@ -10,6 +10,7 @@
 #import "GroupItemViewController.h"
 #import "MenuGroups.h"
 #import "IndividualItems.h"
+#import "Ingredients.h"
 
 #define getGroupItemsJSONURL @"http://71.238.152.229:1985/CPDeliWebService.asmx/GetGroupItemsJSON"
 #define getIndividualItemsJSONURL @"http://71.238.152.229:1985/CPDeliWebService.asmx/GetIndividualItemsJSON"
@@ -22,23 +23,28 @@
 
 @implementation GroupItemViewController
 
-@synthesize jsonArray, groupItemArray, individualItemArray, ingredientsTableArray;
+@synthesize groupItemArray, individualItemArray, ingredientsTableArray;
 @synthesize connection1, connection2, connection3;
 
-NSMutableData *responseData; //raw xml array
-NSMutableString *currentElement; //raw json array
+NSMutableData *responseData;                    //raw xml array
+NSMutableString *currentElement;                //raw json array
 
-NSData *groupItemData; //json in data format for use with jsonserialization
-NSMutableDictionary *groupItemDictionary;
-NSMutableArray *tempGroupItemArray;
+NSData *groupItemData;                          //json in data format for use with jsonserialization
+NSMutableDictionary *groupItemDictionary;       //data in dictionary form
+NSMutableArray *tempGroupItemArray;             //temp data array
 
 NSData *individualItemData;
 NSMutableDictionary *individualItemDictionary;
 NSMutableArray *tempIndividualItemArray;
 
-
+NSData *ingredientsTableData;
+NSMutableDictionary *ingredientsTableDictionary;
+NSMutableArray *tempIngredientsTableArray;
 
 int connectionFlag = 0;
+bool groupItemsFetched = false;
+bool individualItemsFetched = false;
+bool ingredientsTableFetched = false;
 
 #pragma mark NSURLConnection Delegate Methods
 
@@ -300,6 +306,9 @@ foundCharacters:(NSString *)string
         //clear responseData to it can be reused for other connections
         [responseData setLength:0];
         
+        //mark as fetched
+        groupItemsFetched = true;
+        
     }
     else if(connectionFlag == 2)
     {
@@ -340,11 +349,53 @@ foundCharacters:(NSString *)string
         
         //clear responseData to it can be reused for other connections
         [responseData setLength:0];
+        
+        //mark as fetched
+        individualItemsFetched = true;
 
     }
     else if(connectionFlag == 3)
     {
         NSLog(@"connection3");
+        
+        //convert string to dataObject
+        ingredientsTableData = [currentElement dataUsingEncoding:NSUTF8StringEncoding];
+        
+        
+        //determine if any errors occured, if yes: display error message if no: create temp array
+        NSError *ingredientsTableError;
+        
+        ingredientsTableDictionary = [NSJSONSerialization JSONObjectWithData:ingredientsTableData options:NSJSONReadingMutableContainers error:&ingredientsTableError];
+        
+        if(ingredientsTableError)
+        {
+            NSLog(@"%@", [ingredientsTableError localizedDescription]);
+        }
+        else
+        {
+            tempIngredientsTableArray = ingredientsTableDictionary[@"IngredientsTable"];
+        }
+        
+        ingredientsTableArray = [[NSMutableArray alloc] init];
+        
+        for(int i = 0; i<tempIngredientsTableArray.count; i++)
+        {
+            //create our individualItem objects
+            //objectForKey value must match exactly to JSON string keys
+            NSNumber *ingIngredientID = [[tempIngredientsTableArray objectAtIndex:i] objectForKey:@"IngredientID"];
+            NSString *ingIngredientName = [[tempIngredientsTableArray objectAtIndex:i] objectForKey:@"IngredientName"];
+            NSNumber *ingPrice = [[tempIngredientsTableArray objectAtIndex:i] objectForKey:@"Price"];
+            NSString *ingDayRequired = [[tempIngredientsTableArray objectAtIndex:i] objectForKey:@"DayRequired"];
+            NSNumber *ingPercentageBased = [[tempIngredientsTableArray objectAtIndex:i] objectForKey:@"PercentageBased"];
+            
+            [ingredientsTableArray addObject:[[Ingredients alloc]initWithIngredientsID:ingIngredientID andIngredientsName:ingIngredientName andPrice:ingPrice andDayRequired:ingDayRequired andPercentageBased:ingPercentageBased]];
+        }
+        
+        //clear responseData to it can be reused for other connections
+        [responseData setLength:0];
+        
+        //mark as fetched
+        ingredientsTableFetched = true;
         
     }
     else

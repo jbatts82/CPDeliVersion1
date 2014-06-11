@@ -10,4 +10,27 @@
 
 @implementation Ingredients
 
+@synthesize ingredientsID, ingredientsName, price, dayRequired, percentageBased;
+
+- (id)initWithIngredientsID: (NSNumber *)ingIngredientsID
+         andIngredientsName: (NSString *)ingIngredientsName
+                   andPrice: (NSNumber *)ingPrice
+             andDayRequired: (NSString *)ingDayRequired
+         andPercentageBased: (NSNumber *)ingPercentageBased
+{
+    
+    self = [super init];
+    
+    if(self)
+    {
+        ingredientsID = ingIngredientsID;
+        ingredientsName = ingIngredientsName;
+        price = ingPrice;
+        dayRequired = ingDayRequired;
+        percentageBased = ingPercentageBased;
+    }
+
+    return self;
+}
+
 @end

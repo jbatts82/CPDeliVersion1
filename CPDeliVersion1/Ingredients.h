@@ -16,4 +16,13 @@
 @property (weak, nonatomic) NSString *dayRequired;
 @property (weak, nonatomic) NSNumber *percentageBased;
 
+#pragma mark -
+#pragma mark Class Methods
+
+- (id)initWithIngredientsID: (NSNumber *)ingIngredientsID
+         andIngredientsName: (NSString *)ingIngredientsName
+                   andPrice: (NSNumber *)ingPrice
+             andDayRequired: (NSString *)ingDayRequired
+         andPercentageBased: (NSNumber *)ingPercentageBased;
+
 @end
