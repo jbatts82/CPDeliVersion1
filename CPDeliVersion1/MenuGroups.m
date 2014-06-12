@@ -19,6 +19,8 @@
     
     self = [super init];
     
+    individualItemsArray = [[NSMutableArray alloc] init];
+    
     if(self)
     {
         groupID = gID;

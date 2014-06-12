@@ -16,7 +16,6 @@
 @property (nonatomic, strong) NSMutableArray *groupItemArray;
 @property (nonatomic, strong) NSMutableArray *individualItemArray;
 @property (nonatomic, strong) NSMutableArray *ingredientsTableArray;
-@property (nonatomic, strong) NSMutableArray *menuDataStructure;
 
 @property (nonatomic, strong) NSURLConnection *connection1;
 @property (nonatomic, strong) NSURLConnection *connection2;

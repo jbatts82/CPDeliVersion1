@@ -46,8 +46,6 @@ bool groupItemsFetched = false;                     //mark groupItems fetched wi
 bool individualItemsFetched = false;                //mark individualItems fetched with true
 bool ingredientsTableFetched = false;               //mark ingredientsTable fetched with true
 
-#pragma mark NSURLConnection Delegate Methods
-
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -421,16 +419,36 @@ foundCharacters:(NSString *)string
     {
         NSLog(@"Unknown ConnectionFlag");
     }
-    
-    //reload our table view
-    //[self.tableView reloadData];
-    
-    
+
 }
 
 - (void) createTheDataStructure
 {
     NSLog(@"createTheDataStructure");
+    MenuGroups *tempGroupItem;
+    IndividualItems *tempIndividualItems;
+    
+    
+    //add individual items to the appropriate groupItem array.
+    //eg. add all individual items that are breakfast sandwiches to breakfastSandwich group array
+    
+    for(int i = 0; i<groupItemArray.count; i++)
+    {
+        tempGroupItem = groupItemArray[i];
+        
+        for(int j=0; j<individualItemArray.count; j++)
+        {
+            tempIndividualItems = individualItemArray[j];
+            
+            if([tempGroupItem.groupItem isEqualToString:tempIndividualItems.groupName])
+            {
+                [[[groupItemArray objectAtIndex:i] individualItemsArray] addObject:tempIndividualItems];
+            }
+        }
+    }
+    
+    
+    //reload data to display in tables
     [self.tableView reloadData];
 }
 
