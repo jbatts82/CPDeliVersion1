@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F65F4693194A2B0500D22812 /* IndividualItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F65F4692194A2B0500D22812 /* IndividualItemViewController.m */; };
+		F65F4696194A2B2900D22812 /* IndividualItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F65F4695194A2B2900D22812 /* IndividualItemDetailViewController.m */; };
+		F65F4699194A479500D22812 /* GroupItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F65F4698194A479500D22812 /* GroupItemCell.m */; };
+		F65F469C194A47C600D22812 /* IndividualItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F65F469B194A47C600D22812 /* IndividualItemCell.m */; };
 		F661CA87192D9C2D0061DCF7 /* AboutUs.m in Sources */ = {isa = PBXBuildFile; fileRef = F661CA86192D9C2D0061DCF7 /* AboutUs.m */; };
 		F661CA89192D9E510061DCF7 /* aboutUs.png in Resources */ = {isa = PBXBuildFile; fileRef = F661CA88192D9E510061DCF7 /* aboutUs.png */; };
 		F6A0A5B8192BC58F00C8CCFD /* GroupItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A0A5B7192BC58F00C8CCFD /* GroupItemViewController.m */; };
@@ -39,6 +43,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F65F4691194A2B0500D22812 /* IndividualItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IndividualItemViewController.h; path = ../IndividualItemViewController.h; sourceTree = "<group>"; };
+		F65F4692194A2B0500D22812 /* IndividualItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IndividualItemViewController.m; path = ../IndividualItemViewController.m; sourceTree = "<group>"; };
+		F65F4694194A2B2900D22812 /* IndividualItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IndividualItemDetailViewController.h; path = ../IndividualItemDetailViewController.h; sourceTree = "<group>"; };
+		F65F4695194A2B2900D22812 /* IndividualItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IndividualItemDetailViewController.m; path = ../IndividualItemDetailViewController.m; sourceTree = "<group>"; };
+		F65F4697194A479500D22812 /* GroupItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupItemCell.h; sourceTree = "<group>"; };
+		F65F4698194A479500D22812 /* GroupItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupItemCell.m; sourceTree = "<group>"; };
+		F65F469A194A47C600D22812 /* IndividualItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndividualItemCell.h; sourceTree = "<group>"; };
+		F65F469B194A47C600D22812 /* IndividualItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndividualItemCell.m; sourceTree = "<group>"; };
 		F661CA85192D9C2D0061DCF7 /* AboutUs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUs.h; sourceTree = "<group>"; };
 		F661CA86192D9C2D0061DCF7 /* AboutUs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUs.m; sourceTree = "<group>"; };
 		F661CA88192D9E510061DCF7 /* aboutUs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aboutUs.png; sourceTree = "<group>"; };
@@ -126,6 +138,11 @@
 		F6B00059192A7EC2001257C9 /* CPDeliVersion1 */ = {
 			isa = PBXGroup;
 			children = (
+				F6B00065192A7EC2001257C9 /* Main.storyboard */,
+				F65F469A194A47C600D22812 /* IndividualItemCell.h */,
+				F65F469B194A47C600D22812 /* IndividualItemCell.m */,
+				F65F4697194A479500D22812 /* GroupItemCell.h */,
+				F65F4698194A479500D22812 /* GroupItemCell.m */,
 				F6A5EB71193CFAE000F9CAAD /* MenuGroups.m */,
 				F6A5EB72193CFAE000F9CAAD /* MenuGroups.h */,
 				F6A5EB6B193CFAB200F9CAAD /* IndividualItems.h */,
@@ -135,9 +152,12 @@
 				F661CA88192D9E510061DCF7 /* aboutUs.png */,
 				F6A0A5B6192BC58F00C8CCFD /* GroupItemViewController.h */,
 				F6A0A5B7192BC58F00C8CCFD /* GroupItemViewController.m */,
+				F65F4691194A2B0500D22812 /* IndividualItemViewController.h */,
+				F65F4692194A2B0500D22812 /* IndividualItemViewController.m */,
+				F65F4694194A2B2900D22812 /* IndividualItemDetailViewController.h */,
+				F65F4695194A2B2900D22812 /* IndividualItemDetailViewController.m */,
 				F6B00062192A7EC2001257C9 /* AppDelegate.h */,
 				F6B00063192A7EC2001257C9 /* AppDelegate.m */,
-				F6B00065192A7EC2001257C9 /* Main.storyboard */,
 				F661CA85192D9C2D0061DCF7 /* AboutUs.h */,
 				F661CA86192D9C2D0061DCF7 /* AboutUs.m */,
 				F6B0006B192A7EC2001257C9 /* Images.xcassets */,
@@ -276,6 +296,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F65F469C194A47C600D22812 /* IndividualItemCell.m in Sources */,
+				F65F4696194A2B2900D22812 /* IndividualItemDetailViewController.m in Sources */,
+				F65F4693194A2B0500D22812 /* IndividualItemViewController.m in Sources */,
+				F65F4699194A479500D22812 /* GroupItemCell.m in Sources */,
 				F6B00064192A7EC2001257C9 /* AppDelegate.m in Sources */,
 				F6A5EB73193CFAE000F9CAAD /* MenuGroups.m in Sources */,
 				F6B00060192A7EC2001257C9 /* main.m in Sources */,

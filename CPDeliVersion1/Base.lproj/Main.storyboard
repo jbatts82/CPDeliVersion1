@@ -21,24 +21,41 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZt-vm-BFy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="572" y="71"/>
+            <point key="canvasLocation" x="-480" y="-9"/>
         </scene>
-        <!--Group Item View Controller - Menu Groups-->
+        <!--Group Item View Controller - Group Items-->
         <scene sceneID="KWR-VQ-ZdR">
             <objects>
                 <tableViewController id="QYX-Vv-r0g" customClass="GroupItemViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="GHj-Sw-BXO">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="22" sectionFooterHeight="22" id="GHj-Sw-BXO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Menu Groups" id="n6b-4e-bV2">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuGroups" rowHeight="64" id="n6b-4e-bV2" customClass="GroupItemCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n6b-4e-bV2" id="FQ5-4P-73X">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="63"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2cy-7X-wcL">
+                                            <rect key="frame" x="20" y="22" width="187" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8f6-yH-aKw">
+                                            <rect key="frame" x="215" y="6" width="52" height="52"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="groupItemImage" destination="8f6-yH-aKw" id="f99-5X-Pbr"/>
+                                    <outlet property="groupItemLabel" destination="2cy-7X-wcL" id="gi8-FF-T65"/>
+                                    <segue destination="wHd-0J-Egk" kind="push" identifier="groupToIndividual" id="SpG-1J-jx8"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -46,11 +63,58 @@
                             <outlet property="delegate" destination="QYX-Vv-r0g" id="6GE-8J-n8r"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Menu Groups" id="s5w-bM-IRM"/>
+                    <navigationItem key="navigationItem" title="Group Items" id="s5w-bM-IRM"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ji-1X-8Yj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1622" y="-275"/>
+            <point key="canvasLocation" x="570" y="-355"/>
+        </scene>
+        <!--Individual Item View Controller - Individual Items-->
+        <scene sceneID="PZW-gD-QWJ">
+            <objects>
+                <tableViewController id="wHd-0J-Egk" customClass="IndividualItemViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="rw7-zX-tqo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IndividualGroups" id="fZG-rt-hPw">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fZG-rt-hPw" id="5ga-MO-JWg">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="nck-Lm-eO9" kind="push" identifier="individualToDetail" id="Fls-XR-SsR"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wHd-0J-Egk" id="bd1-nv-nMf"/>
+                            <outlet property="delegate" destination="wHd-0J-Egk" id="mDE-7i-HfU"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Individual Items" id="JQm-bR-u11"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2RK-nh-aHz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1000" y="-355"/>
+        </scene>
+        <!--Individual Item Detail View Controller - Detail View-->
+        <scene sceneID="pFF-jr-tBh">
+            <objects>
+                <viewController id="nck-Lm-eO9" customClass="IndividualItemDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qhU-PD-XgW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Detail View" id="BFe-mA-gZe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o6p-Es-7gB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1426" y="-355"/>
         </scene>
         <!--About Us - About Us-->
         <scene sceneID="7l8-aG-9G3">
@@ -79,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIF-5F-f3o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1106" y="397"/>
+            <point key="canvasLocation" x="54" y="317"/>
         </scene>
         <!--Navigation Controller - Menu-->
         <scene sceneID="7Bv-fX-sX2">
@@ -98,7 +162,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="byl-H1-S5X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1096" y="-275"/>
+            <point key="canvasLocation" x="44" y="-355"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

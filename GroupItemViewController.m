@@ -11,6 +11,7 @@
 #import "MenuGroups.h"
 #import "IndividualItems.h"
 #import "Ingredients.h"
+#import "GroupItemCell.h"
 
 #define getGroupItemsJSONURL @"http://71.238.152.229:1985/CPDeliWebService.asmx/GetGroupItemsJSON"
 #define getIndividualItemsJSONURL @"http://71.238.152.229:1985/CPDeliWebService.asmx/GetIndividualItemsJSON"
@@ -78,25 +79,38 @@ bool ingredientsTableFetched = false;               //mark ingredientsTable fetc
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    NSLog(@"tableStuff");
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return groupItemArray.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    GroupItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuGroups" forIndexPath:indexPath];
     
     // Configure the cell...
     
+    MenuGroups *groupObject;
+    groupObject = [groupItemArray objectAtIndex:indexPath.row];
+    
+    //cell.textLabel.text = groupObject.groupItem;
+    
+    cell.groupItemLabel.text = groupObject.groupItem;
+    cell.groupItemImage.image = groupObject.theImage;
+    
+    
+    
+    
+    //accessory
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
