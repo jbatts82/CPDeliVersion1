@@ -14,6 +14,8 @@
 
 @implementation IndividualItemDetailViewController
 
+@synthesize incomingObject, itemNameLabel, itemPriceLabel, itemDescriptionLabel;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,7 +28,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
+    
+    [self setLabels];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,5 +50,18 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)getItemObject:(IndividualItems*)theItemObject
+{
+    incomingObject = theItemObject;
+}
+
+-(void)setLabels
+{
+    itemNameLabel.text = incomingObject.itemName;
+    itemDescriptionLabel.text = incomingObject.itemDescription;
+    NSString *conversionString = [incomingObject.price stringValue];
+    itemPriceLabel.text = conversionString;
+}
 
 @end

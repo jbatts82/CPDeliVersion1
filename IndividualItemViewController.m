@@ -9,6 +9,7 @@
 #import "IndividualItemViewController.h"
 #import "IndividualItemCell.h"
 #import "IndividualItems.h"
+#import "IndividualItemDetailViewController.h"
 
 @interface IndividualItemViewController ()
 
@@ -114,7 +115,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -122,8 +123,22 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if([[segue identifier] isEqualToString:@"individualToDetail"])
+    {
+        NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
+        
+        IndividualItemDetailViewController *itemDetailViewController;
+        itemDetailViewController = [segue destinationViewController];
+        
+        //get the object for the selected row
+        IndividualItems *theItemObject = [theItemArray objectAtIndex:myIndexPath.row];
+        
+        [[segue destinationViewController] getItemObject:theItemObject];
+        
+    }
 }
-*/
+
 
 -(void)getItem:(MenuGroups*)theObject
 {

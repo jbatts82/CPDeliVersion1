@@ -156,32 +156,15 @@ bool ingredientsTableFetched = false;               //mark ingredientsTable fetc
     {
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         
-        IndividualItemViewController *itemViewController = [segue destinationViewController];
+        IndividualItemViewController *itemViewController;
+        itemViewController = [segue destinationViewController];
         
         //get the object for the selected row
         MenuGroups *theGroupObject = [groupItemArray objectAtIndex:myIndexPath.row];
         
         [[segue destinationViewController] getItem:theGroupObject];
-        
     
-        /*myoldcode
-         if([[segue identifier] isEqualToString:@"pushDetailView"])
-         {
-         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-         
-         //get the object for the selected row
-         Menu *menuObject = [menuArray objectAtIndex:indexPath.row];
-         
-         [[segue destinationViewController] getItem:menuObject];
-         }
-         
-         */
-        
-        
     }
-    
-    
-    
 }
 
 - (void) retrieveData
