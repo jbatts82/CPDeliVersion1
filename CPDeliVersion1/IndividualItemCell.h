@@ -10,4 +10,6 @@
 
 @interface IndividualItemCell : UITableViewCell
 
+@property (nonatomic, strong) IBOutlet UILabel *individualItemLabel;
+
 @end

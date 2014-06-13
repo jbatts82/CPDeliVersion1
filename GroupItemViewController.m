@@ -12,6 +12,7 @@
 #import "IndividualItems.h"
 #import "Ingredients.h"
 #import "GroupItemCell.h"
+#import "IndividualItemViewController.h"
 
 #define getGroupItemsJSONURL @"http://71.238.152.229:1985/CPDeliWebService.asmx/GetGroupItemsJSON"
 #define getIndividualItemsJSONURL @"http://71.238.152.229:1985/CPDeliWebService.asmx/GetIndividualItemsJSON"
@@ -87,23 +88,16 @@ bool ingredientsTableFetched = false;               //mark ingredientsTable fetc
     return groupItemArray.count;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     GroupItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuGroups" forIndexPath:indexPath];
     
     // Configure the cell...
-    
     MenuGroups *groupObject;
     groupObject = [groupItemArray objectAtIndex:indexPath.row];
     
-    //cell.textLabel.text = groupObject.groupItem;
-    
     cell.groupItemLabel.text = groupObject.groupItem;
     cell.groupItemImage.image = groupObject.theImage;
-    
-    
-    
     
     //accessory
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -149,8 +143,7 @@ bool ingredientsTableFetched = false;               //mark ingredientsTable fetc
     return YES;
 }
 */
-
-/*
+ 
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -158,12 +151,41 @@ bool ingredientsTableFetched = false;               //mark ingredientsTable fetc
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if([[segue identifier] isEqualToString:@"groupToIndividual"])
+    {
+        NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
+        
+        IndividualItemViewController *itemViewController = [segue destinationViewController];
+        
+        //get the object for the selected row
+        MenuGroups *theGroupObject = [groupItemArray objectAtIndex:myIndexPath.row];
+        
+        [[segue destinationViewController] getItem:theGroupObject];
+        
+    
+        /*myoldcode
+         if([[segue identifier] isEqualToString:@"pushDetailView"])
+         {
+         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+         
+         //get the object for the selected row
+         Menu *menuObject = [menuArray objectAtIndex:indexPath.row];
+         
+         [[segue destinationViewController] getItem:menuObject];
+         }
+         
+         */
+        
+        
+    }
+    
+    
+    
 }
-*/
 
 - (void) retrieveData
 {
-    
     //Create the request
     NSURL *groupItemsURL = [NSURL URLWithString:getGroupItemsJSONURL];
     NSURLRequest *groupItemsRequest = [NSURLRequest requestWithURL:groupItemsURL];
@@ -228,6 +250,7 @@ didReceiveResponse:(NSURLResponse *)response {
         NSLog(@"Unknown NSURLConnection");
     }
     
+    //Use XML delegate
     NSXMLParser *parser=[[NSXMLParser alloc] initWithData:responseData];
     [parser setDelegate:self];
     [parser parse];
@@ -319,14 +342,11 @@ foundCharacters:(NSString *)string
         //mark as fetched
         groupItemsFetched = true;
         
-        
         //if all menu items fetched create the data structure
         if(groupItemsFetched && individualItemsFetched && ingredientsTableFetched)
         {
             [self createTheDataStructure];
         }
-        
-        
         
     }
     else if(connectionFlag == 2)
@@ -460,7 +480,6 @@ foundCharacters:(NSString *)string
             }
         }
     }
-    
     
     //reload data to display in tables
     [self.tableView reloadData];

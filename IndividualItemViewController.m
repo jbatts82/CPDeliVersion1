@@ -7,12 +7,16 @@
 //
 
 #import "IndividualItemViewController.h"
+#import "IndividualItemCell.h"
+#import "IndividualItems.h"
 
 @interface IndividualItemViewController ()
 
 @end
 
 @implementation IndividualItemViewController
+
+@synthesize theGroupObject, theItemArray;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -44,28 +48,33 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return theItemArray.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    IndividualItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IndividualGroups" forIndexPath:indexPath];
     
     // Configure the cell...
+    IndividualItems *individualItemObject;
+    individualItemObject = [theItemArray objectAtIndex:indexPath.row];
+    
+    cell.individualItemLabel.text = individualItemObject.itemName;
+    
+    //accessory
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -115,5 +124,11 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)getItem:(MenuGroups*)theObject
+{
+    theGroupObject = theObject;
+    theItemArray = theObject.individualItemsArray;
+}
 
 @end
