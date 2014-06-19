@@ -36,7 +36,7 @@
     [aboutUsImage1 setImage:img1];
     
     
-    aboutUsImage2.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:underConstruction]]];
+   // aboutUsImage2.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:underConstruction]]];
     
     
     [super viewDidLoad];

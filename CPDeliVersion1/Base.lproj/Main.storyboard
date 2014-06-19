@@ -22,7 +22,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZt-vm-BFy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-480" y="-9"/>
+            <point key="canvasLocation" x="-612" y="-355"/>
         </scene>
         <!--Group Item View Controller - Group Items-->
         <scene sceneID="KWR-VQ-ZdR">
