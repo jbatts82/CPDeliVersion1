@@ -14,9 +14,9 @@
 #import "GroupItemCell.h"
 #import "IndividualItemViewController.h"
 
-#define getGroupItemsJSONURL @"http://71.238.152.229:1985/CPDeliWebService.asmx/GetGroupItemsJSON"
-#define getIndividualItemsJSONURL @"http://71.238.152.229:1985/CPDeliWebService.asmx/GetIndividualItemsJSON"
-#define getIngredientsTableJSONURL @"http://71.238.152.229:1985/CPDeliWebService.asmx/GetIngredientsTableJSON"
+#define getGroupItemsJSONURL @"http://71.238.153.141:1985/CPDeliWebService.asmx/GetGroupItemsJSON"
+#define getIndividualItemsJSONURL @"http://71.238.153.141:1985/CPDeliWebService.asmx/GetIndividualItemsJSON"
+#define getIngredientsTableJSONURL @"http://71.238.153.141:1985/CPDeliWebService.asmx/GetIngredientsTableJSON"
 
 
 @interface GroupItemViewController ()
@@ -204,6 +204,7 @@ didReceiveResponse:(NSURLResponse *)response {
     didReceiveData:(NSData *)data {
     // Append the new data to the instance variable you declared
     [responseData appendData:data];
+    [self.tableView reloadData];
 }
     
 - (NSCachedURLResponse *)connection:(NSURLConnection *)connection
@@ -362,11 +363,13 @@ foundCharacters:(NSString *)string
             NSString *iDescription = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ItemDescription"];
             NSString *iIngredients = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"Ingredients"];
             NSString *iDeluxeIngredients = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"DeluxeIngredients"];
-            NSString *iGroupName = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"GroupName"];
+            NSString *iParentGroup = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ParentGroup"];
             NSNumber *iPrice = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"Price"];
-            NSString *iAdditionalItems = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"AdditionalSideItems"];
+            NSString *iChoiceGroups = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ChoiceGroups"];
+            NSString *iMustGroups = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"MustGroups"];
+            NSString *iExcludeGroups = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ExcludeItems"];
             
-            [individualItemArray addObject:[[IndividualItems alloc]initWithItemID:iID andItemName:iName andItemDescription:iDescription andIngredients:iIngredients andDeluxeIngredients:iDeluxeIngredients andGroupName:iGroupName andPrice:iPrice andAdditionalItems:iAdditionalItems]];
+            [individualItemArray addObject:[[IndividualItems alloc]initWithItemID:iID andItemName:iName andItemDescription:iDescription andIngredients:iIngredients andDeluxeIngredients:iDeluxeIngredients andParentGroup:iParentGroup andPrice:iPrice andChoiceGroups:iChoiceGroups andMustGroups:iMustGroups andExcludeGroups:iExcludeGroups]];
         }
         
         //clear responseData to it can be reused for other connections
@@ -457,7 +460,7 @@ foundCharacters:(NSString *)string
         {
             tempIndividualItems = individualItemArray[j];
             
-            if([tempGroupItem.groupItem isEqualToString:tempIndividualItems.groupName])
+            if([tempGroupItem.groupID isEqualToNumber:tempIndividualItems.parentGroup])
             {
                 [[[groupItemArray objectAtIndex:i] individualItemsArray] addObject:tempIndividualItems];
             }

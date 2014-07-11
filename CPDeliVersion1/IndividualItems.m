@@ -10,17 +10,18 @@
 
 @implementation IndividualItems
 
-@synthesize itemID, itemName, itemDescription, ingredients, deluxeIngredients, groupName, price, additionalItems;
-
+@synthesize itemID, itemName, itemDescription, ingredients, deluxeIngredients, parentGroup, price, choiceGroups, mustGroups, excludeGroups;
 
 - (id)initWithItemID:(NSNumber *)iID
          andItemName:(NSString *)iName
   andItemDescription:(NSString *)iDescription
       andIngredients:(NSString *)iIngredients
 andDeluxeIngredients:(NSString *)iDeluxeIngredients
-        andGroupName:(NSString *)iGroupName
+      andParentGroup:(NSNumber *)iParentGroup
             andPrice:(NSNumber *)iPrice
-  andAdditionalItems:(NSString *)iAdditionalItems
+     andChoiceGroups:(NSString *)iChoiceGroups
+       andMustGroups:(NSString *)iMustGroups
+    andExcludeGroups:(NSString *)iExcludeGroups
 {
     self = [super init];
     
@@ -31,9 +32,11 @@ andDeluxeIngredients:(NSString *)iDeluxeIngredients
         itemDescription = iDescription;
         ingredients = iIngredients;
         deluxeIngredients = iDeluxeIngredients;
-        groupName = iGroupName;
+        parentGroup = iParentGroup;
         price = iPrice;
-        additionalItems = iAdditionalItems;
+        choiceGroups = iChoiceGroups;
+        mustGroups = iChoiceGroups;
+        excludeGroups = iExcludeGroups;
     }
     
     return self;
