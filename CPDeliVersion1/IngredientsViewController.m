@@ -1,20 +1,18 @@
 //
-//  IndividualItemDetailViewController.m
+//  IngredientsViewController.m
 //  CPDeliVersion1
 //
-//  Created by John Battaglia on 6/12/14.
+//  Created by John Battaglia on 7/14/14.
 //  Copyright (c) 2014 John Battaglia. All rights reserved.
 //
 
-#import "IndividualItemDetailViewController.h"
+#import "IngredientsViewController.h"
 
-@interface IndividualItemDetailViewController ()
+@interface IngredientsViewController ()
 
 @end
 
-@implementation IndividualItemDetailViewController
-
-@synthesize incomingObject, itemNameLabel, itemPriceLabel, itemDescriptionLabel;
+@implementation IngredientsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,10 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     // Do any additional setup after loading the view.
-    
-    [self setLabels];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,25 +45,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
--(void)getItemObject:(IndividualItems*)theItemObject
-{
-    incomingObject = theItemObject;
-}
-
--(void)setLabels
-{
-    itemNameLabel.text = incomingObject.itemName;
-    itemDescriptionLabel.text = incomingObject.itemDescription;
-    NSString *conversionString = [incomingObject.price stringValue];
-    itemPriceLabel.text = conversionString;
-}
-
--(IBAction)selectItem:(id)sender
-{
-    NSLog(@"im clicked");
-}
-
-
 
 @end
