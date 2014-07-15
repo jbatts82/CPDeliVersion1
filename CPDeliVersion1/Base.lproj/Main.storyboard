@@ -112,7 +112,7 @@
             </objects>
             <point key="canvasLocation" x="1000" y="-355"/>
         </scene>
-        <!--Individual Item Detail View Controller - Detail View-->
+        <!--Individual Item Detail View Controller - Item Details-->
         <scene sceneID="pFF-jr-tBh">
             <objects>
                 <viewController id="nck-Lm-eO9" customClass="IndividualItemDetailViewController" sceneMemberID="viewController">
@@ -164,13 +164,13 @@
                                 </state>
                                 <connections>
                                     <action selector="selectItem:" destination="nck-Lm-eO9" eventType="touchUpInside" id="5Ln-Wi-sxT"/>
-                                    <segue destination="ZmL-Uh-8wD" kind="push" identifier="detailToIngredients" id="a3T-zA-2jR"/>
+                                    <segue destination="0bD-JC-HGN" kind="push" identifier="detailToIngredients" id="BGZ-PP-gNB"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Detail View" id="BFe-mA-gZe"/>
+                    <navigationItem key="navigationItem" title="Item Details" id="BFe-mA-gZe"/>
                     <connections>
                         <outlet property="itemDescriptionLabel" destination="5ce-P6-Ggd" id="fdQ-pS-Q6M"/>
                         <outlet property="itemNameLabel" destination="9Ae-L2-s61" id="Mr8-6j-J4u"/>
@@ -181,36 +181,22 @@
             </objects>
             <point key="canvasLocation" x="1426" y="-355"/>
         </scene>
-        <!--Ingredients View Controller-->
-        <scene sceneID="7l5-G3-Eds">
+        <!--Ingredients View Controller - Ingredients Selection-->
+        <scene sceneID="hxZ-A9-lTA">
             <objects>
-                <viewController id="ZmL-Uh-8wD" customClass="IngredientsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="K9d-I5-OUy">
+                <viewController id="0bD-JC-HGN" customClass="IngredientsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pPL-iR-GE3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" id="zub-DR-SNc">
-                                <rect key="frame" x="0.0" y="19" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Ingredients Selection" id="P2x-R4-Bd3">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Y2l-2p-deT">
-                                            <connections>
-                                                <segue destination="nck-Lm-eO9" kind="push" identifier="cancelIngredients" id="E72-wV-SRx"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients to choose from here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KFh-eu-MI9">
-                                <rect key="frame" x="38" y="157" width="244" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients Will be chosen here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qaw-4G-Phr">
+                                <rect key="frame" x="41" y="151" width="250" height="97"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4dj-MT-R2s">
-                                <rect key="frame" x="119" y="430" width="82" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="q08-93-bue">
+                                <rect key="frame" x="101" y="407" width="119" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add To Cart">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -219,10 +205,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Ingredients Selection" id="nf7-NO-hqh"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="R6h-FH-z6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ZB-cO-Udh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1905" y="-355"/>
+            <point key="canvasLocation" x="1855" y="-355"/>
         </scene>
         <!--About Us - About Us-->
         <scene sceneID="7l8-aG-9G3">
@@ -301,7 +288,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="E72-wV-SRx"/>
-    </inferredMetricsTieBreakers>
 </document>

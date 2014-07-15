@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "IndividualItemDetailViewController.h"
+
 @interface IngredientsViewController : UIViewController
+
+@property (nonatomic, strong)IndividualItems *incomingObject;
+
+
 
 @end
