@@ -7,11 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CartItem.h"
 
 @interface ShoppingCart : NSObject
 
-@property (strong, nonatomic) NSMutableArray *shoppingCart;
 
-- (void)addToCart:(NSObject *)item;
+//@property (strong, nonatomic) NSMutableArray *shoppingCart;
+
++ (void)addToCart:(NSObject *)item;
+
++ (void)displayCartItems;
+
+//- (void)createShoppingCart;
 
 @end

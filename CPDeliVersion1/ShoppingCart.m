@@ -10,10 +10,33 @@
 
 @implementation ShoppingCart
 
--(void)addToCart:(NSObject *)item
+static NSMutableArray *shoppingCart;
+
++ (void)addToCart:(CartItem *)item
 {
+   // static NSMutableArray *shoppingCart;
     //take input object and add it to ther shopping cart array
-    [self.shoppingCart addObject:item];
+    
+    if(!shoppingCart)
+    {
+        shoppingCart = [[NSMutableArray alloc] init];
+    }
+    
+    [shoppingCart addObject:item];
 }
+
++ (void)displayCartItems
+{
+    shoppingCart;
+}
+
+/*
+- (void)createShoppingCart
+{
+    ShoppingCart *theShoppingCart;
+    theShoppingCart = [[ShoppingCart alloc] init];
+}
+
+*/
 
 @end

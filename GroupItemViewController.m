@@ -63,6 +63,8 @@ bool ingredientsTableFetched = false;               //mark ingredientsTable fetc
     
     [self retrieveData];
     
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

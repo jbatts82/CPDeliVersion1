@@ -38,6 +38,23 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)addCartItemToShoppingCart:(id)sender;
+{
+    [self createCartItem];
+    
+    
+}
+
+-(void)createCartItem
+{
+    
+    CartItem *aCartItem;
+    aCartItem = [[CartItem alloc] init];
+    aCartItem.item = incomingObject;
+    [ShoppingCart addToCart:aCartItem];
+    [ShoppingCart displayCartItems];
+}
+
 /*
 #pragma mark - Navigation
 

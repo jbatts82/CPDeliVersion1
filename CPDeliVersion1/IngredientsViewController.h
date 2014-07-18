@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 
 #import "IndividualItemDetailViewController.h"
+#import "ShoppingCart.h"
+
 
 @interface IngredientsViewController : UIViewController
 
 @property (nonatomic, strong)IndividualItems *incomingObject;
 
+-(IBAction)addCartItemToShoppingCart:(id)sender;
 
 
 @end
