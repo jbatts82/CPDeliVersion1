@@ -27,7 +27,7 @@ static NSMutableArray *shoppingCart;
 
 + (void)displayCartItems
 {
-    shoppingCart;
+   
 }
 
 /*

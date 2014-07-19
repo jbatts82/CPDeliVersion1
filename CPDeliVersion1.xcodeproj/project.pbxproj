@@ -34,6 +34,8 @@
 		F6B00075192A7EC3001257C9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B00057192A7EC2001257C9 /* UIKit.framework */; };
 		F6B0007D192A7EC3001257C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6B0007B192A7EC3001257C9 /* InfoPlist.strings */; };
 		F6B0007F192A7EC3001257C9 /* CPDeliVersion1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B0007E192A7EC3001257C9 /* CPDeliVersion1Tests.m */; };
+		F6C678A9197B0939003612DC /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C678A8197B0938003612DC /* CartViewController.m */; };
+		F6C678AF197B09B6003612DC /* CartTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C678AE197B09B6003612DC /* CartTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,10 @@
 		F6B0007A192A7EC3001257C9 /* CPDeliVersion1Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CPDeliVersion1Tests-Info.plist"; sourceTree = "<group>"; };
 		F6B0007C192A7EC3001257C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F6B0007E192A7EC3001257C9 /* CPDeliVersion1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPDeliVersion1Tests.m; sourceTree = "<group>"; };
+		F6C678A7197B0938003612DC /* CartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CartViewController.h; path = ../CartViewController.h; sourceTree = "<group>"; };
+		F6C678A8197B0938003612DC /* CartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CartViewController.m; path = ../CartViewController.m; sourceTree = "<group>"; };
+		F6C678AD197B09B6003612DC /* CartTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartTableView.h; sourceTree = "<group>"; };
+		F6C678AE197B09B6003612DC /* CartTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +155,11 @@
 		F6B00059192A7EC2001257C9 /* CPDeliVersion1 */ = {
 			isa = PBXGroup;
 			children = (
+				F6C678A7197B0938003612DC /* CartViewController.h */,
+				F6C678A8197B0938003612DC /* CartViewController.m */,
 				F6B00065192A7EC2001257C9 /* Main.storyboard */,
+				F6C678AD197B09B6003612DC /* CartTableView.h */,
+				F6C678AE197B09B6003612DC /* CartTableView.m */,
 				F67448301975C9810005DE31 /* CartItem.h */,
 				F67448311975C9810005DE31 /* CartItem.m */,
 				F65F469A194A47C600D22812 /* IndividualItemCell.h */,
@@ -316,6 +326,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F65F469C194A47C600D22812 /* IndividualItemCell.m in Sources */,
+				F6C678A9197B0939003612DC /* CartViewController.m in Sources */,
+				F6C678AF197B09B6003612DC /* CartTableView.m in Sources */,
 				F65F4696194A2B2900D22812 /* IndividualItemDetailViewController.m in Sources */,
 				F65F4693194A2B0500D22812 /* IndividualItemViewController.m in Sources */,
 				F65F4699194A479500D22812 /* GroupItemCell.m in Sources */,
