@@ -30,9 +30,9 @@
   andItemDescription:(NSString *)iDescription
       andIngredients:(NSString *)iIngredients
 andDeluxeIngredients:(NSString *)iDeluxeIngredients
-        andParentGroup:(NSNumber *)iParentGroup
+      andParentGroup:(NSNumber *)iParentGroup
             andPrice:(NSNumber *)iPrice
-  andChoiceGroups:(NSString *)iChoiceGroups
+     andChoiceGroups:(NSString *)iChoiceGroups
        andMustGroups:(NSString *)iMustGroups
     andExcludeGroups:(NSString *)iExcludeGroups;
 

@@ -14,7 +14,7 @@ static NSMutableArray *shoppingCart;
 
 + (void)addToCart:(CartItem *)item
 {
-   // static NSMutableArray *shoppingCart;
+    // static NSMutableArray *shoppingCart;
     //take input object and add it to ther shopping cart array
     
     if(!shoppingCart)

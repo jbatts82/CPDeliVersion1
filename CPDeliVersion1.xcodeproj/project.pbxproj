@@ -34,6 +34,9 @@
 		F6B00075192A7EC3001257C9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B00057192A7EC2001257C9 /* UIKit.framework */; };
 		F6B0007D192A7EC3001257C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6B0007B192A7EC3001257C9 /* InfoPlist.strings */; };
 		F6B0007F192A7EC3001257C9 /* CPDeliVersion1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B0007E192A7EC3001257C9 /* CPDeliVersion1Tests.m */; };
+		F6C678B5197B1572003612DC /* IngredientsTable.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C678B4197B1572003612DC /* IngredientsTable.m */; };
+		F6C678BE197DAB81003612DC /* IngredientsGroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C678BD197DAB81003612DC /* IngredientsGroupItem.m */; };
+		F6C678C1197DAC00003612DC /* IngredientsGroupItemItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C678C0197DAC00003612DC /* IngredientsGroupItemItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +93,12 @@
 		F6B0007A192A7EC3001257C9 /* CPDeliVersion1Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CPDeliVersion1Tests-Info.plist"; sourceTree = "<group>"; };
 		F6B0007C192A7EC3001257C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F6B0007E192A7EC3001257C9 /* CPDeliVersion1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPDeliVersion1Tests.m; sourceTree = "<group>"; };
+		F6C678B3197B1572003612DC /* IngredientsTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IngredientsTable.h; path = ../IngredientsTable.h; sourceTree = "<group>"; };
+		F6C678B4197B1572003612DC /* IngredientsTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IngredientsTable.m; path = ../IngredientsTable.m; sourceTree = "<group>"; };
+		F6C678BC197DAB81003612DC /* IngredientsGroupItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientsGroupItem.h; sourceTree = "<group>"; };
+		F6C678BD197DAB81003612DC /* IngredientsGroupItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientsGroupItem.m; sourceTree = "<group>"; };
+		F6C678BF197DAC00003612DC /* IngredientsGroupItemItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IngredientsGroupItemItem.h; path = ../IngredientsGroupItemItem.h; sourceTree = "<group>"; };
+		F6C678C0197DAC00003612DC /* IngredientsGroupItemItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IngredientsGroupItemItem.m; path = ../IngredientsGroupItemItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,12 +176,18 @@
 				F674482919748BC60005DE31 /* ShoppingCart.m */,
 				F6A0A5B6192BC58F00C8CCFD /* GroupItemViewController.h */,
 				F6A0A5B7192BC58F00C8CCFD /* GroupItemViewController.m */,
+				F6C678BC197DAB81003612DC /* IngredientsGroupItem.h */,
+				F6C678BD197DAB81003612DC /* IngredientsGroupItem.m */,
+				F6C678BF197DAC00003612DC /* IngredientsGroupItemItem.h */,
+				F6C678C0197DAC00003612DC /* IngredientsGroupItemItem.m */,
 				F65F4691194A2B0500D22812 /* IndividualItemViewController.h */,
 				F65F4692194A2B0500D22812 /* IndividualItemViewController.m */,
 				F65F4694194A2B2900D22812 /* IndividualItemDetailViewController.h */,
 				F65F4695194A2B2900D22812 /* IndividualItemDetailViewController.m */,
 				F674482B197492F40005DE31 /* IngredientsViewController.h */,
 				F674482C197492F40005DE31 /* IngredientsViewController.m */,
+				F6C678B3197B1572003612DC /* IngredientsTable.h */,
+				F6C678B4197B1572003612DC /* IngredientsTable.m */,
 				F6B00062192A7EC2001257C9 /* AppDelegate.h */,
 				F6B00063192A7EC2001257C9 /* AppDelegate.m */,
 				F661CA85192D9C2D0061DCF7 /* AboutUs.h */,
@@ -315,9 +330,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6C678C1197DAC00003612DC /* IngredientsGroupItemItem.m in Sources */,
 				F65F469C194A47C600D22812 /* IndividualItemCell.m in Sources */,
 				F65F4696194A2B2900D22812 /* IndividualItemDetailViewController.m in Sources */,
 				F65F4693194A2B0500D22812 /* IndividualItemViewController.m in Sources */,
+				F6C678BE197DAB81003612DC /* IngredientsGroupItem.m in Sources */,
 				F65F4699194A479500D22812 /* GroupItemCell.m in Sources */,
 				F67448321975C9810005DE31 /* CartItem.m in Sources */,
 				F6B00064192A7EC2001257C9 /* AppDelegate.m in Sources */,
@@ -325,6 +342,7 @@
 				F6B00060192A7EC2001257C9 /* main.m in Sources */,
 				F6A0A5B8192BC58F00C8CCFD /* GroupItemViewController.m in Sources */,
 				F6A5EB6D193CFAB200F9CAAD /* IndividualItems.m in Sources */,
+				F6C678B5197B1572003612DC /* IngredientsTable.m in Sources */,
 				F6A5EB70193CFABD00F9CAAD /* Ingredients.m in Sources */,
 				F661CA87192D9C2D0061DCF7 /* AboutUs.m in Sources */,
 				F674482D197492F40005DE31 /* IngredientsViewController.m in Sources */,
