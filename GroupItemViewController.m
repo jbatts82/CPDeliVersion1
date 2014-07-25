@@ -396,11 +396,21 @@ foundCharacters:(NSString *)string
             NSString *iDeluxeIngredients = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"DeluxeIngredients"];
             NSNumber *iParentGroup = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ParentGroup"];
             NSNumber *iPrice = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"Price"];
-            NSString *iChoiceGroups = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ChoiceGroups"];
-            NSString *iMustGroups = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"MustGroups"];
-            NSString *iExcludeGroups = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ExcludeItems"];
             
-            [individualItemArray addObject:[[IndividualItems alloc]initWithItemID:iID andItemName:iName andItemDescription:iDescription andIngredients:iIngredients andDeluxeIngredients:iDeluxeIngredients andParentGroup:iParentGroup andPrice:iPrice andChoiceGroups:iChoiceGroups andMustGroups:iMustGroups andExcludeGroups:iExcludeGroups]];
+            NSString *iChoiceGroups = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ChoiceGroups"];
+            NSData *jsonChoiceGroups = [iChoiceGroups dataUsingEncoding:NSUTF8StringEncoding];
+            NSArray *theChoiceGroups = [NSJSONSerialization JSONObjectWithData:jsonChoiceGroups options:0 error:nil];
+            
+            NSString *iMustGroups = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"MustGroups"];
+            NSData *jsonMustGroups = [iMustGroups dataUsingEncoding:NSUTF8StringEncoding];
+             NSArray *theMustGroups = [NSJSONSerialization JSONObjectWithData:jsonMustGroups options:0 error:nil];
+            
+            NSString *iExcludeGroups = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ExcludeItems"];
+            NSData *jsonExcludeGroups = [iExcludeGroups dataUsingEncoding:NSUTF8StringEncoding];
+            NSArray *theExcludeGroups = [NSJSONSerialization JSONObjectWithData:jsonExcludeGroups options:0 error:nil];
+            
+            
+            [individualItemArray addObject:[[IndividualItems alloc]initWithItemID:iID andItemName:iName andItemDescription:iDescription andIngredients:iIngredients andDeluxeIngredients:iDeluxeIngredients andParentGroup:iParentGroup andPrice:iPrice andChoiceGroups:theChoiceGroups andMustGroups:theMustGroups andExcludeGroups:theExcludeGroups]];
         }
         
         //clear responseData to it can be reused for other connections

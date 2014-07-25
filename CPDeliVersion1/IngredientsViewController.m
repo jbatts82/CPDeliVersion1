@@ -58,6 +58,13 @@
     [ShoppingCart displayCartItems];
 }
 
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 0;
+}
+
+
+
 /*
 #pragma mark - Navigation
 

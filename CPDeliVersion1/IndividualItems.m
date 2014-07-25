@@ -19,9 +19,9 @@
 andDeluxeIngredients:(NSString *)iDeluxeIngredients
       andParentGroup:(NSNumber *)iParentGroup
             andPrice:(NSNumber *)iPrice
-     andChoiceGroups:(NSString *)iChoiceGroups
-       andMustGroups:(NSString *)iMustGroups
-    andExcludeGroups:(NSString *)iExcludeGroups
+     andChoiceGroups:(NSArray *)iChoiceGroups
+       andMustGroups:(NSArray *)iMustGroups
+    andExcludeGroups:(NSArray *)iExcludeGroups
 {
     self = [super init];
     
@@ -35,7 +35,7 @@ andDeluxeIngredients:(NSString *)iDeluxeIngredients
         parentGroup = iParentGroup;
         price = iPrice;
         choiceGroups = iChoiceGroups;
-        mustGroups = iChoiceGroups;
+        mustGroups = iMustGroups;
         excludeGroups = iExcludeGroups;
     }
     

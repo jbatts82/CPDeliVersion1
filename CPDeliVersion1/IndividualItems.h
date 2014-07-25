@@ -17,9 +17,9 @@
 @property (weak, nonatomic) NSString *deluxeIngredients;
 @property (weak, nonatomic) NSNumber *parentGroup;
 @property (weak, nonatomic) NSNumber *price;
-@property (weak, nonatomic) NSString *choiceGroups;
-@property (weak, nonatomic) NSString *mustGroups;
-@property (weak, nonatomic) NSString *excludeGroups;
+@property (weak, nonatomic) NSArray *choiceGroups;
+@property (weak, nonatomic) NSArray *mustGroups;
+@property (weak, nonatomic) NSArray *excludeGroups;
 
 
 #pragma mark - 
@@ -32,9 +32,9 @@
 andDeluxeIngredients:(NSString *)iDeluxeIngredients
       andParentGroup:(NSNumber *)iParentGroup
             andPrice:(NSNumber *)iPrice
-     andChoiceGroups:(NSString *)iChoiceGroups
-       andMustGroups:(NSString *)iMustGroups
-    andExcludeGroups:(NSString *)iExcludeGroups;
+     andChoiceGroups:(NSArray *)iChoiceGroups
+       andMustGroups:(NSArray *)iMustGroups
+    andExcludeGroups:(NSArray *)iExcludeGroups;
 
 
 @end
