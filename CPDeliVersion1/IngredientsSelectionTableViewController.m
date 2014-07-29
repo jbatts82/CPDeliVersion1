@@ -17,11 +17,13 @@
 NSMutableArray *choiceGroups;
 NSMutableArray *mustGroups;
 NSMutableArray *excludeGroups;
+NSMutableArray *ingredientsForItem;
 
-@synthesize incomingObject, ingredientsTable, ingredientsGroupTable, ingredientsGroupItemTable;
+@synthesize theIncomingObject, ingredientsTable, ingredientsGroupTable, ingredientsGroupItemTable;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
+    NSLog(@"IngredientsSelectionTableViewController hahaha");
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
@@ -61,25 +63,60 @@ NSMutableArray *excludeGroups;
     
     [self getNumberOfSections];
     
-    return 1;
+    return [self getNumberOfSections];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
     return 1;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    IngredientsSelectionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ingredientCell" forIndexPath:indexPath];
     
     // Configure the cell...
+    NSNumber *ingredientLookUpNumber;
+    ingredientLookUpNumber = [theIncomingObject.ingredients objectAtIndex:indexPath.row];
+    
+    for(int i = 0; i<ingredientsTable.count; i++)
+    {
+        if([[[ingredientsTable objectAtIndex:i] ingredientsID] isEqualToNumber:ingredientLookUpNumber])
+        {
+            cell.ingredientLabel.text = [[ingredientsTable objectAtIndex:i] ingredientsName];
+        }
+    }
+    
     
     return cell;
+    
+    
+    /*
+     // Configure the cell...
+     IndividualItems *individualItemObject;
+     individualItemObject = [theItemArray objectAtIndex:indexPath.row];
+     
+     cell.individualItemLabel.text = individualItemObject.itemName;
+     
+     //accessory
+     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+     
+     return cell;
+     
+     
+     
+     */
+    
+    
+    
+    
+    
+    
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -134,9 +171,33 @@ NSMutableArray *excludeGroups;
 {
     int numSections = 0;
     
+    if(theIncomingObject.ingredients != nil)
+    {
+        numSections = numSections + 1;
+    }
+    
+    if(theIncomingObject.choiceGroups != nil)
+    {
+         numSections = numSections + 1;
+    }
+    
+    if(theIncomingObject.mustGroups != nil)
+    {
+        numSections = numSections + 1;
+    }
+    
+    //exclude groups not implemented as of now
+    /*
+    if(theIncomingObject.excludeGroups != nil)
+    {
+        numSections = numSections + 1;
+    }
+    */
     
     return numSections;
 }
+
+
 
 
 @end

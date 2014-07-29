@@ -15,7 +15,7 @@
 - (id)initWithItemID:(NSNumber *)iID
          andItemName:(NSString *)iName
   andItemDescription:(NSString *)iDescription
-      andIngredients:(NSString *)iIngredients
+      andIngredients:(NSArray *)iIngredients
 andDeluxeIngredients:(NSString *)iDeluxeIngredients
       andParentGroup:(NSNumber *)iParentGroup
             andPrice:(NSNumber *)iPrice

@@ -10,16 +10,16 @@
 
 @interface IndividualItems : NSObject
 
-@property (weak, nonatomic) NSNumber *itemID;
-@property (weak, nonatomic) NSString *itemName;
-@property (weak, nonatomic) NSString *itemDescription;
-@property (weak, nonatomic) NSString *ingredients;
-@property (weak, nonatomic) NSString *deluxeIngredients;
-@property (weak, nonatomic) NSNumber *parentGroup;
-@property (weak, nonatomic) NSNumber *price;
-@property (weak, nonatomic) NSArray *choiceGroups;
-@property (weak, nonatomic) NSArray *mustGroups;
-@property (weak, nonatomic) NSArray *excludeGroups;
+@property (strong, nonatomic) NSNumber *itemID;
+@property (strong, nonatomic) NSString *itemName;
+@property (strong, nonatomic) NSString *itemDescription;
+@property (strong, nonatomic) NSArray *ingredients;
+@property (strong, nonatomic) NSString *deluxeIngredients;
+@property (strong, nonatomic) NSNumber *parentGroup;
+@property (strong, nonatomic) NSNumber *price;
+@property (strong, nonatomic) NSArray *choiceGroups;
+@property (strong, nonatomic) NSArray *mustGroups;
+@property (strong, nonatomic) NSArray *excludeGroups;
 
 
 #pragma mark - 
@@ -28,7 +28,7 @@
 - (id)initWithItemID:(NSNumber *)iID
          andItemName:(NSString *)iName
   andItemDescription:(NSString *)iDescription
-      andIngredients:(NSString *)iIngredients
+      andIngredients:(NSArray *)iIngredients
 andDeluxeIngredients:(NSString *)iDeluxeIngredients
       andParentGroup:(NSNumber *)iParentGroup
             andPrice:(NSNumber *)iPrice

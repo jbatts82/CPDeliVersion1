@@ -11,10 +11,11 @@
 #import "ShoppingCart.h"
 #import "GroupItemViewController.h"
 #import "IngredientsTable.h"
+#import "IngredientsSelectionCell.h"
 
 @interface IngredientsSelectionTableViewController : UITableViewController
 
-@property (nonatomic, strong)IndividualItems *incomingObject;
+@property (nonatomic, strong)IndividualItems *theIncomingObject;
 @property (nonatomic, strong)NSMutableArray *ingredientsTable;
 @property (nonatomic, strong)NSMutableArray *ingredientsGroupTable;
 @property (nonatomic, strong)NSMutableArray *ingredientsGroupItemTable;

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F60D4D8E19842FB300873B83 /* IngredientsSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F60D4D8D19842FB300873B83 /* IngredientsSelectionCell.m */; };
 		F61E004C197EFEE20062EC5B /* IngredientsSelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F61E004B197EFEE20062EC5B /* IngredientsSelectionTableViewController.m */; };
 		F65F4693194A2B0500D22812 /* IndividualItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F65F4692194A2B0500D22812 /* IndividualItemViewController.m */; };
 		F65F4696194A2B2900D22812 /* IndividualItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F65F4695194A2B2900D22812 /* IndividualItemDetailViewController.m */; };
@@ -15,7 +16,6 @@
 		F661CA87192D9C2D0061DCF7 /* AboutUs.m in Sources */ = {isa = PBXBuildFile; fileRef = F661CA86192D9C2D0061DCF7 /* AboutUs.m */; };
 		F661CA89192D9E510061DCF7 /* aboutUs.png in Resources */ = {isa = PBXBuildFile; fileRef = F661CA88192D9E510061DCF7 /* aboutUs.png */; };
 		F674482A19748BC60005DE31 /* ShoppingCart.m in Sources */ = {isa = PBXBuildFile; fileRef = F674482919748BC60005DE31 /* ShoppingCart.m */; };
-		F674482D197492F40005DE31 /* IngredientsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F674482C197492F40005DE31 /* IngredientsViewController.m */; };
 		F674482F1975B0770005DE31 /* shoppingCartIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F674482E1975B0770005DE31 /* shoppingCartIcon.png */; };
 		F67448321975C9810005DE31 /* CartItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F67448311975C9810005DE31 /* CartItem.m */; };
 		F6A0A5B8192BC58F00C8CCFD /* GroupItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A0A5B7192BC58F00C8CCFD /* GroupItemViewController.m */; };
@@ -51,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F60D4D8C19842FB300873B83 /* IngredientsSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientsSelectionCell.h; sourceTree = "<group>"; };
+		F60D4D8D19842FB300873B83 /* IngredientsSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientsSelectionCell.m; sourceTree = "<group>"; };
 		F61E004A197EFEE20062EC5B /* IngredientsSelectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientsSelectionTableViewController.h; sourceTree = "<group>"; };
 		F61E004B197EFEE20062EC5B /* IngredientsSelectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientsSelectionTableViewController.m; sourceTree = "<group>"; };
 		F65F4691194A2B0500D22812 /* IndividualItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IndividualItemViewController.h; path = ../IndividualItemViewController.h; sourceTree = "<group>"; };
@@ -66,8 +68,6 @@
 		F661CA88192D9E510061DCF7 /* aboutUs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aboutUs.png; sourceTree = "<group>"; };
 		F674482819748BC60005DE31 /* ShoppingCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCart.h; sourceTree = "<group>"; };
 		F674482919748BC60005DE31 /* ShoppingCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCart.m; sourceTree = "<group>"; };
-		F674482B197492F40005DE31 /* IngredientsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientsViewController.h; sourceTree = "<group>"; };
-		F674482C197492F40005DE31 /* IngredientsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientsViewController.m; sourceTree = "<group>"; };
 		F674482E1975B0770005DE31 /* shoppingCartIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoppingCartIcon.png; sourceTree = "<group>"; };
 		F67448301975C9810005DE31 /* CartItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartItem.h; sourceTree = "<group>"; };
 		F67448311975C9810005DE31 /* CartItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartItem.m; sourceTree = "<group>"; };
@@ -162,10 +162,14 @@
 			isa = PBXGroup;
 			children = (
 				F6B00065192A7EC2001257C9 /* Main.storyboard */,
+				F6B00063192A7EC2001257C9 /* AppDelegate.m */,
+				F6B00062192A7EC2001257C9 /* AppDelegate.h */,
 				F67448301975C9810005DE31 /* CartItem.h */,
 				F67448311975C9810005DE31 /* CartItem.m */,
 				F65F469A194A47C600D22812 /* IndividualItemCell.h */,
 				F65F469B194A47C600D22812 /* IndividualItemCell.m */,
+				F60D4D8C19842FB300873B83 /* IngredientsSelectionCell.h */,
+				F60D4D8D19842FB300873B83 /* IngredientsSelectionCell.m */,
 				F65F4697194A479500D22812 /* GroupItemCell.h */,
 				F65F4698194A479500D22812 /* GroupItemCell.m */,
 				F6A5EB71193CFAE000F9CAAD /* MenuGroups.m */,
@@ -187,14 +191,10 @@
 				F65F4692194A2B0500D22812 /* IndividualItemViewController.m */,
 				F65F4694194A2B2900D22812 /* IndividualItemDetailViewController.h */,
 				F65F4695194A2B2900D22812 /* IndividualItemDetailViewController.m */,
-				F674482B197492F40005DE31 /* IngredientsViewController.h */,
-				F674482C197492F40005DE31 /* IngredientsViewController.m */,
 				F6C678B3197B1572003612DC /* IngredientsTable.h */,
 				F6C678B4197B1572003612DC /* IngredientsTable.m */,
-				F6B00062192A7EC2001257C9 /* AppDelegate.h */,
 				F61E004A197EFEE20062EC5B /* IngredientsSelectionTableViewController.h */,
 				F61E004B197EFEE20062EC5B /* IngredientsSelectionTableViewController.m */,
-				F6B00063192A7EC2001257C9 /* AppDelegate.m */,
 				F661CA85192D9C2D0061DCF7 /* AboutUs.h */,
 				F661CA86192D9C2D0061DCF7 /* AboutUs.m */,
 				F674482E1975B0770005DE31 /* shoppingCartIcon.png */,
@@ -344,6 +344,7 @@
 				F65F4699194A479500D22812 /* GroupItemCell.m in Sources */,
 				F67448321975C9810005DE31 /* CartItem.m in Sources */,
 				F6B00064192A7EC2001257C9 /* AppDelegate.m in Sources */,
+				F60D4D8E19842FB300873B83 /* IngredientsSelectionCell.m in Sources */,
 				F6A5EB73193CFAE000F9CAAD /* MenuGroups.m in Sources */,
 				F6B00060192A7EC2001257C9 /* main.m in Sources */,
 				F6A0A5B8192BC58F00C8CCFD /* GroupItemViewController.m in Sources */,
@@ -351,7 +352,6 @@
 				F6C678B5197B1572003612DC /* IngredientsTable.m in Sources */,
 				F6A5EB70193CFABD00F9CAAD /* Ingredients.m in Sources */,
 				F661CA87192D9C2D0061DCF7 /* AboutUs.m in Sources */,
-				F674482D197492F40005DE31 /* IngredientsViewController.m in Sources */,
 				F674482A19748BC60005DE31 /* ShoppingCart.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

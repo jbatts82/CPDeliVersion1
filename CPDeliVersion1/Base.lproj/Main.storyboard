@@ -164,7 +164,7 @@
                                 </state>
                                 <connections>
                                     <action selector="selectItem:" destination="nck-Lm-eO9" eventType="touchUpInside" id="5Ln-Wi-sxT"/>
-                                    <segue destination="gCx-Sa-0Do" kind="push" id="vcD-VG-LQh"/>
+                                    <segue destination="gCx-Sa-0Do" kind="push" identifier="detailToIngredients" id="vcD-VG-LQh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -190,13 +190,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="CpC-cc-vy9">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ingredientCell" id="CpC-cc-vy9" customClass="IngredientsSelectionCell">
                                 <rect key="frame" x="0.0" y="119" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CpC-cc-vy9" id="J8u-9r-goS">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7mJ-DS-jgd">
+                                            <rect key="frame" x="20" y="11" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="ingredientLabel" destination="7mJ-DS-jgd" id="llj-4D-bet"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

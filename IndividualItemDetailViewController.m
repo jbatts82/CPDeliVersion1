@@ -52,29 +52,30 @@
     if([[segue identifier] isEqualToString:@"detailToIngredients"])
     {
         IndividualItems *outgoingObject = incomingObject;
-        IngredientsViewController *ingredientsViewController;
+        IngredientsSelectionTableViewController *ingredientsViewController;
         ingredientsViewController = [segue destinationViewController];
-        
-        ingredientsViewController.incomingObject = outgoingObject;
-        
+        ingredientsViewController.theIncomingObject = outgoingObject;
     }
-        
+    
+    /*
+     if([[segue identifier] isEqualToString:@"groupToIndividual"])
+     {
+     NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
+     
+     IndividualItemViewController *itemViewController;
+     itemViewController = [segue destinationViewController];
+     
+     //get the object for the selected row
+     MenuGroups *theGroupObject = [groupItemArray objectAtIndex:myIndexPath.row];
+     
+     [[segue destinationViewController] getItem:theGroupObject];
+     
+     }
+     
+     
+     */
     
     
-   /*
-    if([[segue identifier] isEqualToString:@"individualToDetail"])
-    {
-        NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
-        
-        IndividualItemDetailViewController *itemDetailViewController;
-        itemDetailViewController = [segue destinationViewController];
-        
-        //get the object for the selected row
-        IndividualItems *theItemObject = [theItemArray objectAtIndex:myIndexPath.row];
-        
-        [[segue destinationViewController] getItemObject:theItemObject];
-        
-    }*/
     
     
     

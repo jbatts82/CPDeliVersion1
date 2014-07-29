@@ -9,15 +9,15 @@
 
 #import "GroupItemViewController.h"
 
-#define getGroupItemsJSONURL @"http://71.238.153.141:1986/CPDeliWebService.asmx/GetGroupItemsJSON"
+#define getGroupItemsJSONURL @"http://71.238.152.208:1986/CPDeliWebService.asmx/GetGroupItemsJSON"
 
-#define getIndividualItemsJSONURL @"http://71.238.153.141:1986/CPDeliWebService.asmx/GetIndividualItemsJSON"
+#define getIndividualItemsJSONURL @"http://71.238.152.208:1986/CPDeliWebService.asmx/GetIndividualItemsJSON"
 
-#define getIngredientsTableJSONURL @"http://71.238.153.141:1986/CPDeliWebService.asmx/GetIngredientsTableJSON"
+#define getIngredientsTableJSONURL @"http://71.238.152.208:1986/CPDeliWebService.asmx/GetIngredientsTableJSON"
 
-#define getIngredientsGroupItemsTableJSONURL @"http://71.238.153.141:1986/CPDeliWebService.asmx/GetIngredientGroupItemsTableJSON"
+#define getIngredientsGroupItemsTableJSONURL @"http://71.238.152.208:1986/CPDeliWebService.asmx/GetIngredientGroupItemsTableJSON"
 
-#define getIngredientsGroupTableJSONURL @"http://71.238.153.141:1986/CPDeliWebService.asmx/GetIngredientGroupTableJSON"
+#define getIngredientsGroupTableJSONURL @"http://71.238.152.208:1986/CPDeliWebService.asmx/GetIngredientGroupTableJSON"
 
 @interface GroupItemViewController ()
 
@@ -392,25 +392,80 @@ foundCharacters:(NSString *)string
             NSNumber *iID = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ItemID"];
             NSString *iName = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ItemName"];
             NSString *iDescription = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ItemDescription"];
+        
+            NSError *error4;
             NSString *iIngredients = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"Ingredients"];
+            NSData *jsonIngredients =[iIngredients dataUsingEncoding:NSUTF8StringEncoding];
+            NSArray *theIngredientsGroup = [NSJSONSerialization JSONObjectWithData:jsonIngredients options:0 error:&error4];
+            NSLog(@"%@", theIngredientsGroup);
+            
+            
+            
+            /*
+             NSNumber *aNum = [NSNumber numberWithInt:3];
+            NSMutableArray *theIngredientsGroup = [NSMutableArray arrayWithObjects:aNum, nil];
+            */
+            
+            /*
+            if(theIngredientsGroup != nil)
+                NSLog (@"%@", theIngredientsGroup);
+            else
+                NSLog(@"%@", error4);
+            
+            NSMutableArray *practice;
+            NSNumber *aNum = [NSNumber numberWithInt:1];
+            [practice addObject:aNum];
+            
+            */
+            
+            //NSData *jsonIngredients =[iIngredients dataUsingEncoding:NSUTF8StringEncoding];
+            
+           // NSMutableDictionary *ingredientsItemDictionary = [NSJSONSerialization JSONObjectWithData:jsonIngredients options:NSJSONReadingMutableContainers error:&error4];
+            
+          //  NSArray *theIngredientsGroup = (NSArray *)ingredientsItemDictionary;
+            
+           // NSArray *theIngredientsGroup = [ingredientsItemDictionary allKeys];
+            
+            
+           // NSArray *theIngredientsGroup = [NSJSONSerialization JSONObjectWithData:jsonIngredients options:0 error:&error4];
+            
+        
+            
+            
+            
+            
+            
             NSString *iDeluxeIngredients = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"DeluxeIngredients"];
             NSNumber *iParentGroup = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ParentGroup"];
             NSNumber *iPrice = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"Price"];
             
             NSString *iChoiceGroups = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ChoiceGroups"];
+            NSError *error1;
             NSData *jsonChoiceGroups = [iChoiceGroups dataUsingEncoding:NSUTF8StringEncoding];
-            NSArray *theChoiceGroups = [NSJSONSerialization JSONObjectWithData:jsonChoiceGroups options:0 error:nil];
+            NSArray *theChoiceGroups = [NSJSONSerialization JSONObjectWithData:jsonChoiceGroups options:0 error:&error1];
+           
+            /*
+            int array[theChoiceGroups.count];
+            int index = 0;
+            for(NSNumber *number in theChoiceGroups)
+            {
+                array[index++] = [number intValue];
+            }
+            array;
+             */
             
             NSString *iMustGroups = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"MustGroups"];
+            NSError *error2;
             NSData *jsonMustGroups = [iMustGroups dataUsingEncoding:NSUTF8StringEncoding];
-             NSArray *theMustGroups = [NSJSONSerialization JSONObjectWithData:jsonMustGroups options:0 error:nil];
+            NSArray *theMustGroups = [NSJSONSerialization JSONObjectWithData:jsonMustGroups options:0 error:&error2];
             
             NSString *iExcludeGroups = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ExcludeItems"];
+            NSError *error3;
             NSData *jsonExcludeGroups = [iExcludeGroups dataUsingEncoding:NSUTF8StringEncoding];
-            NSArray *theExcludeGroups = [NSJSONSerialization JSONObjectWithData:jsonExcludeGroups options:0 error:nil];
+            NSArray *theExcludeGroups = [NSJSONSerialization JSONObjectWithData:jsonExcludeGroups options:0 error:&error3];
             
             
-            [individualItemArray addObject:[[IndividualItems alloc]initWithItemID:iID andItemName:iName andItemDescription:iDescription andIngredients:iIngredients andDeluxeIngredients:iDeluxeIngredients andParentGroup:iParentGroup andPrice:iPrice andChoiceGroups:theChoiceGroups andMustGroups:theMustGroups andExcludeGroups:theExcludeGroups]];
+            [individualItemArray addObject:[[IndividualItems alloc]initWithItemID:iID andItemName:iName andItemDescription:iDescription andIngredients:theIngredientsGroup andDeluxeIngredients:iDeluxeIngredients andParentGroup:iParentGroup andPrice:iPrice andChoiceGroups:theChoiceGroups andMustGroups:theMustGroups andExcludeGroups:theExcludeGroups]];
         }
         
         //clear responseData to it can be reused for other connections
@@ -609,6 +664,8 @@ foundCharacters:(NSString *)string
     //reload data to display in tables
     [self.tableView reloadData];
 }
+
+
 
 
 @end
