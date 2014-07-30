@@ -95,12 +95,14 @@ bool ingredientsGroupItemTableFetched = false;              //mark ingredientsGr
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
 {
     return groupItemArray.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     GroupItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuGroups" forIndexPath:indexPath];
     
@@ -399,42 +401,6 @@ foundCharacters:(NSString *)string
             NSArray *theIngredientsGroup = [NSJSONSerialization JSONObjectWithData:jsonIngredients options:0 error:&error4];
             NSLog(@"%@", theIngredientsGroup);
             
-            
-            
-            /*
-             NSNumber *aNum = [NSNumber numberWithInt:3];
-            NSMutableArray *theIngredientsGroup = [NSMutableArray arrayWithObjects:aNum, nil];
-            */
-            
-            /*
-            if(theIngredientsGroup != nil)
-                NSLog (@"%@", theIngredientsGroup);
-            else
-                NSLog(@"%@", error4);
-            
-            NSMutableArray *practice;
-            NSNumber *aNum = [NSNumber numberWithInt:1];
-            [practice addObject:aNum];
-            
-            */
-            
-            //NSData *jsonIngredients =[iIngredients dataUsingEncoding:NSUTF8StringEncoding];
-            
-           // NSMutableDictionary *ingredientsItemDictionary = [NSJSONSerialization JSONObjectWithData:jsonIngredients options:NSJSONReadingMutableContainers error:&error4];
-            
-          //  NSArray *theIngredientsGroup = (NSArray *)ingredientsItemDictionary;
-            
-           // NSArray *theIngredientsGroup = [ingredientsItemDictionary allKeys];
-            
-            
-           // NSArray *theIngredientsGroup = [NSJSONSerialization JSONObjectWithData:jsonIngredients options:0 error:&error4];
-            
-        
-            
-            
-            
-            
-            
             NSString *iDeluxeIngredients = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"DeluxeIngredients"];
             NSNumber *iParentGroup = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ParentGroup"];
             NSNumber *iPrice = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"Price"];
@@ -443,16 +409,6 @@ foundCharacters:(NSString *)string
             NSError *error1;
             NSData *jsonChoiceGroups = [iChoiceGroups dataUsingEncoding:NSUTF8StringEncoding];
             NSArray *theChoiceGroups = [NSJSONSerialization JSONObjectWithData:jsonChoiceGroups options:0 error:&error1];
-           
-            /*
-            int array[theChoiceGroups.count];
-            int index = 0;
-            for(NSNumber *number in theChoiceGroups)
-            {
-                array[index++] = [number intValue];
-            }
-            array;
-             */
             
             NSString *iMustGroups = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"MustGroups"];
             NSError *error2;
@@ -463,7 +419,6 @@ foundCharacters:(NSString *)string
             NSError *error3;
             NSData *jsonExcludeGroups = [iExcludeGroups dataUsingEncoding:NSUTF8StringEncoding];
             NSArray *theExcludeGroups = [NSJSONSerialization JSONObjectWithData:jsonExcludeGroups options:0 error:&error3];
-            
             
             [individualItemArray addObject:[[IndividualItems alloc]initWithItemID:iID andItemName:iName andItemDescription:iDescription andIngredients:theIngredientsGroup andDeluxeIngredients:iDeluxeIngredients andParentGroup:iParentGroup andPrice:iPrice andChoiceGroups:theChoiceGroups andMustGroups:theMustGroups andExcludeGroups:theExcludeGroups]];
         }
@@ -559,9 +514,9 @@ foundCharacters:(NSString *)string
         {
             //create our ingredientsGroupTable objects
             //objectForKey value must match exactly to JSON string keys
-            NSNumber *ingGroupID = [[tempIngredientsTableArray objectAtIndex:i] objectForKey:@"GroupID"];
-            NSString *ingGroupName = [[tempIngredientsTableArray objectAtIndex:i] objectForKey:@"GroupName"];
-            NSNumber *ingSelectMultiple = [[tempIngredientsTableArray objectAtIndex:i] objectForKey:@"SelectMultiple"];
+            NSNumber *ingGroupID = [[tempIngredientsGroupTableArray objectAtIndex:i] objectForKey:@"GroupID"];
+            NSString *ingGroupName = [[tempIngredientsGroupTableArray objectAtIndex:i] objectForKey:@"GroupName"];
+            NSNumber *ingSelectMultiple = [[tempIngredientsGroupTableArray objectAtIndex:i] objectForKey:@"SelectMultiple"];
             
             [ingredientsGroupTableArray addObject:[[IngredientsGroupItem alloc] initWithGroupID:ingGroupID andGroupName:ingGroupName andSelectMultiple:ingSelectMultiple]];
         }

@@ -8,6 +8,11 @@
 
 #import "IngredientsSelectionTableViewController.h"
 
+#define ingredientsSection 0
+#define choiceSection 1
+#define mustSection 2
+#define excludeSection 3
+
 @interface IngredientsSelectionTableViewController ()
 
 @end
@@ -60,9 +65,7 @@ NSMutableArray *ingredientsForItem;
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    
-    [self getNumberOfSections];
-    
+
     return [self getNumberOfSections];
 }
 
@@ -70,51 +73,81 @@ NSMutableArray *ingredientsForItem;
  numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 1;
+    
+    switch (section) {
+		case ingredientsSection:
+			return 1;
+		case choiceSection:
+			return [self.theIncomingObject.choiceGroups count];
+        case mustSection:
+            return [self.theIncomingObject.mustGroups count];
+       // case excludeGroups
+       //     return [self.theIncomingObject.excludeGroups count];
+		default:
+			return 0;
+	}
 }
 
+- (NSString *)tableView:(UITableView *)tableView
+titleForHeaderInSection:(NSInteger)section {
+    switch (section) {
+        case ingredientsSection:
+            return @"Ingredients";
+        case choiceSection:
+            return @"Choices";
+        case mustSection:
+            return @"Must";
+        case excludeSection:
+            return @"Exclude";
+        default:
+            return @"Unknown";
+    }
+}
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    IngredientsSelectionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ingredientCell" forIndexPath:indexPath];
+    IngredientsSelectionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"choiceCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    NSNumber *ingredientLookUpNumber;
-    ingredientLookUpNumber = [theIncomingObject.ingredients objectAtIndex:indexPath.row];
+
+    switch(indexPath.section){
+            
+        case ingredientsSection:
+            cell.ingredientLabel.text = @"Ingredients";
+            break;
+            
+        case choiceSection:
     
-    for(int i = 0; i<ingredientsTable.count; i++)
-    {
-        if([[[ingredientsTable objectAtIndex:i] ingredientsID] isEqualToNumber:ingredientLookUpNumber])
-        {
-            cell.ingredientLabel.text = [[ingredientsTable objectAtIndex:i] ingredientsName];
-        }
-    }
+            for(int i = 0; i<ingredientsGroupTable.count ; i++)
+            {
+                if([[[ingredientsGroupTable objectAtIndex:i] GroupID] isEqualToNumber:theIncomingObject.choiceGroups[indexPath.row]] )
+                {
+                    cell.ingredientLabel.text = [[ingredientsGroupTable objectAtIndex:i] GroupName];
+                }
+            }
+            break;
+            
+        case mustSection:
+            
+            for(int i = 0; i<ingredientsGroupTable.count ; i++)
+            {
+                if([[[ingredientsGroupTable objectAtIndex:i] GroupID] isEqualToNumber:theIncomingObject.mustGroups[indexPath.row]] )
+                {
+                    cell.ingredientLabel.text = [[ingredientsGroupTable objectAtIndex:i] GroupName];
+                }
+            }
     
+            break;
+            
+        default:
+            //do something
+            ;
+            
+    }//end switch
     
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
-    
-    
-    /*
-     // Configure the cell...
-     IndividualItems *individualItemObject;
-     individualItemObject = [theItemArray objectAtIndex:indexPath.row];
-     
-     cell.individualItemLabel.text = individualItemObject.itemName;
-     
-     //accessory
-     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-     
-     return cell;
-     
-     
-     
-     */
-    
-    
-    
-    
-    
-    
 }
 
 
@@ -197,6 +230,42 @@ NSMutableArray *ingredientsForItem;
     return numSections;
 }
 
+
+/* //code to use for
+ NSNumber *ingredientLookUpNumber;
+ ingredientLookUpNumber = [theIncomingObject.ingredients objectAtIndex:indexPath.row];
+ for(int i = 0; i<ingredientsTable.count; i++)
+ {
+ if([[[ingredientsTable objectAtIndex:i] ingredientsID] isEqualToNumber:ingredientLookUpNumber])
+ {
+ cell.ingredientLabel.text = [[ingredientsTable objectAtIndex:i] ingredientsName];
+ }
+ }
+ for(int i = 0; i<ingredientsGroupTable.count; i++)
+ {
+ if([[[ingredientsTable objectAtIndex:i] ingredientsID] isEqualToNumber:choiceLookUpNumber])
+ {
+ cell.ingredientLabel.text = [[ingredientsTable objectAtIndex:i] ingredientsName];
+ }
+ }
+ mustLookUpNumber = [theIncomingObject.mustGroups objectAtIndex:indexPath.row];
+ for(int i = 0; i<ingredientsTable.count; i++)
+ {
+ if([[[ingredientsTable objectAtIndex:i] ingredientsID] isEqualToNumber:mustLookUpNumber])
+ {
+ cell.ingredientLabel.text = [[ingredientsTable objectAtIndex:i] ingredientsName];
+ }
+ }  /*
+ case excludeSection:
+ excludeLookUpNumber = [theIncomingObject.excludeGroups objectAtIndex:indexPath.row];
+ for(int i = 0; i<ingredientsTable.count; i++)
+ {
+ if([[[ingredientsTable objectAtIndex:i] ingredientsID] isEqualToNumber:excludeLookUpNumber])
+ {
+ cell.ingredientLabel.text = [[ingredientsTable objectAtIndex:i] ingredientsName];
+ }
+ }
+ */
 
 
 
