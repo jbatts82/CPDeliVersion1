@@ -92,11 +92,11 @@ NSMutableArray *ingredientsForItem;
 titleForHeaderInSection:(NSInteger)section {
     switch (section) {
         case ingredientsSection:
-            return @"Ingredients";
+            return @"Ingredients Selection:";
         case choiceSection:
-            return @"Choices";
+            return @"Choose:";
         case mustSection:
-            return @"Must";
+            return @"Must Choose Type of:";
         case excludeSection:
             return @"Exclude";
         default:
