@@ -181,7 +181,7 @@
             </objects>
             <point key="canvasLocation" x="1426" y="-355"/>
         </scene>
-        <!--Ingredients Selection Table View Controller - Ingredients Selection-->
+        <!--Ingredients Selection Table View Controller - Ingredient Choices-->
         <scene sceneID="giN-UV-ODQ">
             <objects>
                 <tableViewController id="gCx-Sa-0Do" customClass="IngredientsSelectionTableViewController" sceneMemberID="viewController">
@@ -190,11 +190,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="choiceCell" id="CpC-cc-vy9" customClass="IngredientsSelectionCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="choiceCell" id="CpC-cc-vy9" customClass="IngredientsSelectionCell">
                                 <rect key="frame" x="0.0" y="119" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CpC-cc-vy9" id="J8u-9r-goS">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="groupLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7mJ-DS-jgd">
@@ -208,6 +208,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="ingredientLabel" destination="7mJ-DS-jgd" id="llj-4D-bet"/>
+                                    <segue destination="rye-yh-8fs" kind="push" identifier="ingredientToSelection" id="qqs-Lb-tx4"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -216,11 +217,40 @@
                             <outlet property="delegate" destination="gCx-Sa-0Do" id="Esj-M1-SfY"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Ingredients Selection" id="hAu-aR-Lsz"/>
+                    <navigationItem key="navigationItem" title="Ingredient Choices" id="hAu-aR-Lsz"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SiL-Km-wWm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1899" y="-355"/>
+        </scene>
+        <!--Selection Table View Controller - Ingredient Selection-->
+        <scene sceneID="Eng-4S-HAD">
+            <objects>
+                <tableViewController id="rye-yh-8fs" customClass="SelectionTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="22" sectionFooterHeight="22" id="F1m-fh-Fr1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="selectionCell" rowHeight="71" id="e2O-cx-Jr6" customClass="SelectionCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="71"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e2O-cx-Jr6" id="hMZ-vA-LWm">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rye-yh-8fs" id="z1Y-fq-55P"/>
+                            <outlet property="delegate" destination="rye-yh-8fs" id="gNA-qD-YgS"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Ingredient Selection" id="meG-IM-KEO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="76I-co-87s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2345" y="-355"/>
         </scene>
         <!--About Us - About Us-->
         <scene sceneID="7l8-aG-9G3">

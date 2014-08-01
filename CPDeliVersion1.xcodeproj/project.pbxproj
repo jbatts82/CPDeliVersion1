@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F60D4D8E19842FB300873B83 /* IngredientsSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F60D4D8D19842FB300873B83 /* IngredientsSelectionCell.m */; };
+		F61684A1198ADDC7002A23C6 /* SelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F61684A0198ADDC7002A23C6 /* SelectionTableViewController.m */; };
 		F61E004C197EFEE20062EC5B /* IngredientsSelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F61E004B197EFEE20062EC5B /* IngredientsSelectionTableViewController.m */; };
+		F6466A1E198C138900FF25AD /* SelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6466A1D198C138900FF25AD /* SelectionCell.m */; };
 		F65F4693194A2B0500D22812 /* IndividualItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F65F4692194A2B0500D22812 /* IndividualItemViewController.m */; };
 		F65F4696194A2B2900D22812 /* IndividualItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F65F4695194A2B2900D22812 /* IndividualItemDetailViewController.m */; };
 		F65F4699194A479500D22812 /* GroupItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F65F4698194A479500D22812 /* GroupItemCell.m */; };
@@ -53,8 +55,12 @@
 /* Begin PBXFileReference section */
 		F60D4D8C19842FB300873B83 /* IngredientsSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientsSelectionCell.h; sourceTree = "<group>"; };
 		F60D4D8D19842FB300873B83 /* IngredientsSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientsSelectionCell.m; sourceTree = "<group>"; };
+		F616849F198ADDC7002A23C6 /* SelectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionTableViewController.h; sourceTree = "<group>"; };
+		F61684A0198ADDC7002A23C6 /* SelectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionTableViewController.m; sourceTree = "<group>"; };
 		F61E004A197EFEE20062EC5B /* IngredientsSelectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientsSelectionTableViewController.h; sourceTree = "<group>"; };
 		F61E004B197EFEE20062EC5B /* IngredientsSelectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientsSelectionTableViewController.m; sourceTree = "<group>"; };
+		F6466A1C198C138900FF25AD /* SelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionCell.h; sourceTree = "<group>"; };
+		F6466A1D198C138900FF25AD /* SelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionCell.m; sourceTree = "<group>"; };
 		F65F4691194A2B0500D22812 /* IndividualItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IndividualItemViewController.h; path = ../IndividualItemViewController.h; sourceTree = "<group>"; };
 		F65F4692194A2B0500D22812 /* IndividualItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IndividualItemViewController.m; path = ../IndividualItemViewController.m; sourceTree = "<group>"; };
 		F65F4694194A2B2900D22812 /* IndividualItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IndividualItemDetailViewController.h; path = ../IndividualItemDetailViewController.h; sourceTree = "<group>"; };
@@ -162,10 +168,14 @@
 			isa = PBXGroup;
 			children = (
 				F6B00065192A7EC2001257C9 /* Main.storyboard */,
+				F6466A1C198C138900FF25AD /* SelectionCell.h */,
+				F6466A1D198C138900FF25AD /* SelectionCell.m */,
 				F6B00063192A7EC2001257C9 /* AppDelegate.m */,
 				F6B00062192A7EC2001257C9 /* AppDelegate.h */,
 				F67448301975C9810005DE31 /* CartItem.h */,
 				F67448311975C9810005DE31 /* CartItem.m */,
+				F6C678B3197B1572003612DC /* IngredientsTable.h */,
+				F6C678B4197B1572003612DC /* IngredientsTable.m */,
 				F65F469A194A47C600D22812 /* IndividualItemCell.h */,
 				F65F469B194A47C600D22812 /* IndividualItemCell.m */,
 				F60D4D8C19842FB300873B83 /* IngredientsSelectionCell.h */,
@@ -191,10 +201,10 @@
 				F65F4692194A2B0500D22812 /* IndividualItemViewController.m */,
 				F65F4694194A2B2900D22812 /* IndividualItemDetailViewController.h */,
 				F65F4695194A2B2900D22812 /* IndividualItemDetailViewController.m */,
-				F6C678B3197B1572003612DC /* IngredientsTable.h */,
-				F6C678B4197B1572003612DC /* IngredientsTable.m */,
 				F61E004A197EFEE20062EC5B /* IngredientsSelectionTableViewController.h */,
 				F61E004B197EFEE20062EC5B /* IngredientsSelectionTableViewController.m */,
+				F616849F198ADDC7002A23C6 /* SelectionTableViewController.h */,
+				F61684A0198ADDC7002A23C6 /* SelectionTableViewController.m */,
 				F661CA85192D9C2D0061DCF7 /* AboutUs.h */,
 				F661CA86192D9C2D0061DCF7 /* AboutUs.m */,
 				F674482E1975B0770005DE31 /* shoppingCartIcon.png */,
@@ -340,8 +350,10 @@
 				F65F4696194A2B2900D22812 /* IndividualItemDetailViewController.m in Sources */,
 				F65F4693194A2B0500D22812 /* IndividualItemViewController.m in Sources */,
 				F6C678BE197DAB81003612DC /* IngredientsGroupItem.m in Sources */,
+				F61684A1198ADDC7002A23C6 /* SelectionTableViewController.m in Sources */,
 				F61E004C197EFEE20062EC5B /* IngredientsSelectionTableViewController.m in Sources */,
 				F65F4699194A479500D22812 /* GroupItemCell.m in Sources */,
+				F6466A1E198C138900FF25AD /* SelectionCell.m in Sources */,
 				F67448321975C9810005DE31 /* CartItem.m in Sources */,
 				F6B00064192A7EC2001257C9 /* AppDelegate.m in Sources */,
 				F60D4D8E19842FB300873B83 /* IngredientsSelectionCell.m in Sources */,

@@ -12,6 +12,7 @@
 #import "GroupItemViewController.h"
 #import "IngredientsTable.h"
 #import "IngredientsSelectionCell.h"
+#import "SelectionTableViewController.h"
 
 @interface IngredientsSelectionTableViewController : UITableViewController
 

@@ -56,29 +56,6 @@
         ingredientsViewController = [segue destinationViewController];
         ingredientsViewController.theIncomingObject = outgoingObject;
     }
-    
-    /*
-     if([[segue identifier] isEqualToString:@"groupToIndividual"])
-     {
-     NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
-     
-     IndividualItemViewController *itemViewController;
-     itemViewController = [segue destinationViewController];
-     
-     //get the object for the selected row
-     MenuGroups *theGroupObject = [groupItemArray objectAtIndex:myIndexPath.row];
-     
-     [[segue destinationViewController] getItem:theGroupObject];
-     
-     }
-     
-     
-     */
-    
-    
-    
-    
-    
 }
 
 

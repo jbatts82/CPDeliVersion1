@@ -110,15 +110,14 @@ titleForHeaderInSection:(NSInteger)section {
     IngredientsSelectionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"choiceCell" forIndexPath:indexPath];
     
     // Configure the cell...
-
     switch(indexPath.section){
             
         case ingredientsSection:
             cell.ingredientLabel.text = @"Ingredients";
+            
             break;
             
         case choiceSection:
-    
             for(int i = 0; i<ingredientsGroupTable.count ; i++)
             {
                 if([[[ingredientsGroupTable objectAtIndex:i] GroupID] isEqualToNumber:theIncomingObject.choiceGroups[indexPath.row]] )
@@ -129,7 +128,6 @@ titleForHeaderInSection:(NSInteger)section {
             break;
             
         case mustSection:
-            
             for(int i = 0; i<ingredientsGroupTable.count ; i++)
             {
                 if([[[ingredientsGroupTable objectAtIndex:i] GroupID] isEqualToNumber:theIncomingObject.mustGroups[indexPath.row]] )
@@ -137,14 +135,13 @@ titleForHeaderInSection:(NSInteger)section {
                     cell.ingredientLabel.text = [[ingredientsGroupTable objectAtIndex:i] GroupName];
                 }
             }
-    
             break;
             
         default:
-            //do something
-            ;
+            NSLog(@"Unknown section number");
             
     }//end switch
+    
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
@@ -189,16 +186,56 @@ titleForHeaderInSection:(NSInteger)section {
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if([[segue identifier] isEqualToString:@"ingredientToSelection"])
+    {
+        /*
+        IndividualItems *outgoingObject = incomingObject;
+        IngredientsSelectionTableViewController *ingredientsViewController;
+        ingredientsViewController = [segue destinationViewController];
+        ingredientsViewController.theIncomingObject = outgoingObject;
+         */
+        
+        NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
+        
+        switch (myIndexPath.section) {
+                
+            case ingredientsSection:
+            {
+                SelectionTableViewController *selectionViewController;
+                selectionViewController = [segue destinationViewController];
+                selectionViewController.anotherIncomingObject  = theIncomingObject.ingredients;
+                
+                break;
+            }
+            case choiceSection:
+                //find row and display proper options
+                break;
+                
+            case mustSection:
+                //find row and display proper options
+                break;
+                
+            default:
+                NSLog(@"Unknown Section:error");
+                break;
+                
+                
+                
+        }//end switch
+    }
 }
-*/
+
+
 
 - (NSInteger)getNumberOfSections
 {
