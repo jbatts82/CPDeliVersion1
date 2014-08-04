@@ -214,19 +214,31 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
                 SelectionTableViewController *selectionViewController;
                 selectionViewController = [segue destinationViewController];
                 Choices *outGoingObject = [[Choices alloc] init];
-                outGoingObject.arrayOfChoice = theIncomingObject.ingredients;
                 outGoingObject.typeOfChoice = [[NSNumber alloc]initWithInt:ingredientsSection];
+                outGoingObject.arrayOfChoice = theIncomingObject.ingredients;
                 selectionViewController.anotherIncomingObject = outGoingObject;
                 break;
             }
             case choiceSection:
-                //find row and display proper options
+            {
+                SelectionTableViewController *selectionViewController;
+                selectionViewController = [segue destinationViewController];
+                Choices *outGoingObject = [[Choices alloc] init];
+                outGoingObject.typeOfChoice = [[NSNumber alloc]initWithInt:choiceSection];
+                outGoingObject.arrayOfChoice = [self getTheChoiceArray:theIncomingObject.choiceGroups[myIndexPath.row]];
+                selectionViewController.anotherIncomingObject = outGoingObject;
                 break;
-                
+            }
             case mustSection:
-                //find row and display proper options
+            {
+                SelectionTableViewController *selectionViewController;
+                selectionViewController = [segue destinationViewController];
+                Choices *outGoingObject = [[Choices alloc] init];
+                outGoingObject.typeOfChoice = [[NSNumber alloc]initWithInt:choiceSection];
+                outGoingObject.arrayOfChoice = [self getTheChoiceArray:theIncomingObject.mustGroups[myIndexPath.row]];
+                selectionViewController.anotherIncomingObject = outGoingObject;
                 break;
-                
+            }
             default:
                 NSLog(@"Unknown Section:error");
                 break;
@@ -269,42 +281,21 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
     return numSections;
 }
 
+- (NSArray *)getTheChoiceArray:(NSNumber *)groupNumber
+{
+    NSMutableArray *theChoiceArray = [[NSMutableArray alloc] init];
+    
+    for(int i = 0; i<ingredientsGroupItemTable.count; i++)
+    {
+        if([[[ingredientsGroupItemTable objectAtIndex:i] ParentGroup] isEqualToNumber:groupNumber])
+        {
+            [theChoiceArray addObject:[ingredientsGroupItemTable objectAtIndex:i] ];
+        }
+    }
+    
+    return theChoiceArray;
+}
 
-/* //code to use for
- NSNumber *ingredientLookUpNumber;
- ingredientLookUpNumber = [theIncomingObject.ingredients objectAtIndex:indexPath.row];
- for(int i = 0; i<ingredientsTable.count; i++)
- {
- if([[[ingredientsTable objectAtIndex:i] ingredientsID] isEqualToNumber:ingredientLookUpNumber])
- {
- cell.ingredientLabel.text = [[ingredientsTable objectAtIndex:i] ingredientsName];
- }
- }
- for(int i = 0; i<ingredientsGroupTable.count; i++)
- {
- if([[[ingredientsTable objectAtIndex:i] ingredientsID] isEqualToNumber:choiceLookUpNumber])
- {
- cell.ingredientLabel.text = [[ingredientsTable objectAtIndex:i] ingredientsName];
- }
- }
- mustLookUpNumber = [theIncomingObject.mustGroups objectAtIndex:indexPath.row];
- for(int i = 0; i<ingredientsTable.count; i++)
- {
- if([[[ingredientsTable objectAtIndex:i] ingredientsID] isEqualToNumber:mustLookUpNumber])
- {
- cell.ingredientLabel.text = [[ingredientsTable objectAtIndex:i] ingredientsName];
- }
- }  /*
- case excludeSection:
- excludeLookUpNumber = [theIncomingObject.excludeGroups objectAtIndex:indexPath.row];
- for(int i = 0; i<ingredientsTable.count; i++)
- {
- if([[[ingredientsTable objectAtIndex:i] ingredientsID] isEqualToNumber:excludeLookUpNumber])
- {
- cell.ingredientLabel.text = [[ingredientsTable objectAtIndex:i] ingredientsName];
- }
- }
- */
 
 
 

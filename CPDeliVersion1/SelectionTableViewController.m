@@ -78,21 +78,23 @@
         {
             for(int i = 0; i<ingredientsTable.count ; i++)
             {
-                NSLog(@"row: %lu", (unsigned long)indexPath.row);
-                NSLog(@"arrayOfChoiceVal: %ld", (long)[anotherIncomingObject.arrayOfChoice[indexPath.row] integerValue]);
-                NSLog(@"ingredientTableID: %ld", (long)[[[ingredientsTable objectAtIndex:i] ingredientsID]  integerValue]);
-                
                 if([[[ingredientsTable objectAtIndex:i] ingredientsID] isEqualToNumber:anotherIncomingObject.arrayOfChoice[indexPath.row]] )
                 {
                     cell.choiceItem.text = [[ingredientsTable objectAtIndex:i] ingredientsName];
                 }
             }
+            break;
         }
-            break;
         case choiceSection:
+        {
+            cell.choiceItem.text = [[anotherIncomingObject.arrayOfChoice objectAtIndex:indexPath.row] ItemName];
             break;
+        }
         case mustSection:
+        {
+            cell.choiceItem.text = [[anotherIncomingObject.arrayOfChoice objectAtIndex:indexPath.row] ItemName];
             break;
+        }
         default:
             NSLog(@"unknown section");
 
@@ -103,40 +105,12 @@
     
     /*
      
-     for(int i = 0; i<ingredientsGroupTable.count ; i++)
-     {
-     if([[[ingredientsGroupTable objectAtIndex:i] GroupID] isEqualToNumber:theIncomingObject.choiceGroups[indexPath.row]] )
-     {
-     cell.ingredientLabel.text = [[ingredientsGroupTable objectAtIndex:i] GroupName];
-     }
-     }
-     
-     
-     */
-    
-    
-    /*
-     for(int i = 0; i<anotherIncomingObject.arrayOfChoice.count; i++)
-     {
-     for(int j = 0; j<ingredientsTable.count; j++)
-     {
      NSLog(@"row: %lu", (unsigned long)indexPath.row);
-     NSLog(@"arrayOfChoiceVal: %ld", (long)[anotherIncomingObject.arrayOfChoice[i] integerValue]);
-     NSLog(@"ingredientTableID: %ld", (long)[[[ingredientsTable objectAtIndex:j] ingredientsID]  integerValue]);
+     NSLog(@"arrayOfChoiceVal: %ld", (long)[anotherIncomingObject.arrayOfChoice[indexPath.row] integerValue]);
+     NSLog(@"ingredientTableID: %ld", (long)[[[ingredientsTable objectAtIndex:i] ingredientsID]  integerValue]);
      
-     if([anotherIncomingObject.arrayOfChoice[i] isEqualToNumber:[[ingredientsTable objectAtIndex:j] ingredientsID]])
-     {
-     cell.choiceItem.text = [[ingredientsTable objectAtIndex:j] ingredientsName];
-     }
-     }
-     
-     }
-
      
      */
-    
-    
-   
     
     return cell;
 }

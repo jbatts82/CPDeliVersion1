@@ -566,7 +566,7 @@ foundCharacters:(NSString *)string
             //objectForKey value must match exactly to JSON string keys
             NSNumber *ingItemID = [[tempIngredientsGroupItemTableArray objectAtIndex:i] objectForKey:@"ItemID"];
             NSString *ingItemName = [[tempIngredientsGroupItemTableArray objectAtIndex:i] objectForKey:@"ItemName"];
-            NSString *ingParentGroup = [[tempIngredientsGroupItemTableArray objectAtIndex:i] objectForKey:@"ParentGroup"];
+            NSNumber *ingParentGroup = [[tempIngredientsGroupItemTableArray objectAtIndex:i] objectForKey:@"ParentGroup"];
             NSNumber *ingPrice = [[tempIngredientsGroupItemTableArray objectAtIndex:i] objectForKey:@"Price"];
             
             [ingredientsGroupItemTableArray addObject:[[IngredientsGroupItemItem alloc]initWithItemID:ingItemID andItemName:ingItemName andParentGroup:ingParentGroup andPrice:ingPrice]];

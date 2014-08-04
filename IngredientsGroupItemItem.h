@@ -12,7 +12,7 @@
 
 @property (weak, nonatomic) NSNumber *ItemID;
 @property (weak, nonatomic) NSString *ItemName;
-@property (weak, nonatomic) NSString *ParentGroup;
+@property (weak, nonatomic) NSNumber *ParentGroup;
 @property (weak, nonatomic) NSNumber *Price;
 
 
@@ -23,7 +23,7 @@
 //method loads fields with values
 - (id) initWithItemID:(NSNumber *)iItemID
           andItemName:(NSString *)iItemName
-       andParentGroup:(NSString *)iParentGroup
+       andParentGroup:(NSNumber *)iParentGroup
              andPrice:(NSNumber *)iPrice;
 
 @end
