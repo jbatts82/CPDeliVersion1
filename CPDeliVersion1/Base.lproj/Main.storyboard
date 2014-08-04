@@ -208,7 +208,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="ingredientLabel" destination="7mJ-DS-jgd" id="llj-4D-bet"/>
-                                    <segue destination="rye-yh-8fs" kind="push" identifier="ingredientToSelection" id="qqs-Lb-tx4"/>
+                                    <segue destination="rye-yh-8fs" kind="push" identifier="ingredientToSelection" id="gs4-Es-cPX"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -226,19 +226,32 @@
         <!--Selection Table View Controller - Ingredient Selection-->
         <scene sceneID="Eng-4S-HAD">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="76I-co-87s" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="rye-yh-8fs" customClass="SelectionTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="22" sectionFooterHeight="22" id="F1m-fh-Fr1">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="F1m-fh-Fr1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="selectionCell" rowHeight="71" id="e2O-cx-Jr6" customClass="SelectionCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="71"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="selectionCell" rowHeight="44" id="e2O-cx-Jr6" customClass="SelectionCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e2O-cx-Jr6" id="hMZ-vA-LWm">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HvS-Uo-36Y">
+                                            <rect key="frame" x="20" y="11" width="178" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="choiceItem" destination="HvS-Uo-36Y" id="rNp-Ha-0rq"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -248,9 +261,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Ingredient Selection" id="meG-IM-KEO"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="76I-co-87s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2345" y="-355"/>
+            <point key="canvasLocation" x="2345" y="-349"/>
         </scene>
         <!--About Us - About Us-->
         <scene sceneID="7l8-aG-9G3">

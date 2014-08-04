@@ -10,4 +10,6 @@
 
 @interface SelectionCell : UITableViewCell
 
+@property (nonatomic, strong) IBOutlet UILabel *choiceItem;
+
 @end

@@ -8,13 +8,18 @@
 
 #import "SelectionTableViewController.h"
 
+#define ingredientsSection 0
+#define choiceSection 1
+#define mustSection 2
+#define excludeSection 3
+
 @interface SelectionTableViewController ()
 
 @end
 
 @implementation SelectionTableViewController
 
-@synthesize ingredientsTable, ingredientsGroupTable, ingredientsGroupItemTable;
+@synthesize ingredientsTable, ingredientsGroupTable, ingredientsGroupItemTable, anotherIncomingObject;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,6 +37,7 @@
     ingredientsTable = [IngredientsTable getIngredientsTable];
     ingredientsGroupTable = [IngredientsTable getIngredientsGroupTable];
     ingredientsGroupItemTable = [IngredientsTable getIngredientsGroupItemTable];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -57,16 +63,80 @@
  numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 1;
+    return anotherIncomingObject.arrayOfChoice.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"selectionCell" forIndexPath:indexPath];
+    SelectionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"selectionCell" forIndexPath:indexPath];
+   
+    switch(anotherIncomingObject.typeOfChoice.intValue)
+    {
+        case ingredientsSection:
+        {
+            for(int i = 0; i<ingredientsTable.count ; i++)
+            {
+                NSLog(@"row: %lu", (unsigned long)indexPath.row);
+                NSLog(@"arrayOfChoiceVal: %ld", (long)[anotherIncomingObject.arrayOfChoice[indexPath.row] integerValue]);
+                NSLog(@"ingredientTableID: %ld", (long)[[[ingredientsTable objectAtIndex:i] ingredientsID]  integerValue]);
+                
+                if([[[ingredientsTable objectAtIndex:i] ingredientsID] isEqualToNumber:anotherIncomingObject.arrayOfChoice[indexPath.row]] )
+                {
+                    cell.choiceItem.text = [[ingredientsTable objectAtIndex:i] ingredientsName];
+                }
+            }
+        }
+            break;
+        case choiceSection:
+            break;
+        case mustSection:
+            break;
+        default:
+            NSLog(@"unknown section");
+
+            
+    }//end switch
     
-    // Configure the cell...
+
+    
+    /*
+     
+     for(int i = 0; i<ingredientsGroupTable.count ; i++)
+     {
+     if([[[ingredientsGroupTable objectAtIndex:i] GroupID] isEqualToNumber:theIncomingObject.choiceGroups[indexPath.row]] )
+     {
+     cell.ingredientLabel.text = [[ingredientsGroupTable objectAtIndex:i] GroupName];
+     }
+     }
+     
+     
+     */
+    
+    
+    /*
+     for(int i = 0; i<anotherIncomingObject.arrayOfChoice.count; i++)
+     {
+     for(int j = 0; j<ingredientsTable.count; j++)
+     {
+     NSLog(@"row: %lu", (unsigned long)indexPath.row);
+     NSLog(@"arrayOfChoiceVal: %ld", (long)[anotherIncomingObject.arrayOfChoice[i] integerValue]);
+     NSLog(@"ingredientTableID: %ld", (long)[[[ingredientsTable objectAtIndex:j] ingredientsID]  integerValue]);
+     
+     if([anotherIncomingObject.arrayOfChoice[i] isEqualToNumber:[[ingredientsTable objectAtIndex:j] ingredientsID]])
+     {
+     cell.choiceItem.text = [[ingredientsTable objectAtIndex:j] ingredientsName];
+     }
+     }
+     
+     }
+
+     
+     */
+    
+    
+   
     
     return cell;
 }

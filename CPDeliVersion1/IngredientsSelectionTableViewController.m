@@ -109,6 +109,7 @@ titleForHeaderInSection:(NSInteger)section {
 {
     IngredientsSelectionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"choiceCell" forIndexPath:indexPath];
     
+    
     // Configure the cell...
     switch(indexPath.section){
             
@@ -147,6 +148,13 @@ titleForHeaderInSection:(NSInteger)section {
     return cell;
 }
 
+/*
+- (void)tableView:(UITableView *)tableView
+accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"ingredientToSelection" sender:[tableView cellForRowAtIndexPath:indexPath]];
+}
+*/
 
 /*
 // Override to support conditional editing of the table view.
@@ -195,16 +203,8 @@ titleForHeaderInSection:(NSInteger)section {
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    
     if([[segue identifier] isEqualToString:@"ingredientToSelection"])
     {
-        /*
-        IndividualItems *outgoingObject = incomingObject;
-        IngredientsSelectionTableViewController *ingredientsViewController;
-        ingredientsViewController = [segue destinationViewController];
-        ingredientsViewController.theIncomingObject = outgoingObject;
-         */
-        
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         
         switch (myIndexPath.section) {
@@ -213,8 +213,10 @@ titleForHeaderInSection:(NSInteger)section {
             {
                 SelectionTableViewController *selectionViewController;
                 selectionViewController = [segue destinationViewController];
-                selectionViewController.anotherIncomingObject  = theIncomingObject.ingredients;
-                
+                Choices *outGoingObject = [[Choices alloc] init];
+                outGoingObject.arrayOfChoice = theIncomingObject.ingredients;
+                outGoingObject.typeOfChoice = [[NSNumber alloc]initWithInt:ingredientsSection];
+                selectionViewController.anotherIncomingObject = outGoingObject;
                 break;
             }
             case choiceSection:

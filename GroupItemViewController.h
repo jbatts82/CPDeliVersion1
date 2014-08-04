@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "IngredientsTable.h"
-
-//#import "IngredientsTable.m"
 #import "MenuGroups.h"
 #import "IndividualItems.h"
 #import "Ingredients.h"

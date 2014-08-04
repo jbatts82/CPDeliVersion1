@@ -10,10 +10,13 @@
 #import "IngredientsTable.h"
 #import "IngredientsSelectionTableViewController.h"
 #import "SelectionCell.h"
+#import "Choices.h"
+
 
 @interface SelectionTableViewController : UITableViewController
 
-@property (nonatomic, strong)NSArray *anotherIncomingObject;
+@property (nonatomic, strong)Choices *anotherIncomingObject;
+
 @property (nonatomic, strong)NSMutableArray *ingredientsTable;
 @property (nonatomic, strong)NSMutableArray *ingredientsGroupTable;
 @property (nonatomic, strong)NSMutableArray *ingredientsGroupItemTable;

@@ -51,10 +51,9 @@
     
     if([[segue identifier] isEqualToString:@"detailToIngredients"])
     {
-        IndividualItems *outgoingObject = incomingObject;
         IngredientsSelectionTableViewController *ingredientsViewController;
         ingredientsViewController = [segue destinationViewController];
-        ingredientsViewController.theIncomingObject = outgoingObject;
+        ingredientsViewController.theIncomingObject = incomingObject;
     }
 }
 
