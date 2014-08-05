@@ -10,8 +10,9 @@
 
 @interface Choices : NSObject
 
-@property (strong, nonatomic)NSNumber *typeOfChoice;
-@property (strong, nonatomic)NSArray *arrayOfChoice;
+@property (strong, nonatomic) NSNumber *typeOfChoice;
+@property (strong, nonatomic) NSArray *arrayOfChoice;
+@property (strong, nonatomic) NSNumber *isMultiple;
 
 
 

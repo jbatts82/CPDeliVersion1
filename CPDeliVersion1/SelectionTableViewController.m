@@ -83,6 +83,9 @@
                     cell.choiceItem.text = [[ingredientsTable objectAtIndex:i] ingredientsName];
                 }
             }
+            
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            return cell;
             break;
         }
         case choiceSection:
@@ -112,8 +115,49 @@
      
      */
     
+    
     return cell;
 }
+
+-(void)tableView:(UITableView *)theTableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *selectedCell = [theTableView cellForRowAtIndexPath:indexPath];
+    
+    [theTableView deselectRowAtIndexPath:[theTableView indexPathForSelectedRow] animated:NO];
+    
+    switch(anotherIncomingObject.typeOfChoice.intValue)
+    {
+        case ingredientsSection:
+        {
+            if (selectedCell.accessoryType == UITableViewCellAccessoryNone)
+            {
+                selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+                // Reflect selection in data model
+            }
+            else if (selectedCell.accessoryType == UITableViewCellAccessoryCheckmark)
+            {
+                selectedCell.accessoryType = UITableViewCellAccessoryNone;
+                // Reflect deselection in data model
+            }
+          
+            break;
+        }
+        case choiceSection:
+        {
+            
+            break;
+        }
+        case mustSection:
+        {
+            break;
+        }
+        default:
+            NSLog(@"unknown section");
+            
+            
+    }//end switch
+}//end tableView:didSelectRowAtIndexPath
 
 
 /*
