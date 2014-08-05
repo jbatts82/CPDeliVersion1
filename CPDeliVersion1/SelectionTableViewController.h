@@ -20,5 +20,6 @@
 @property (nonatomic, strong)NSMutableArray *ingredientsTable;
 @property (nonatomic, strong)NSMutableArray *ingredientsGroupTable;
 @property (nonatomic, strong)NSMutableArray *ingredientsGroupItemTable;
+@property (nonatomic,retain) NSIndexPath *oldIndexPath;
 
 @end

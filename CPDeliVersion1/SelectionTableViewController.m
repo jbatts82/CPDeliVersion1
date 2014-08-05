@@ -19,7 +19,7 @@
 
 @implementation SelectionTableViewController
 
-@synthesize ingredientsTable, ingredientsGroupTable, ingredientsGroupItemTable, anotherIncomingObject;
+@synthesize ingredientsTable, ingredientsGroupTable, ingredientsGroupItemTable, anotherIncomingObject, oldIndexPath;;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -83,7 +83,6 @@
                     cell.choiceItem.text = [[ingredientsTable objectAtIndex:i] ingredientsName];
                 }
             }
-            
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
             return cell;
             break;
@@ -104,18 +103,6 @@
             
     }//end switch
     
-
-    
-    /*
-     
-     NSLog(@"row: %lu", (unsigned long)indexPath.row);
-     NSLog(@"arrayOfChoiceVal: %ld", (long)[anotherIncomingObject.arrayOfChoice[indexPath.row] integerValue]);
-     NSLog(@"ingredientTableID: %ld", (long)[[[ingredientsTable objectAtIndex:i] ingredientsID]  integerValue]);
-     
-     
-     */
-    
-    
     return cell;
 }
 
@@ -123,6 +110,8 @@
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *selectedCell = [theTableView cellForRowAtIndexPath:indexPath];
+    NSNumber *multiple = [[NSNumber alloc]initWithInt:1];
+    NSNumber *onlyOne = [[NSNumber alloc]initWithInt:0];
     
     [theTableView deselectRowAtIndexPath:[theTableView indexPathForSelectedRow] animated:NO];
     
@@ -144,21 +133,70 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
             break;
         }
         case choiceSection:
-        {
-            
-            break;
-        }
         case mustSection:
         {
+            if([anotherIncomingObject.isMultiple isEqualToNumber:multiple]) //multiple selections - inclusive list
+            {
+                if (selectedCell.accessoryType == UITableViewCellAccessoryNone)
+                {
+                    selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+                    // Reflect selection in data model
+                }
+                else if (selectedCell.accessoryType == UITableViewCellAccessoryCheckmark)
+                {
+                    selectedCell.accessoryType = UITableViewCellAccessoryNone;
+                    // Reflect deselection in data model
+                }
+            }
+            else if([anotherIncomingObject.isMultiple isEqualToNumber:onlyOne]) //single selection - exclusive list
+            {
+                
+                if (selectedCell.accessoryType == UITableViewCellAccessoryNone)
+                {
+                    UITableViewCell *oldCell = [theTableView cellForRowAtIndexPath:self.oldIndexPath];
+                    
+                    if (oldCell.accessoryType == UITableViewCellAccessoryCheckmark)
+                    {
+                        oldCell.accessoryType = UITableViewCellAccessoryNone;
+                    }
+                    selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+                    //Reflect selection in data model
+                    self.oldIndexPath = indexPath;
+                }
+                else if(selectedCell.accessoryType == UITableViewCellAccessoryCheckmark)
+                {
+                    UITableViewCell *oldCell = [theTableView cellForRowAtIndexPath:self.oldIndexPath];
+                    
+                    if (oldCell.accessoryType == UITableViewCellAccessoryCheckmark)
+                    {
+                        oldCell.accessoryType = UITableViewCellAccessoryNone;
+                    }
+                    selectedCell.accessoryType = UITableViewCellAccessoryNone;
+                    //Reflect deselection in data model
+                    self.oldIndexPath = indexPath;
+                }
+            }
+            else
+            {
+                NSLog(@"Unknown Selection");
+            }
+            
             break;
         }
         default:
             NSLog(@"unknown section");
-            
-            
+        
     }//end switch
+    
 }//end tableView:didSelectRowAtIndexPath
 
+
+
+/*
+ NSLog(@"row: %lu", (unsigned long)indexPath.row);
+ NSLog(@"arrayOfChoiceVal: %ld", (long)[anotherIncomingObject.arrayOfChoice[indexPath.row] integerValue]);
+ NSLog(@"ingredientTableID: %ld", (long)[[[ingredientsTable objectAtIndex:i] ingredientsID]  integerValue]);
+ */
 
 /*
 // Override to support conditional editing of the table view.
@@ -208,5 +246,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 @end

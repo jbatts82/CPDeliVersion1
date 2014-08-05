@@ -228,8 +228,6 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
                 outGoingObject.typeOfChoice = [[NSNumber alloc]initWithInt:choiceSection];
                 outGoingObject.arrayOfChoice = [self getTheChoiceArray:theIncomingObject.choiceGroups[myIndexPath.row]];
                 outGoingObject.isMultiple = [self areMultipleChoices:myIndexPath.row ];
-                
-                
                 selectionViewController.anotherIncomingObject = outGoingObject;
                 break;
             }
@@ -240,6 +238,7 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
                 Choices *outGoingObject = [[Choices alloc] init];
                 outGoingObject.typeOfChoice = [[NSNumber alloc]initWithInt:choiceSection];
                 outGoingObject.arrayOfChoice = [self getTheChoiceArray:theIncomingObject.mustGroups[myIndexPath.row]];
+                outGoingObject.isMultiple = [self areMultipleMusts:myIndexPath.row ];
                 selectionViewController.anotherIncomingObject = outGoingObject;
                 break;
             }
@@ -307,6 +306,25 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
     NSNumber *multiple = [[NSNumber alloc] initWithInt:0];
     
     theType = [theIncomingObject.choiceGroups objectAtIndex:isMultiple];
+    
+    for(int i = 0; i < ingredientsGroupTable.count; i++)
+    {
+        if([[[ingredientsGroupTable objectAtIndex:i] GroupID] isEqualToNumber:theType])
+        {
+            multiple = [[ingredientsGroupTable objectAtIndex:i] SelectMultiple];
+        }
+    }
+    
+    return multiple;
+}
+
+-(NSNumber *)areMultipleMusts:(NSInteger)isMultiple
+{
+    
+    NSNumber *theType = [[NSNumber alloc] init];
+    NSNumber *multiple = [[NSNumber alloc] initWithInt:0];
+    
+    theType = [theIncomingObject.mustGroups objectAtIndex:isMultiple];
     
     for(int i = 0; i < ingredientsGroupTable.count; i++)
     {
