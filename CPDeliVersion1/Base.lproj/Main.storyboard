@@ -18,6 +18,7 @@
                         <segue destination="KFF-AV-2M1" kind="relationship" relationship="viewControllers" id="Oke-2l-9FQ"/>
                         <segue destination="7Jv-Yj-aDJ" kind="relationship" relationship="viewControllers" id="I7w-hZ-hiz"/>
                         <segue destination="5Ih-ED-zZK" kind="relationship" relationship="viewControllers" id="U5c-dh-Ogf"/>
+                        <segue destination="EyM-r1-h9A" kind="relationship" relationship="viewControllers" id="uzr-9p-6TV"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZt-vm-BFy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -226,7 +227,6 @@
         <!--Selection Table View Controller - Ingredient Selection-->
         <scene sceneID="Eng-4S-HAD">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="76I-co-87s" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="rye-yh-8fs" customClass="SelectionTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="F1m-fh-Fr1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -261,6 +261,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Ingredient Selection" id="meG-IM-KEO"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="76I-co-87s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2345" y="-349"/>
         </scene>
@@ -315,6 +316,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="46J-nI-t79" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="44" y="-1065"/>
+        </scene>
+        <!--Test Group View Controller - TestingGroup-->
+        <scene sceneID="XiZ-wy-EYo">
+            <objects>
+                <viewController id="EyM-r1-h9A" customClass="TestGroupViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nrJ-fo-LaH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MOR-fr-zsD">
+                                <rect key="frame" x="139" y="235" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonClick:" destination="EyM-r1-h9A" eventType="touchUpInside" id="L4V-QH-Zay"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="2ig-yO-jZi">
+                                <rect key="frame" x="73" y="118" width="175" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="0aa-GB-qT2">
+                                <rect key="frame" x="73" y="197" width="175" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bwb-pE-OKY">
+                                <rect key="frame" x="20" y="28" width="250" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="TestingGroup" id="EIW-Nh-DwJ"/>
+                    <connections>
+                        <outlet property="firstNameText" destination="2ig-yO-jZi" id="EbG-iD-eop"/>
+                        <outlet property="lastNameText" destination="0aa-GB-qT2" id="3KT-XY-D37"/>
+                        <outlet property="nameLabel" destination="bwb-pE-OKY" id="iZY-LX-8kL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EzV-6a-tcu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1037" y="-1106"/>
         </scene>
         <!--Navigation Controller - Menu-->
         <scene sceneID="7Bv-fX-sX2">
