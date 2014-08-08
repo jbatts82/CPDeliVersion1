@@ -20,7 +20,6 @@
 		F661CA89192D9E510061DCF7 /* aboutUs.png in Resources */ = {isa = PBXBuildFile; fileRef = F661CA88192D9E510061DCF7 /* aboutUs.png */; };
 		F674482A19748BC60005DE31 /* ShoppingCart.m in Sources */ = {isa = PBXBuildFile; fileRef = F674482919748BC60005DE31 /* ShoppingCart.m */; };
 		F674482F1975B0770005DE31 /* shoppingCartIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F674482E1975B0770005DE31 /* shoppingCartIcon.png */; };
-		F67448321975C9810005DE31 /* CartItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F67448311975C9810005DE31 /* CartItem.m */; };
 		F6A0A5B8192BC58F00C8CCFD /* GroupItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A0A5B7192BC58F00C8CCFD /* GroupItemViewController.m */; };
 		F6A5EB6D193CFAB200F9CAAD /* IndividualItems.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5EB6C193CFAB200F9CAAD /* IndividualItems.m */; };
 		F6A5EB70193CFABD00F9CAAD /* Ingredients.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5EB6F193CFABD00F9CAAD /* Ingredients.m */; };
@@ -38,11 +37,12 @@
 		F6B00075192A7EC3001257C9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B00057192A7EC2001257C9 /* UIKit.framework */; };
 		F6B0007D192A7EC3001257C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6B0007B192A7EC3001257C9 /* InfoPlist.strings */; };
 		F6B0007F192A7EC3001257C9 /* CPDeliVersion1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B0007E192A7EC3001257C9 /* CPDeliVersion1Tests.m */; };
+		F6C678A9197B0939003612DC /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C678A8197B0938003612DC /* CartViewController.m */; };
+		F6C678AF197B09B6003612DC /* CartTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C678AE197B09B6003612DC /* CartTableView.m */; };
 		F6C678B5197B1572003612DC /* IngredientsTable.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C678B4197B1572003612DC /* IngredientsTable.m */; };
 		F6C678BE197DAB81003612DC /* IngredientsGroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C678BD197DAB81003612DC /* IngredientsGroupItem.m */; };
 		F6C678C1197DAC00003612DC /* IngredientsGroupItemItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C678C0197DAC00003612DC /* IngredientsGroupItemItem.m */; };
-		F6C678A9197B0939003612DC /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C678A8197B0938003612DC /* CartViewController.m */; };
-		F6C678AF197B09B6003612DC /* CartTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C678AE197B09B6003612DC /* CartTableView.m */; };
+		F6D55471199591740010C06A /* CartItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D55470199591740010C06A /* CartItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,8 +80,6 @@
 		F674482819748BC60005DE31 /* ShoppingCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCart.h; sourceTree = "<group>"; };
 		F674482919748BC60005DE31 /* ShoppingCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCart.m; sourceTree = "<group>"; };
 		F674482E1975B0770005DE31 /* shoppingCartIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoppingCartIcon.png; sourceTree = "<group>"; };
-		F67448301975C9810005DE31 /* CartItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartItem.h; sourceTree = "<group>"; };
-		F67448311975C9810005DE31 /* CartItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartItem.m; sourceTree = "<group>"; };
 		F6A0A5B6192BC58F00C8CCFD /* GroupItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupItemViewController.h; path = ../GroupItemViewController.h; sourceTree = "<group>"; };
 		F6A0A5B7192BC58F00C8CCFD /* GroupItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupItemViewController.m; path = ../GroupItemViewController.m; sourceTree = "<group>"; };
 		F6A5EB6B193CFAB200F9CAAD /* IndividualItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndividualItems.h; sourceTree = "<group>"; };
@@ -117,6 +115,8 @@
 		F6C678BD197DAB81003612DC /* IngredientsGroupItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientsGroupItem.m; sourceTree = "<group>"; };
 		F6C678BF197DAC00003612DC /* IngredientsGroupItemItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IngredientsGroupItemItem.h; path = ../IngredientsGroupItemItem.h; sourceTree = "<group>"; };
 		F6C678C0197DAC00003612DC /* IngredientsGroupItemItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IngredientsGroupItemItem.m; path = ../IngredientsGroupItemItem.m; sourceTree = "<group>"; };
+		F6D5546F199591740010C06A /* CartItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartItem.h; sourceTree = "<group>"; };
+		F6D55470199591740010C06A /* CartItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,8 +185,6 @@
 				F6466A1D198C138900FF25AD /* SelectionCell.m */,
 				F6C678AD197B09B6003612DC /* CartTableView.h */,
 				F6C678AE197B09B6003612DC /* CartTableView.m */,
-				F67448301975C9810005DE31 /* CartItem.h */,
-				F67448311975C9810005DE31 /* CartItem.m */,
 				F65F469A194A47C600D22812 /* IndividualItemCell.h */,
 				F65F469B194A47C600D22812 /* IndividualItemCell.m */,
 				F60D4D8C19842FB300873B83 /* IngredientsSelectionCell.h */,
@@ -195,10 +193,10 @@
 				F65F4698194A479500D22812 /* GroupItemCell.m */,
 				F6A5EB71193CFAE000F9CAAD /* MenuGroups.m */,
 				F6A5EB72193CFAE000F9CAAD /* MenuGroups.h */,
-				F67448301975C9810005DE31 /* CartItem.h */,
-				F67448311975C9810005DE31 /* CartItem.m */,
 				F6466A1F198C189800FF25AD /* Choices.h */,
 				F6466A20198C189800FF25AD /* Choices.m */,
+				F6D5546F199591740010C06A /* CartItem.h */,
+				F6D55470199591740010C06A /* CartItem.m */,
 				F6C678B3197B1572003612DC /* IngredientsTable.h */,
 				F6C678B4197B1572003612DC /* IngredientsTable.m */,
 				F6A5EB6B193CFAB200F9CAAD /* IndividualItems.h */,
@@ -374,7 +372,6 @@
 				F61E004C197EFEE20062EC5B /* IngredientsSelectionTableViewController.m in Sources */,
 				F65F4699194A479500D22812 /* GroupItemCell.m in Sources */,
 				F6466A1E198C138900FF25AD /* SelectionCell.m in Sources */,
-				F67448321975C9810005DE31 /* CartItem.m in Sources */,
 				F6B00064192A7EC2001257C9 /* AppDelegate.m in Sources */,
 				F60D4D8E19842FB300873B83 /* IngredientsSelectionCell.m in Sources */,
 				F6A5EB73193CFAE000F9CAAD /* MenuGroups.m in Sources */,
@@ -382,6 +379,7 @@
 				F6A0A5B8192BC58F00C8CCFD /* GroupItemViewController.m in Sources */,
 				F6A5EB6D193CFAB200F9CAAD /* IndividualItems.m in Sources */,
 				F6C678B5197B1572003612DC /* IngredientsTable.m in Sources */,
+				F6D55471199591740010C06A /* CartItem.m in Sources */,
 				F6A5EB70193CFABD00F9CAAD /* Ingredients.m in Sources */,
 				F661CA87192D9C2D0061DCF7 /* AboutUs.m in Sources */,
 				F674482A19748BC60005DE31 /* ShoppingCart.m in Sources */,
