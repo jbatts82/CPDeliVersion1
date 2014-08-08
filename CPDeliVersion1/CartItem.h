@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSMutableArray *unselectedIngredients;
 @property (strong, nonatomic) NSMutableArray *selectedChoices;
 
+
 -(void)addItem:(IndividualItems *)theItem;
 -(void)runningTotal:(NSNumber *)addCost;
 

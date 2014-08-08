@@ -23,9 +23,9 @@
 
 @property (nonatomic, strong)IndividualItems *incomingObject;
 
+
+
 -(IBAction)selectItem:(id)sender;
-
-
 -(void)getItemObject:(IndividualItems*)theItemObject;
 -(void)setLabels;
 

@@ -171,6 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				F6B00065192A7EC2001257C9 /* Main.storyboard */,
+				F6B00063192A7EC2001257C9 /* AppDelegate.m */,
+				F6B00062192A7EC2001257C9 /* AppDelegate.h */,
 				F6466A1C198C138900FF25AD /* SelectionCell.h */,
 				F6466A1D198C138900FF25AD /* SelectionCell.m */,
 				F65F469A194A47C600D22812 /* IndividualItemCell.h */,
@@ -181,8 +183,6 @@
 				F65F4698194A479500D22812 /* GroupItemCell.m */,
 				F6A5EB71193CFAE000F9CAAD /* MenuGroups.m */,
 				F6A5EB72193CFAE000F9CAAD /* MenuGroups.h */,
-				F6B00063192A7EC2001257C9 /* AppDelegate.m */,
-				F6B00062192A7EC2001257C9 /* AppDelegate.h */,
 				F67448301975C9810005DE31 /* CartItem.h */,
 				F67448311975C9810005DE31 /* CartItem.m */,
 				F6466A1F198C189800FF25AD /* Choices.h */,
