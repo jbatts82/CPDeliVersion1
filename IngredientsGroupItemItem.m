@@ -14,7 +14,7 @@
 
 - (id) initWithItemID:(NSNumber *)iItemID
           andItemName:(NSString *)iItemName
-       andParentGroup:(NSString *)iParentGroup
+       andParentGroup:(NSNumber *)iParentGroup
              andPrice:(NSNumber *)iPrice
 {
     self = [super init];

@@ -38,6 +38,9 @@
 		F6B00075192A7EC3001257C9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B00057192A7EC2001257C9 /* UIKit.framework */; };
 		F6B0007D192A7EC3001257C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6B0007B192A7EC3001257C9 /* InfoPlist.strings */; };
 		F6B0007F192A7EC3001257C9 /* CPDeliVersion1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B0007E192A7EC3001257C9 /* CPDeliVersion1Tests.m */; };
+		F6C678B5197B1572003612DC /* IngredientsTable.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C678B4197B1572003612DC /* IngredientsTable.m */; };
+		F6C678BE197DAB81003612DC /* IngredientsGroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C678BD197DAB81003612DC /* IngredientsGroupItem.m */; };
+		F6C678C1197DAC00003612DC /* IngredientsGroupItemItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C678C0197DAC00003612DC /* IngredientsGroupItemItem.m */; };
 		F6C678A9197B0939003612DC /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C678A8197B0938003612DC /* CartViewController.m */; };
 		F6C678AF197B09B6003612DC /* CartTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C678AE197B09B6003612DC /* CartTableView.m */; };
 /* End PBXBuildFile section */
@@ -108,6 +111,12 @@
 		F6C678A8197B0938003612DC /* CartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CartViewController.m; path = ../CartViewController.m; sourceTree = "<group>"; };
 		F6C678AD197B09B6003612DC /* CartTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartTableView.h; sourceTree = "<group>"; };
 		F6C678AE197B09B6003612DC /* CartTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartTableView.m; sourceTree = "<group>"; };
+		F6C678B3197B1572003612DC /* IngredientsTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IngredientsTable.h; path = ../IngredientsTable.h; sourceTree = "<group>"; };
+		F6C678B4197B1572003612DC /* IngredientsTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IngredientsTable.m; path = ../IngredientsTable.m; sourceTree = "<group>"; };
+		F6C678BC197DAB81003612DC /* IngredientsGroupItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientsGroupItem.h; sourceTree = "<group>"; };
+		F6C678BD197DAB81003612DC /* IngredientsGroupItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientsGroupItem.m; sourceTree = "<group>"; };
+		F6C678BF197DAC00003612DC /* IngredientsGroupItemItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IngredientsGroupItemItem.h; path = ../IngredientsGroupItemItem.h; sourceTree = "<group>"; };
+		F6C678C0197DAC00003612DC /* IngredientsGroupItemItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IngredientsGroupItemItem.m; path = ../IngredientsGroupItemItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +179,10 @@
 				F6C678A7197B0938003612DC /* CartViewController.h */,
 				F6C678A8197B0938003612DC /* CartViewController.m */,
 				F6B00065192A7EC2001257C9 /* Main.storyboard */,
+				F6B00063192A7EC2001257C9 /* AppDelegate.m */,
+				F6B00062192A7EC2001257C9 /* AppDelegate.h */,
+				F6466A1C198C138900FF25AD /* SelectionCell.h */,
+				F6466A1D198C138900FF25AD /* SelectionCell.m */,
 				F6C678AD197B09B6003612DC /* CartTableView.h */,
 				F6C678AE197B09B6003612DC /* CartTableView.m */,
 				F67448301975C9810005DE31 /* CartItem.h */,
