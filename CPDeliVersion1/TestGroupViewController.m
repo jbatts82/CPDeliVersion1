@@ -39,18 +39,15 @@
     [request setHTTPMethod: @"POST"];
     
     
+    //here we want the key jsonCustomerInfo
     NSString *myRequestString1 = @"firstName"; // Attention HERE!!!!
     
-
-    
-    //NSString *myParamString1=@"Ahmed";
-    
-    NSString *myParamString1 = self.firstNameText.text;
-    
+    //here we want the key jsonCartItems
     NSString *myRequestString2 = @"lastName"; // Attention HERE!!!!
     
-    //NSString *myParamString2=@"Altai";
+    //and three more parameters
     
+    NSString *myParamString1 = self.firstNameText.text;
     NSString *myParamString2 = self.lastNameText.text;
 
     NSString *reqStringFUll=[NSString stringWithFormat:@"%@=%@&%@=%@",myRequestString1,myParamString1,myRequestString2,myParamString2];
