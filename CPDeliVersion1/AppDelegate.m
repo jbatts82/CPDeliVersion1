@@ -5,6 +5,7 @@
 //  Created by John Battaglia on 5/19/14.
 //  Copyright (c) 2014 John Battaglia. All rights reserved.
 //
+//  Stash - Jul 27, 2014 - getting choiceGroup array.
 
 #import "AppDelegate.h"
 
@@ -13,6 +14,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    //insert code here
     return YES;
 }
 							

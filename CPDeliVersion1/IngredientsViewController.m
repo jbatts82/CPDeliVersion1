@@ -14,7 +14,7 @@
 
 @implementation IngredientsViewController
 
-@synthesize incomingObject;
+@synthesize incomingObject, ingredientsTable, ingredientsGroupTable, ingredientsGroupItemTable;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,7 +28,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
+    
+    ingredientsTable = [IngredientsTable getIngredientsTable];
+    ingredientsGroupTable = [IngredientsTable getIngredientsGroupTable];
+    ingredientsGroupItemTable = [IngredientsTable getIngredientsGroupItemTable];
     
 }
 
@@ -41,8 +46,6 @@
 -(IBAction)addCartItemToShoppingCart:(id)sender;
 {
     [self createCartItem];
-    
-    
 }
 
 -(void)createCartItem
@@ -54,6 +57,13 @@
     [ShoppingCart addToCart:aCartItem];
     [ShoppingCart displayCartItems];
 }
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 0;
+}
+
+
 
 /*
 #pragma mark - Navigation

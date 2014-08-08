@@ -15,6 +15,10 @@
 @property (weak, nonatomic) NSNumber *price;
 @property (weak, nonatomic) NSString *dayRequired;
 @property (weak, nonatomic) NSNumber *percentageBased;
+@property (weak, nonatomic) NSArray *choiceGroups;
+@property (weak, nonatomic) NSArray *mustGroups;
+@property (weak, nonatomic) NSArray *excludeGroups;
+
 
 #pragma mark -
 #pragma mark Class Methods

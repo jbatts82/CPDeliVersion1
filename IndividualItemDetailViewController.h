@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "IndividualItems.h"
 #import "IndividualItemViewController.h"
-#import "IngredientsViewController.h"
+#import "IngredientsSelectionTableViewController.h"
 
 @interface IndividualItemDetailViewController : UIViewController
 

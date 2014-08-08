@@ -12,7 +12,7 @@
 @interface ShoppingCart : NSObject
 
 
-//@property (strong, nonatomic) NSMutableArray *shoppingCart;
+@property (strong, nonatomic) NSMutableArray *shoppingCart;
 
 + (void)addToCart:(NSObject *)item;
 

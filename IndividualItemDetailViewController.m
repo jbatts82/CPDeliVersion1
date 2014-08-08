@@ -51,33 +51,10 @@
     
     if([[segue identifier] isEqualToString:@"detailToIngredients"])
     {
-        IndividualItems *outgoingObject = incomingObject;
-        IngredientsViewController *ingredientsViewController;
+        IngredientsSelectionTableViewController *ingredientsViewController;
         ingredientsViewController = [segue destinationViewController];
-        
-        ingredientsViewController.incomingObject = outgoingObject;
-        
+        ingredientsViewController.theIncomingObject = incomingObject;
     }
-        
-    
-    
-   /*
-    if([[segue identifier] isEqualToString:@"individualToDetail"])
-    {
-        NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
-        
-        IndividualItemDetailViewController *itemDetailViewController;
-        itemDetailViewController = [segue destinationViewController];
-        
-        //get the object for the selected row
-        IndividualItems *theItemObject = [theItemArray objectAtIndex:myIndexPath.row];
-        
-        [[segue destinationViewController] getItemObject:theItemObject];
-        
-    }*/
-    
-    
-    
 }
 
 

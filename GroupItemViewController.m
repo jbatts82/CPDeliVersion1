@@ -8,16 +8,16 @@
 //
 
 #import "GroupItemViewController.h"
-#import "MenuGroups.h"
-#import "IndividualItems.h"
-#import "Ingredients.h"
-#import "GroupItemCell.h"
-#import "IndividualItemViewController.h"
 
-#define getGroupItemsJSONURL @"http://71.238.153.141:1985/CPDeliWebService.asmx/GetGroupItemsJSON"
-#define getIndividualItemsJSONURL @"http://71.238.153.141:1985/CPDeliWebService.asmx/GetIndividualItemsJSON"
-#define getIngredientsTableJSONURL @"http://71.238.153.141:1985/CPDeliWebService.asmx/GetIngredientsTableJSON"
+#define getGroupItemsJSONURL @"http://71.238.152.208:1986/CPDeliWebService.asmx/GetGroupItemsJSON"
 
+#define getIndividualItemsJSONURL @"http://71.238.152.208:1986/CPDeliWebService.asmx/GetIndividualItemsJSON"
+
+#define getIngredientsTableJSONURL @"http://71.238.152.208:1986/CPDeliWebService.asmx/GetIngredientsTableJSON"
+
+#define getIngredientsGroupItemsTableJSONURL @"http://71.238.152.208:1986/CPDeliWebService.asmx/GetIngredientGroupItemsTableJSON"
+
+#define getIngredientsGroupTableJSONURL @"http://71.238.152.208:1986/CPDeliWebService.asmx/GetIngredientGroupTableJSON"
 
 @interface GroupItemViewController ()
 
@@ -25,28 +25,38 @@
 
 @implementation GroupItemViewController
 
-@synthesize groupItemArray, individualItemArray, ingredientsTableArray;
-@synthesize connection1, connection2, connection3;
+@synthesize groupItemArray, individualItemArray, ingredientsTableArray, ingredientsGroupTableArray, ingredientsGroupItemTableArray;
+@synthesize connection1, connection2, connection3, connection4, connection5;
 
-NSMutableData *responseData;                        //raw xml array
-NSMutableString *currentElement;                    //raw json array
+NSMutableData *responseData;                                //raw xml array
+NSMutableString *currentElement;                            //raw json array
 
-NSData *groupItemData;                              //json in data format for use with jsonserialization
-NSMutableDictionary *groupItemDictionary;           //data in dictionary form
-NSMutableArray *tempGroupItemArray;                 //temp data array
+NSData *groupItemData;                                      //json in data format for use with jsonserialization
+NSMutableDictionary *groupItemDictionary;                   //data in dictionary form
+NSMutableArray *tempGroupItemArray;                         //temp data array
 
-NSData *individualItemData;                         //json in data format for use with jsonserialization
-NSMutableDictionary *individualItemDictionary;      //data in dictionary form
-NSMutableArray *tempIndividualItemArray;            //temp data array
+NSData *individualItemData;                                 //json in data format for use with jsonserialization
+NSMutableDictionary *individualItemDictionary;              //data in dictionary form
+NSMutableArray *tempIndividualItemArray;                    //temp data array
 
-NSData *ingredientsTableData;                       //json in data format for use with jsonserialization
-NSMutableDictionary *ingredientsTableDictionary;    //data in dictionary form
-NSMutableArray *tempIngredientsTableArray;          //temp data array
+NSData *ingredientsTableData;                               //json in data format for use with jsonserialization
+NSMutableDictionary *ingredientsTableDictionary;            //data in dictionary form
+NSMutableArray *tempIngredientsTableArray;                  //temp data array
 
-int connectionFlag = 0;                             //determines which connection is being worked with
-bool groupItemsFetched = false;                     //mark groupItems fetched with true
-bool individualItemsFetched = false;                //mark individualItems fetched with true
-bool ingredientsTableFetched = false;               //mark ingredientsTable fetched with true
+NSData *ingredientsGroupTableData;                          //json in data format for use with jsonserialization
+NSMutableDictionary *ingredientsGroupTableDictionary;       //data in dictionary form
+NSMutableArray *tempIngredientsGroupTableArray;             //temp data array
+
+NSData *ingredientsGroupItemTableData;                      //json in data format for use with jsonserialization
+NSMutableDictionary *ingredientsGroupItemTableDictionary;   //data in dictionary form
+NSMutableArray *tempIngredientsGroupItemTableArray;         //temp data array
+
+int connectionFlag = 0;                                     //determines which connection is being worked with
+bool groupItemsFetched = false;                             //mark groupItems fetched with true
+bool individualItemsFetched = false;                        //mark individualItems fetched with true
+bool ingredientsTableFetched = false;                       //mark ingredientsTable fetched with true
+bool ingredientsGroupTableFeteched = false;                 //mark ingredientsGroupTable fetched with true
+bool ingredientsGroupItemTableFetched = false;              //mark ingredientsGroupItemTable fetched with true
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -85,12 +95,14 @@ bool ingredientsTableFetched = false;               //mark ingredientsTable fetc
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
 {
     return groupItemArray.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     GroupItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuGroups" forIndexPath:indexPath];
     
@@ -106,7 +118,6 @@ bool ingredientsTableFetched = false;               //mark ingredientsTable fetc
     
     return cell;
 }
-
 
 /*
 // Override to support conditional editing of the table view.
@@ -149,7 +160,8 @@ bool ingredientsTableFetched = false;               //mark ingredientsTable fetc
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
@@ -188,6 +200,18 @@ bool ingredientsTableFetched = false;               //mark ingredientsTable fetc
     NSURLRequest *ingredientsTableRequest = [NSURLRequest requestWithURL:ingredientsTableURL];
     //Create URL connection and fire request
     connection3 = [[NSURLConnection alloc] initWithRequest:ingredientsTableRequest delegate:self];
+    
+    //create the request
+    NSURL *ingredientsGroupTableURL = [NSURL URLWithString:getIngredientsGroupTableJSONURL];
+    NSURLRequest *ingredientsGroupTableRequest = [NSURLRequest requestWithURL:ingredientsGroupTableURL];
+    //Create URL connection and fire request
+    connection4 = [[NSURLConnection alloc] initWithRequest:ingredientsGroupTableRequest delegate:self];
+    
+    //create the request
+    NSURL *ingredientsGroupItemTableURL = [NSURL URLWithString:getIngredientsGroupItemsTableJSONURL];
+    NSURLRequest *ingredientsGroupItemTableRequest = [NSURLRequest requestWithURL:ingredientsGroupItemTableURL];
+    //Create URL connection and fire request
+    connection5 = [[NSURLConnection alloc] initWithRequest:ingredientsGroupItemTableRequest delegate:self];
     
 }
     
@@ -230,6 +254,14 @@ didReceiveResponse:(NSURLResponse *)response {
     else if(connection == connection3)
     {
         connectionFlag = 3;
+    }
+    else if(connection == connection4)
+    {
+        connectionFlag = 4;
+    }
+    else if(connection == connection5)
+    {
+        connectionFlag = 5;
     }
     else
     {
@@ -329,7 +361,7 @@ foundCharacters:(NSString *)string
         groupItemsFetched = true;
         
         //if all menu items fetched create the data structure
-        if(groupItemsFetched && individualItemsFetched && ingredientsTableFetched)
+        if(groupItemsFetched && individualItemsFetched && ingredientsTableFetched && ingredientsGroupTableFeteched && ingredientsGroupItemTableFetched)
         {
             [self createTheDataStructure];
         }
@@ -363,15 +395,33 @@ foundCharacters:(NSString *)string
             NSNumber *iID = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ItemID"];
             NSString *iName = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ItemName"];
             NSString *iDescription = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ItemDescription"];
+        
+            NSError *error4;
             NSString *iIngredients = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"Ingredients"];
+            NSData *jsonIngredients =[iIngredients dataUsingEncoding:NSUTF8StringEncoding];
+            NSArray *theIngredientsGroup = [NSJSONSerialization JSONObjectWithData:jsonIngredients options:0 error:&error4];
+            NSLog(@"%@", theIngredientsGroup);
+            
             NSString *iDeluxeIngredients = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"DeluxeIngredients"];
             NSNumber *iParentGroup = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ParentGroup"];
             NSNumber *iPrice = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"Price"];
-            NSString *iChoiceGroups = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ChoiceGroups"];
-            NSString *iMustGroups = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"MustGroups"];
-            NSString *iExcludeGroups = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ExcludeItems"];
             
-            [individualItemArray addObject:[[IndividualItems alloc]initWithItemID:iID andItemName:iName andItemDescription:iDescription andIngredients:iIngredients andDeluxeIngredients:iDeluxeIngredients andParentGroup:iParentGroup andPrice:iPrice andChoiceGroups:iChoiceGroups andMustGroups:iMustGroups andExcludeGroups:iExcludeGroups]];
+            NSString *iChoiceGroups = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ChoiceGroups"];
+            NSError *error1;
+            NSData *jsonChoiceGroups = [iChoiceGroups dataUsingEncoding:NSUTF8StringEncoding];
+            NSArray *theChoiceGroups = [NSJSONSerialization JSONObjectWithData:jsonChoiceGroups options:0 error:&error1];
+            
+            NSString *iMustGroups = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"MustGroups"];
+            NSError *error2;
+            NSData *jsonMustGroups = [iMustGroups dataUsingEncoding:NSUTF8StringEncoding];
+            NSArray *theMustGroups = [NSJSONSerialization JSONObjectWithData:jsonMustGroups options:0 error:&error2];
+            
+            NSString *iExcludeGroups = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ExcludeItems"];
+            NSError *error3;
+            NSData *jsonExcludeGroups = [iExcludeGroups dataUsingEncoding:NSUTF8StringEncoding];
+            NSArray *theExcludeGroups = [NSJSONSerialization JSONObjectWithData:jsonExcludeGroups options:0 error:&error3];
+            
+            [individualItemArray addObject:[[IndividualItems alloc]initWithItemID:iID andItemName:iName andItemDescription:iDescription andIngredients:theIngredientsGroup andDeluxeIngredients:iDeluxeIngredients andParentGroup:iParentGroup andPrice:iPrice andChoiceGroups:theChoiceGroups andMustGroups:theMustGroups andExcludeGroups:theExcludeGroups]];
         }
         
         //clear responseData to it can be reused for other connections
@@ -381,7 +431,7 @@ foundCharacters:(NSString *)string
         individualItemsFetched = true;
         
         //if all menu items fetched create the data structure
-        if(groupItemsFetched && individualItemsFetched && ingredientsTableFetched)
+        if(groupItemsFetched && individualItemsFetched && ingredientsTableFetched && ingredientsGroupTableFeteched && ingredientsGroupItemTableFetched)
         {
             [self createTheDataStructure];
         }
@@ -393,7 +443,6 @@ foundCharacters:(NSString *)string
         
         //convert string to dataObject
         ingredientsTableData = [currentElement dataUsingEncoding:NSUTF8StringEncoding];
-        
         
         //determine if any errors occured, if yes: display error message if no: create temp array
         NSError *ingredientsTableError;
@@ -424,6 +473,8 @@ foundCharacters:(NSString *)string
             [ingredientsTableArray addObject:[[Ingredients alloc]initWithIngredientsID:ingIngredientID andIngredientsName:ingIngredientName andPrice:ingPrice andDayRequired:ingDayRequired andPercentageBased:ingPercentageBased]];
         }
         
+        [IngredientsTable loadIngredientsTable:ingredientsTableArray];
+        
         //clear responseData to it can be reused for other connections
         [responseData setLength:0];
         
@@ -431,7 +482,106 @@ foundCharacters:(NSString *)string
         ingredientsTableFetched = true;
         
         //if all menu items fetched create the data structure
-        if(groupItemsFetched && individualItemsFetched && ingredientsTableFetched)
+        if(groupItemsFetched && individualItemsFetched && ingredientsTableFetched && ingredientsGroupTableFeteched && ingredientsGroupItemTableFetched)
+        {
+            [self createTheDataStructure];
+        }
+        
+    }
+    else if(connectionFlag == 4)
+    {
+        NSLog(@"connection4");
+        
+        //convert string to dataObject
+        ingredientsGroupTableData = [currentElement dataUsingEncoding:NSUTF8StringEncoding];
+        
+        //determine if any errors occured, if yes: display error message if no: create temp array
+        NSError *ingredientsGroupTableError;
+        
+        ingredientsGroupTableDictionary = [NSJSONSerialization JSONObjectWithData:ingredientsGroupTableData options:NSJSONReadingMutableContainers error:&ingredientsGroupTableError];
+        
+        if(ingredientsGroupTableError)
+        {
+            NSLog(@"%@", [ingredientsGroupTableError localizedDescription]);
+        }
+        else
+        {
+            tempIngredientsGroupTableArray = ingredientsGroupTableDictionary[@"IngredientGroupTable"];
+        }
+        
+        ingredientsGroupTableArray = [[NSMutableArray alloc] init];
+        
+        for(int i = 0; i<tempIngredientsGroupTableArray.count; i++)
+        {
+            //create our ingredientsGroupTable objects
+            //objectForKey value must match exactly to JSON string keys
+            NSNumber *ingGroupID = [[tempIngredientsGroupTableArray objectAtIndex:i] objectForKey:@"GroupID"];
+            NSString *ingGroupName = [[tempIngredientsGroupTableArray objectAtIndex:i] objectForKey:@"GroupName"];
+            NSNumber *ingSelectMultiple = [[tempIngredientsGroupTableArray objectAtIndex:i] objectForKey:@"SelectMultiple"];
+            
+            [ingredientsGroupTableArray addObject:[[IngredientsGroupItem alloc] initWithGroupID:ingGroupID andGroupName:ingGroupName andSelectMultiple:ingSelectMultiple]];
+        }
+        
+        [IngredientsTable loadIngredientsGroupTable:ingredientsGroupTableArray];
+        
+        //clear responseData to it can be reused for other connections
+        [responseData setLength:0];
+        
+        //mark as fetched
+        ingredientsGroupTableFeteched = true;
+        
+        //if all menu items fetched create the data structure
+        if(groupItemsFetched && individualItemsFetched && ingredientsTableFetched && ingredientsGroupTableFeteched && ingredientsGroupItemTableFetched)
+        {
+            [self createTheDataStructure];
+        }
+        
+    }
+    else if(connectionFlag == 5)
+    {
+        NSLog(@"connection5");
+        
+        //convert string to dataObject
+        ingredientsGroupItemTableData = [currentElement dataUsingEncoding:NSUTF8StringEncoding];
+        
+        //determine if any errors occured, if yes: display error message if no: create temp array
+        NSError *ingredientsGroupItemTableError;
+        
+        ingredientsGroupItemTableDictionary = [NSJSONSerialization JSONObjectWithData:ingredientsGroupItemTableData options:NSJSONReadingMutableContainers error:&ingredientsGroupItemTableError];
+        
+        if(ingredientsGroupItemTableError)
+        {
+            NSLog(@"%@", [ingredientsGroupItemTableError localizedDescription]);
+        }
+        else
+        {
+            tempIngredientsGroupItemTableArray = ingredientsGroupItemTableDictionary[@"IngredientGroupItemsTable"];
+        }
+        
+        ingredientsGroupItemTableArray = [[NSMutableArray alloc] init];
+        
+        for(int i = 0; i<tempIngredientsGroupItemTableArray.count; i++)
+        {
+            //create our individualItem objects
+            //objectForKey value must match exactly to JSON string keys
+            NSNumber *ingItemID = [[tempIngredientsGroupItemTableArray objectAtIndex:i] objectForKey:@"ItemID"];
+            NSString *ingItemName = [[tempIngredientsGroupItemTableArray objectAtIndex:i] objectForKey:@"ItemName"];
+            NSNumber *ingParentGroup = [[tempIngredientsGroupItemTableArray objectAtIndex:i] objectForKey:@"ParentGroup"];
+            NSNumber *ingPrice = [[tempIngredientsGroupItemTableArray objectAtIndex:i] objectForKey:@"Price"];
+            
+            [ingredientsGroupItemTableArray addObject:[[IngredientsGroupItemItem alloc]initWithItemID:ingItemID andItemName:ingItemName andParentGroup:ingParentGroup andPrice:ingPrice]];
+        }
+        
+        [IngredientsTable loadIngredientsGroupItemTable:ingredientsGroupItemTableArray];
+        
+        //clear responseData to it can be reused for other connections
+        [responseData setLength:0];
+        
+        //mark as fetched
+        ingredientsGroupItemTableFetched = true;
+        
+        //if all menu items fetched create the data structure
+        if(groupItemsFetched && individualItemsFetched && ingredientsTableFetched && ingredientsGroupTableFeteched && ingredientsGroupItemTableFetched)
         {
             [self createTheDataStructure];
         }
@@ -450,10 +600,8 @@ foundCharacters:(NSString *)string
     MenuGroups *tempGroupItem;
     IndividualItems *tempIndividualItems;
     
-    
     //add individual items to the appropriate groupItem array.
     //eg. add all individual items that are breakfast sandwiches to breakfastSandwich group array
-    
     for(int i = 0; i<groupItemArray.count; i++)
     {
         tempGroupItem = groupItemArray[i];
@@ -472,6 +620,8 @@ foundCharacters:(NSString *)string
     //reload data to display in tables
     [self.tableView reloadData];
 }
+
+
 
 
 @end
