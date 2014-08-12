@@ -49,9 +49,6 @@ NSMutableArray *ingredientsForItem;
     ingredientsTable = [IngredientsTable getIngredientsTable];
     ingredientsGroupTable = [IngredientsTable getIngredientsGroupTable];
     ingredientsGroupItemTable = [IngredientsTable getIngredientsGroupItemTable];
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,7 +62,6 @@ NSMutableArray *ingredientsForItem;
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-
     return [self getNumberOfSections];
 }
 

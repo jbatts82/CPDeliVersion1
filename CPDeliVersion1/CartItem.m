@@ -10,15 +10,35 @@
 
 @implementation CartItem
 
-@synthesize item, totalPrice, unselectedIngredients, selectedChoices, selectedIngredients;
+static int cartID;
 
--(void)addItem:(IndividualItems *)theItem
+@synthesize theItem, unselectedIngredients, selectedChoices, selectedIngredients;
+
+-(void)runningTotal:(float)addCost
 {
-    item = theItem;
+    totalPrice = totalPrice + addCost;
 }
 
--(void)runningTotal:(NSNumber *)addCost
+-(void)getIngredients:(NSMutableArray*)theIngredients;
 {
+    if(!selectedIngredients)
+    {
+        selectedIngredients = [[NSMutableArray alloc] init];
+    }
+    
+    NSArray *ingredientsTable = [[NSMutableArray alloc] init];
+    ingredientsTable = [IngredientsTable getIngredientsTable];
+    
+    for(int i = 0; i<ingredientsTable.count; i++)
+    {
+        for(int j = 0; j<theIngredients.count; j++)
+        {
+            if([[[ingredientsTable objectAtIndex:i] ingredientsID] isEqualToNumber:[theIngredients objectAtIndex:j]])
+            {
+                [selectedIngredients addObject:[ingredientsTable objectAtIndex:i]];
+            }
+        }
+    }
     
 }
 

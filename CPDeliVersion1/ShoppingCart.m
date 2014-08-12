@@ -11,18 +11,77 @@
 @implementation ShoppingCart
 
 static NSMutableArray *shoppingCart;
+static NSMutableArray *tempShoppingCart; //only one type of individual object per array
 
-+ (void)addToCart:(CartItem *)item
++ (CartItem*)createCartItem:(IndividualItems*)theIndividualItem
 {
-    // static NSMutableArray *shoppingCart;
-    //take input object and add it to ther shopping cart array
+    //create new cart item
+    CartItem *aCartItem;
+    aCartItem = [[CartItem alloc] init];
     
+    //add inidividualItem
+    aCartItem.theItem = theIndividualItem;
+    
+    //add default ingredients
+    [aCartItem getIngredients:[theIndividualItem ingredients]];
+    
+    //init choice and selected groups
+    
+    
+    return aCartItem;
+}
+
++(void)addToTempCart:(CartItem*)cartItem
+{
+    bool isInArray = false;
+    
+    //initialize tempShoppingCart if not already done
+    if(!tempShoppingCart)
+    {
+        tempShoppingCart = [[NSMutableArray alloc] init];
+    }
+    
+    //check and see if item is already in temp array
+    for(int i = 0; i<tempShoppingCart.count; i++)
+    {
+        if([[[[tempShoppingCart objectAtIndex:i] theItem] itemID] isEqualToNumber:[[cartItem theItem] itemID]])
+        {
+            isInArray = true;
+        }
+    }
+    
+    //if item is NOT in temp array: add it
+    if(!isInArray)
+    {
+        [tempShoppingCart addObject:cartItem];
+        NSLog(@"added item to tempCart");
+    }
+    else
+    {
+        NSLog(@"Item Is already in tempCart");
+    }
+    
+}
++ (void)addToCart
+{
+    /*
     if(!shoppingCart)
     {
         shoppingCart = [[NSMutableArray alloc] init];
     }
+    */
     
-    [shoppingCart addObject:item];
+    //check if must items are added
+    
+    //modifiy
+    
+   // [shoppingCart addObject:item];
+}
+
++ (void)modifyCartItem
+{
+    //get item for that individual object
+    
 }
 
 + (void)displayCartItems
@@ -30,13 +89,13 @@ static NSMutableArray *shoppingCart;
    
 }
 
-/*
-- (void)createShoppingCart
++ (void)clearTheCart
 {
-    ShoppingCart *theShoppingCart;
-    theShoppingCart = [[ShoppingCart alloc] init];
+    [shoppingCart removeAllObjects];
 }
 
-*/
+
+
+
 
 @end

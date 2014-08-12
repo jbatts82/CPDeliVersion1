@@ -8,17 +8,30 @@
 
 #import <Foundation/Foundation.h>
 #import "IndividualItems.h"
+#import "IngredientsTable.h"
+#import "Ingredients.h"
 
 @interface CartItem : NSObject
+{
+    float totalPrice;
+}
 
-@property (strong, nonatomic) IndividualItems *item;
-@property (strong, nonatomic) NSNumber *totalPrice;
+@property (strong, nonatomic) IndividualItems *theItem;
 @property (strong, nonatomic) NSMutableArray *selectedIngredients;
 @property (strong, nonatomic) NSMutableArray *unselectedIngredients;
 @property (strong, nonatomic) NSMutableArray *selectedChoices;
+@property (assign, nonatomic) BOOL mustChecked;
+@property (strong, nonatomic) NSNumber *cartID;
 
 
--(void)addItem:(IndividualItems *)theItem;
--(void)runningTotal:(NSNumber *)addCost;
+
+-(void)getIngredients:(NSMutableArray*)ingredients;
+-(void)runningTotal:(float)addCost;
+
+
+
+
+
+
 
 @end

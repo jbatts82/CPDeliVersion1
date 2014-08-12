@@ -11,13 +11,16 @@
 
 @interface ShoppingCart : NSObject
 
++ (void)addToCart;
 
-@property (strong, nonatomic) NSMutableArray *shoppingCart;
-
-+ (void)addToCart:(NSObject *)item;
++ (void)addToTempCart:(CartItem*)cartItem;
 
 + (void)displayCartItems;
 
-//- (void)createShoppingCart;
++ (void)clearTheCart;
+
++ (CartItem*)createCartItem:(IndividualItems*)theIndividualItem;
+
++ (void)modifyCartItem;
 
 @end

@@ -14,7 +14,7 @@
 
 @implementation IndividualItemDetailViewController
 
-@synthesize incomingObject, itemNameLabel, itemPriceLabel, itemDescriptionLabel;
+@synthesize incomingObject, itemNameLabel, itemPriceLabel, itemDescriptionLabel, shoppingCart;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,7 +31,23 @@
     
     // Do any additional setup after loading the view.
     
+    //set labels
     [self setLabels];
+    
+    //init shoppingCart
+    [self createShoppingCart];
+    
+    //create cart item and add to tempCart
+    [ShoppingCart addToTempCart:[ShoppingCart createCartItem:incomingObject]];
+    
+}
+
+- (void)createShoppingCart
+{
+     if(!shoppingCart)
+     {
+         shoppingCart = [[ShoppingCart alloc] init];
+     }
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,8 +89,27 @@
 
 -(IBAction)selectItem:(id)sender
 {
+    //to go next view.
     NSLog(@"im clicked");
 }
+
+-(IBAction)addToCart:(id)sender
+{
+    
+    
+    //add individual item to cart
+    //aCartItem.item = incomingObject;
+    
+    //get ingredients
+    
+    
+    
+}
+
+
+
+
+
 
 
 

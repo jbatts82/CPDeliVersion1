@@ -172,7 +172,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Item Details" id="BFe-mA-gZe">
-                        <barButtonItem key="rightBarButtonItem" title="Add Item" id="btg-vr-owQ"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add Item" id="btg-vr-owQ">
+                            <connections>
+                                <action selector="addToCart:" destination="nck-Lm-eO9" id="Bo8-1b-dln"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="itemDescriptionLabel" destination="5ce-P6-Ggd" id="fdQ-pS-Q6M"/>

@@ -10,6 +10,8 @@
 #import "IndividualItems.h"
 #import "IndividualItemViewController.h"
 #import "IngredientsSelectionTableViewController.h"
+#import "CartItem.h"
+#import "ShoppingCart.h"
 
 @interface IndividualItemDetailViewController : UIViewController
 
@@ -19,12 +21,17 @@
 @property (nonatomic, strong) IBOutlet UILabel *itemNameLabel;
 @property (nonatomic, strong) IBOutlet UILabel *itemDescriptionLabel;
 @property (nonatomic, strong) IBOutlet UILabel *itemPriceLabel;
-@property (nonatomic, strong)IndividualItems *incomingObject;
-
-
+@property (nonatomic, strong) IndividualItems *incomingObject;
+@property (nonatomic, strong) ShoppingCart *shoppingCart;
 
 -(IBAction)selectItem:(id)sender;
 -(void)getItemObject:(IndividualItems*)theItemObject;
 -(void)setLabels;
+-(IBAction)addToCart:(id)sender;
+
+
+
+-(NSMutableArray*)getIngredientsForCartItem;
+
 
 @end

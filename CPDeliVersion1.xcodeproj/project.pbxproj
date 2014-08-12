@@ -176,15 +176,12 @@
 		F6B00059192A7EC2001257C9 /* CPDeliVersion1 */ = {
 			isa = PBXGroup;
 			children = (
-				F6C678A7197B0938003612DC /* CartViewController.h */,
-				F6C678A8197B0938003612DC /* CartViewController.m */,
 				F6B00065192A7EC2001257C9 /* Main.storyboard */,
+				F6D55472199592CB0010C06A /* ShoppingCart */,
 				F6B00063192A7EC2001257C9 /* AppDelegate.m */,
 				F6B00062192A7EC2001257C9 /* AppDelegate.h */,
 				F6466A1C198C138900FF25AD /* SelectionCell.h */,
 				F6466A1D198C138900FF25AD /* SelectionCell.m */,
-				F6C678AD197B09B6003612DC /* CartTableView.h */,
-				F6C678AE197B09B6003612DC /* CartTableView.m */,
 				F65F469A194A47C600D22812 /* IndividualItemCell.h */,
 				F65F469B194A47C600D22812 /* IndividualItemCell.m */,
 				F60D4D8C19842FB300873B83 /* IngredientsSelectionCell.h */,
@@ -195,8 +192,6 @@
 				F6A5EB72193CFAE000F9CAAD /* MenuGroups.h */,
 				F6466A1F198C189800FF25AD /* Choices.h */,
 				F6466A20198C189800FF25AD /* Choices.m */,
-				F6D5546F199591740010C06A /* CartItem.h */,
-				F6D55470199591740010C06A /* CartItem.m */,
 				F6C678B3197B1572003612DC /* IngredientsTable.h */,
 				F6C678B4197B1572003612DC /* IngredientsTable.m */,
 				F6A5EB6B193CFAB200F9CAAD /* IndividualItems.h */,
@@ -204,8 +199,6 @@
 				F6A5EB6E193CFABD00F9CAAD /* Ingredients.h */,
 				F6A5EB6F193CFABD00F9CAAD /* Ingredients.m */,
 				F661CA88192D9E510061DCF7 /* aboutUs.png */,
-				F674482819748BC60005DE31 /* ShoppingCart.h */,
-				F674482919748BC60005DE31 /* ShoppingCart.m */,
 				F6A0A5B6192BC58F00C8CCFD /* GroupItemViewController.h */,
 				F6A0A5B7192BC58F00C8CCFD /* GroupItemViewController.m */,
 				F6C678BC197DAB81003612DC /* IngredientsGroupItem.h */,
@@ -256,6 +249,21 @@
 				F6B0007B192A7EC3001257C9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F6D55472199592CB0010C06A /* ShoppingCart */ = {
+			isa = PBXGroup;
+			children = (
+				F674482819748BC60005DE31 /* ShoppingCart.h */,
+				F674482919748BC60005DE31 /* ShoppingCart.m */,
+				F6C678AD197B09B6003612DC /* CartTableView.h */,
+				F6C678AE197B09B6003612DC /* CartTableView.m */,
+				F6C678A7197B0938003612DC /* CartViewController.h */,
+				F6C678A8197B0938003612DC /* CartViewController.m */,
+				F6D5546F199591740010C06A /* CartItem.h */,
+				F6D55470199591740010C06A /* CartItem.m */,
+			);
+			name = ShoppingCart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
