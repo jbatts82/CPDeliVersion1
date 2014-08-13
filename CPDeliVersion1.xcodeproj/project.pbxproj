@@ -20,6 +20,7 @@
 		F661CA89192D9E510061DCF7 /* aboutUs.png in Resources */ = {isa = PBXBuildFile; fileRef = F661CA88192D9E510061DCF7 /* aboutUs.png */; };
 		F674482A19748BC60005DE31 /* ShoppingCart.m in Sources */ = {isa = PBXBuildFile; fileRef = F674482919748BC60005DE31 /* ShoppingCart.m */; };
 		F674482F1975B0770005DE31 /* shoppingCartIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F674482E1975B0770005DE31 /* shoppingCartIcon.png */; };
+		F68C7E96199BE3FC00EB1D88 /* CPDeliLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F68C7E95199BE3FC00EB1D88 /* CPDeliLogo.png */; };
 		F6A0A5B8192BC58F00C8CCFD /* GroupItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A0A5B7192BC58F00C8CCFD /* GroupItemViewController.m */; };
 		F6A5EB6D193CFAB200F9CAAD /* IndividualItems.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5EB6C193CFAB200F9CAAD /* IndividualItems.m */; };
 		F6A5EB70193CFABD00F9CAAD /* Ingredients.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5EB6F193CFABD00F9CAAD /* Ingredients.m */; };
@@ -80,6 +81,7 @@
 		F674482819748BC60005DE31 /* ShoppingCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCart.h; sourceTree = "<group>"; };
 		F674482919748BC60005DE31 /* ShoppingCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCart.m; sourceTree = "<group>"; };
 		F674482E1975B0770005DE31 /* shoppingCartIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoppingCartIcon.png; sourceTree = "<group>"; };
+		F68C7E95199BE3FC00EB1D88 /* CPDeliLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CPDeliLogo.png; sourceTree = "<group>"; };
 		F6A0A5B6192BC58F00C8CCFD /* GroupItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupItemViewController.h; path = ../GroupItemViewController.h; sourceTree = "<group>"; };
 		F6A0A5B7192BC58F00C8CCFD /* GroupItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupItemViewController.m; path = ../GroupItemViewController.m; sourceTree = "<group>"; };
 		F6A5EB6B193CFAB200F9CAAD /* IndividualItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndividualItems.h; sourceTree = "<group>"; };
@@ -143,6 +145,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F68C7E98199BE43400EB1D88 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F674482E1975B0770005DE31 /* shoppingCartIcon.png */,
+				F661CA88192D9E510061DCF7 /* aboutUs.png */,
+				F68C7E95199BE3FC00EB1D88 /* CPDeliLogo.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		F6B00047192A7EC2001257C9 = {
 			isa = PBXGroup;
 			children = (
@@ -198,7 +210,6 @@
 				F6A5EB6C193CFAB200F9CAAD /* IndividualItems.m */,
 				F6A5EB6E193CFABD00F9CAAD /* Ingredients.h */,
 				F6A5EB6F193CFABD00F9CAAD /* Ingredients.m */,
-				F661CA88192D9E510061DCF7 /* aboutUs.png */,
 				F6A0A5B6192BC58F00C8CCFD /* GroupItemViewController.h */,
 				F6A0A5B7192BC58F00C8CCFD /* GroupItemViewController.m */,
 				F6C678BC197DAB81003612DC /* IngredientsGroupItem.h */,
@@ -215,8 +226,8 @@
 				F61684A0198ADDC7002A23C6 /* SelectionTableViewController.m */,
 				F661CA85192D9C2D0061DCF7 /* AboutUs.h */,
 				F661CA86192D9C2D0061DCF7 /* AboutUs.m */,
-				F674482E1975B0770005DE31 /* shoppingCartIcon.png */,
 				F6B0006B192A7EC2001257C9 /* Images.xcassets */,
+				F68C7E98199BE43400EB1D88 /* Images */,
 				F6B0005A192A7EC2001257C9 /* Supporting Files */,
 			);
 			path = CPDeliVersion1;
@@ -350,6 +361,7 @@
 				F674482F1975B0770005DE31 /* shoppingCartIcon.png in Resources */,
 				F6B0005E192A7EC2001257C9 /* InfoPlist.strings in Resources */,
 				F6B00067192A7EC2001257C9 /* Main.storyboard in Resources */,
+				F68C7E96199BE3FC00EB1D88 /* CPDeliLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
