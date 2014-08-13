@@ -21,6 +21,7 @@
 		F674482A19748BC60005DE31 /* ShoppingCart.m in Sources */ = {isa = PBXBuildFile; fileRef = F674482919748BC60005DE31 /* ShoppingCart.m */; };
 		F674482F1975B0770005DE31 /* shoppingCartIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F674482E1975B0770005DE31 /* shoppingCartIcon.png */; };
 		F68C7E96199BE3FC00EB1D88 /* CPDeliLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F68C7E95199BE3FC00EB1D88 /* CPDeliLogo.png */; };
+		F68C7EA2199BEF7400EB1D88 /* libPayPalMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F68C7E9A199BEF7300EB1D88 /* libPayPalMobile.a */; };
 		F6A0A5B8192BC58F00C8CCFD /* GroupItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A0A5B7192BC58F00C8CCFD /* GroupItemViewController.m */; };
 		F6A5EB6D193CFAB200F9CAAD /* IndividualItems.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5EB6C193CFAB200F9CAAD /* IndividualItems.m */; };
 		F6A5EB70193CFABD00F9CAAD /* Ingredients.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5EB6F193CFABD00F9CAAD /* Ingredients.m */; };
@@ -82,6 +83,14 @@
 		F674482919748BC60005DE31 /* ShoppingCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCart.m; sourceTree = "<group>"; };
 		F674482E1975B0770005DE31 /* shoppingCartIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoppingCartIcon.png; sourceTree = "<group>"; };
 		F68C7E95199BE3FC00EB1D88 /* CPDeliLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CPDeliLogo.png; sourceTree = "<group>"; };
+		F68C7E9A199BEF7300EB1D88 /* libPayPalMobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayPalMobile.a; sourceTree = "<group>"; };
+		F68C7E9B199BEF7300EB1D88 /* PayPalConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalConfiguration.h; sourceTree = "<group>"; };
+		F68C7E9C199BEF7300EB1D88 /* PayPalFuturePaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalFuturePaymentViewController.h; sourceTree = "<group>"; };
+		F68C7E9D199BEF7300EB1D88 /* PayPalMobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalMobile.h; sourceTree = "<group>"; };
+		F68C7E9E199BEF7300EB1D88 /* PayPalOAuthScopes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalOAuthScopes.h; sourceTree = "<group>"; };
+		F68C7E9F199BEF7300EB1D88 /* PayPalPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPayment.h; sourceTree = "<group>"; };
+		F68C7EA0199BEF7300EB1D88 /* PayPalPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPaymentViewController.h; sourceTree = "<group>"; };
+		F68C7EA1199BEF7300EB1D88 /* PayPalProfileSharingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalProfileSharingViewController.h; sourceTree = "<group>"; };
 		F6A0A5B6192BC58F00C8CCFD /* GroupItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupItemViewController.h; path = ../GroupItemViewController.h; sourceTree = "<group>"; };
 		F6A0A5B7192BC58F00C8CCFD /* GroupItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupItemViewController.m; path = ../GroupItemViewController.m; sourceTree = "<group>"; };
 		F6A5EB6B193CFAB200F9CAAD /* IndividualItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndividualItems.h; sourceTree = "<group>"; };
@@ -128,6 +137,7 @@
 			files = (
 				F6B00056192A7EC2001257C9 /* CoreGraphics.framework in Frameworks */,
 				F6B00058192A7EC2001257C9 /* UIKit.framework in Frameworks */,
+				F68C7EA2199BEF7400EB1D88 /* libPayPalMobile.a in Frameworks */,
 				F6B00054192A7EC2001257C9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,6 +163,22 @@
 				F68C7E95199BE3FC00EB1D88 /* CPDeliLogo.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		F68C7E99199BEF7300EB1D88 /* PayPalMobile */ = {
+			isa = PBXGroup;
+			children = (
+				F68C7E9A199BEF7300EB1D88 /* libPayPalMobile.a */,
+				F68C7E9B199BEF7300EB1D88 /* PayPalConfiguration.h */,
+				F68C7E9C199BEF7300EB1D88 /* PayPalFuturePaymentViewController.h */,
+				F68C7E9D199BEF7300EB1D88 /* PayPalMobile.h */,
+				F68C7E9E199BEF7300EB1D88 /* PayPalOAuthScopes.h */,
+				F68C7E9F199BEF7300EB1D88 /* PayPalPayment.h */,
+				F68C7EA0199BEF7300EB1D88 /* PayPalPaymentViewController.h */,
+				F68C7EA1199BEF7300EB1D88 /* PayPalProfileSharingViewController.h */,
+			);
+			name = PayPalMobile;
+			path = ../PayPalMobile;
 			sourceTree = "<group>";
 		};
 		F6B00047192A7EC2001257C9 = {
@@ -188,6 +214,7 @@
 		F6B00059192A7EC2001257C9 /* CPDeliVersion1 */ = {
 			isa = PBXGroup;
 			children = (
+				F68C7E99199BEF7300EB1D88 /* PayPalMobile */,
 				F6B00065192A7EC2001257C9 /* Main.storyboard */,
 				F6D55472199592CB0010C06A /* ShoppingCart */,
 				F6B00063192A7EC2001257C9 /* AppDelegate.m */,
@@ -532,6 +559,10 @@
 				GCC_PREFIX_HEADER = "CPDeliVersion1/CPDeliVersion1-Prefix.pch";
 				INFOPLIST_FILE = "CPDeliVersion1/CPDeliVersion1-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PayPalMobile",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -547,6 +578,10 @@
 				GCC_PREFIX_HEADER = "CPDeliVersion1/CPDeliVersion1-Prefix.pch";
 				INFOPLIST_FILE = "CPDeliVersion1/CPDeliVersion1-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PayPalMobile",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
