@@ -12,14 +12,14 @@
 
 static int cartID;
 
-@synthesize theItem, unselectedIngredients, selectedChoices, selectedIngredients;
+@synthesize theItem, unselectedIngredients, selectedChoices, selectedIngredients, mustChecked;
 
 -(void)runningTotal:(float)addCost
 {
     totalPrice = totalPrice + addCost;
 }
 
--(void)getIngredients:(NSMutableArray*)theIngredients;
+-(void)getIngredients:(NSArray*)theIngredients;
 {
     if(!selectedIngredients)
     {
@@ -41,5 +41,34 @@ static int cartID;
     }
     
 }
+
+-(void)initUnselectedAndSelected
+{
+    if(!selectedChoices)
+    {
+        selectedChoices = [[NSMutableArray alloc] init];
+    }
+    
+    if(!unselectedIngredients)
+    {
+        unselectedIngredients = [[NSMutableArray alloc] init];
+    }
+}
+
+-(void)initMustCheck:(NSArray*)mustGroups
+{
+    if(mustGroups.count > 0)
+    {
+        mustChecked = false;
+    }
+    else
+    {
+        mustChecked = true;
+    }
+    
+}
+
+
+
 
 @end

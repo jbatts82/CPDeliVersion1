@@ -13,6 +13,8 @@
 #import "IngredientsTable.h"
 #import "IngredientsSelectionCell.h"
 #import "SelectionTableViewController.h"
+#import "Ingredients.h"
+#import "IndividualItems.h"
 
 @interface IngredientsSelectionTableViewController : UITableViewController
 

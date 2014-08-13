@@ -25,8 +25,11 @@ static NSMutableArray *tempShoppingCart; //only one type of individual object pe
     //add default ingredients
     [aCartItem getIngredients:[theIndividualItem ingredients]];
     
-    //init choice and selected groups
+    //init choice groups and 
+    [aCartItem initUnselectedAndSelected];
     
+    //init mustChecked variable to false if a mustChecked category exists
+    [aCartItem initMustCheck:[theIndividualItem mustGroups]];
     
     return aCartItem;
 }
@@ -78,9 +81,12 @@ static NSMutableArray *tempShoppingCart; //only one type of individual object pe
    // [shoppingCart addObject:item];
 }
 
-+ (void)modifyCartItem
++ (void)modifyCartItem:(NSNumber*)itemID
 {
     //get item for that individual object
+    
+    
+    
     
 }
 

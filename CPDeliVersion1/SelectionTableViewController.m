@@ -106,6 +106,8 @@
     return cell;
 }
 
+
+
 -(void)tableView:(UITableView *)theTableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -119,15 +121,28 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     {
         case ingredientsSection:
         {
+            // change tempArray item for this individualItem
             if (selectedCell.accessoryType == UITableViewCellAccessoryNone)
             {
                 selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+                
                 // Reflect selection in data model
+            
+                // delete ingredients in unselected ingredients array if there
+                // add ingreients to selected array
+                
+                [ShoppingCart modifyCartItem:[anotherIncomingObject idemID]];
+                
+                
             }
             else if (selectedCell.accessoryType == UITableViewCellAccessoryCheckmark)
             {
                 selectedCell.accessoryType = UITableViewCellAccessoryNone;
+                
                 // Reflect deselection in data model
+                
+                // remove from selected ingredients
+                // add to unselected ingredients
             }
           
             break;
@@ -140,11 +155,13 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
                 if (selectedCell.accessoryType == UITableViewCellAccessoryNone)
                 {
                     selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+                    
                     // Reflect selection in data model
                 }
                 else if (selectedCell.accessoryType == UITableViewCellAccessoryCheckmark)
                 {
                     selectedCell.accessoryType = UITableViewCellAccessoryNone;
+                    
                     // Reflect deselection in data model
                 }
             }
@@ -189,8 +206,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     }//end switch
     
 }//end tableView:didSelectRowAtIndexPath
-
-
 
 /*
  NSLog(@"row: %lu", (unsigned long)indexPath.row);
@@ -246,7 +261,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     // Pass the selected object to the new view controller.
 }
 */
-
 
 
 @end

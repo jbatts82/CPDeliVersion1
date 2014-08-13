@@ -213,6 +213,7 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
                 outGoingObject.typeOfChoice = [[NSNumber alloc]initWithInt:ingredientsSection];
                 outGoingObject.arrayOfChoice = theIncomingObject.ingredients;
                 outGoingObject.isMultiple = [[NSNumber alloc]initWithInt:1];
+                outGoingObject.idemID = [[NSNumber alloc]initWithInt:[[theIncomingObject itemID] intValue]];
                 selectionViewController.anotherIncomingObject = outGoingObject;
                 break;
             }
@@ -224,6 +225,7 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
                 outGoingObject.typeOfChoice = [[NSNumber alloc]initWithInt:choiceSection];
                 outGoingObject.arrayOfChoice = [self getTheChoiceArray:theIncomingObject.choiceGroups[myIndexPath.row]];
                 outGoingObject.isMultiple = [self areMultipleChoices:myIndexPath.row ];
+                outGoingObject.idemID = [[NSNumber alloc]initWithInt:[[theIncomingObject itemID] intValue]];
                 selectionViewController.anotherIncomingObject = outGoingObject;
                 break;
             }
@@ -235,15 +237,14 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
                 outGoingObject.typeOfChoice = [[NSNumber alloc]initWithInt:choiceSection];
                 outGoingObject.arrayOfChoice = [self getTheChoiceArray:theIncomingObject.mustGroups[myIndexPath.row]];
                 outGoingObject.isMultiple = [self areMultipleMusts:myIndexPath.row ];
+                outGoingObject.idemID = [[NSNumber alloc]initWithInt:[[theIncomingObject itemID] intValue]];
                 selectionViewController.anotherIncomingObject = outGoingObject;
                 break;
             }
             default:
                 NSLog(@"Unknown Section:error");
                 break;
-                
-                
-                
+        
         }//end switch
     }
 }

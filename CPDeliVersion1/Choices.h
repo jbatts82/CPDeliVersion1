@@ -13,7 +13,6 @@
 @property (strong, nonatomic) NSNumber *typeOfChoice;
 @property (strong, nonatomic) NSArray *arrayOfChoice;
 @property (strong, nonatomic) NSNumber *isMultiple;
-
-
+@property (strong, nonatomic) NSNumber *idemID;
 
 @end

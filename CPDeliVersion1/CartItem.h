@@ -23,15 +23,9 @@
 @property (assign, nonatomic) BOOL mustChecked;
 @property (strong, nonatomic) NSNumber *cartID;
 
-
-
--(void)getIngredients:(NSMutableArray*)ingredients;
+-(void)getIngredients:(NSArray*)ingredients;
+-(void)initUnselectedAndSelected;
+-(void)initMustCheck:(NSArray*)mustGroups;
 -(void)runningTotal:(float)addCost;
-
-
-
-
-
-
 
 @end

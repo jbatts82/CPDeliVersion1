@@ -21,6 +21,6 @@
 
 + (CartItem*)createCartItem:(IndividualItems*)theIndividualItem;
 
-+ (void)modifyCartItem;
++ (void)modifyCartItem:(NSNumber*)itemID;
 
 @end

@@ -11,6 +11,7 @@
 #import "IngredientsSelectionTableViewController.h"
 #import "SelectionCell.h"
 #import "Choices.h"
+#import "ShoppingCart.h"
 
 
 @interface SelectionTableViewController : UITableViewController
