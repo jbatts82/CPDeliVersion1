@@ -2,7 +2,7 @@
 //  MenuGroups.m
 //  CPDeliVersion1
 //
-//  Created by UMDGuest on 5/22/14.
+//  Created by John Battaglia on 5/22/14.
 //  Copyright (c) 2014 John Battaglia. All rights reserved.
 //
 
@@ -37,9 +37,7 @@
         theImage = [UIImage imageWithData:imageData];
         
     }
-    
-    
-    
+
     return self;
 }
 

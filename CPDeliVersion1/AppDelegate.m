@@ -9,13 +9,14 @@
 
 #import "AppDelegate.h"
 
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     
-    //insert code here
+    [PayPalMobile initializeWithClientIdsForEnvironments:@{PayPalEnvironmentSandbox : @"AXob7hCbGCGOlqduq-B0xkNy-FUNssuhfop6-_cOIf6Zx3buBSA4cEhr533h"}];
     return YES;
 }
 							

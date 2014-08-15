@@ -230,7 +230,6 @@ didReceiveResponse:(NSURLResponse *)response {
     didReceiveData:(NSData *)data {
     // Append the new data to the instance variable you declared
     [responseData appendData:data];
-    [self.tableView reloadData];
 }
     
 - (NSCachedURLResponse *)connection:(NSURLConnection *)connection

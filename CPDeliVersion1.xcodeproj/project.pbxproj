@@ -18,6 +18,7 @@
 		F65F469C194A47C600D22812 /* IndividualItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F65F469B194A47C600D22812 /* IndividualItemCell.m */; };
 		F661CA87192D9C2D0061DCF7 /* AboutUs.m in Sources */ = {isa = PBXBuildFile; fileRef = F661CA86192D9C2D0061DCF7 /* AboutUs.m */; };
 		F661CA89192D9E510061DCF7 /* aboutUs.png in Resources */ = {isa = PBXBuildFile; fileRef = F661CA88192D9E510061DCF7 /* aboutUs.png */; };
+		F66565CE199D4CAF00FB0EA8 /* PayPalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F66565CD199D4CAF00FB0EA8 /* PayPalViewController.m */; };
 		F674482A19748BC60005DE31 /* ShoppingCart.m in Sources */ = {isa = PBXBuildFile; fileRef = F674482919748BC60005DE31 /* ShoppingCart.m */; };
 		F674482F1975B0770005DE31 /* shoppingCartIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F674482E1975B0770005DE31 /* shoppingCartIcon.png */; };
 		F68C7E96199BE3FC00EB1D88 /* CPDeliLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F68C7E95199BE3FC00EB1D88 /* CPDeliLogo.png */; };
@@ -83,6 +84,8 @@
 		F661CA85192D9C2D0061DCF7 /* AboutUs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUs.h; sourceTree = "<group>"; };
 		F661CA86192D9C2D0061DCF7 /* AboutUs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUs.m; sourceTree = "<group>"; };
 		F661CA88192D9E510061DCF7 /* aboutUs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aboutUs.png; sourceTree = "<group>"; };
+		F66565CC199D4CAF00FB0EA8 /* PayPalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalViewController.h; sourceTree = "<group>"; };
+		F66565CD199D4CAF00FB0EA8 /* PayPalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayPalViewController.m; sourceTree = "<group>"; };
 		F674482819748BC60005DE31 /* ShoppingCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCart.h; sourceTree = "<group>"; };
 		F674482919748BC60005DE31 /* ShoppingCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCart.m; sourceTree = "<group>"; };
 		F674482E1975B0770005DE31 /* shoppingCartIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoppingCartIcon.png; sourceTree = "<group>"; };
@@ -269,6 +272,8 @@
 				F61684A0198ADDC7002A23C6 /* SelectionTableViewController.m */,
 				F661CA85192D9C2D0061DCF7 /* AboutUs.h */,
 				F661CA86192D9C2D0061DCF7 /* AboutUs.m */,
+				F66565CC199D4CAF00FB0EA8 /* PayPalViewController.h */,
+				F66565CD199D4CAF00FB0EA8 /* PayPalViewController.m */,
 				F6B0006B192A7EC2001257C9 /* Images.xcassets */,
 				F68C7E98199BE43400EB1D88 /* Images */,
 				F6B0005A192A7EC2001257C9 /* Supporting Files */,
@@ -446,6 +451,7 @@
 				F6A5EB70193CFABD00F9CAAD /* Ingredients.m in Sources */,
 				F661CA87192D9C2D0061DCF7 /* AboutUs.m in Sources */,
 				F674482A19748BC60005DE31 /* ShoppingCart.m in Sources */,
+				F66565CE199D4CAF00FB0EA8 /* PayPalViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
