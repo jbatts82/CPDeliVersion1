@@ -115,9 +115,9 @@ titleForHeaderInSection:(NSInteger)section {
             break;
             
         case choiceSection:
-            for(int i = 0; i<ingredientsGroupTable.count ; i++)
+            for(int i = 0; i<ingredientsGroupTable.count; i++)
             {
-                if([[[ingredientsGroupTable objectAtIndex:i] GroupID] isEqualToNumber:theIncomingObject.choiceGroups[indexPath.row]] )
+                if([[[ingredientsGroupTable objectAtIndex:i] GroupID] isEqualToNumber:theIncomingObject.choiceGroups[indexPath.row]])
                 {
                     cell.ingredientLabel.text = [[ingredientsGroupTable objectAtIndex:i] GroupName];
                 }
@@ -125,9 +125,9 @@ titleForHeaderInSection:(NSInteger)section {
             break;
             
         case mustSection:
-            for(int i = 0; i<ingredientsGroupTable.count ; i++)
+            for(int i = 0; i<ingredientsGroupTable.count; i++)
             {
-                if([[[ingredientsGroupTable objectAtIndex:i] GroupID] isEqualToNumber:theIncomingObject.mustGroups[indexPath.row]] )
+                if([[[ingredientsGroupTable objectAtIndex:i] GroupID] isEqualToNumber:theIncomingObject.mustGroups[indexPath.row]])
                 {
                     cell.ingredientLabel.text = [[ingredientsGroupTable objectAtIndex:i] GroupName];
                 }

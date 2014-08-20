@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "CartItem.h"
+#import "IndividualItems.h"
+#import "IngredientsTable.h"
+#import "Ingredients.h"
 
 @interface ShoppingCart : NSObject
 
@@ -21,6 +24,11 @@
 
 + (CartItem*)createCartItem:(IndividualItems*)theIndividualItem;
 
-+ (void)modifyCartItem:(NSNumber*)itemID;
++ (void)modifyTempCartItem:(NSNumber*)itemID
+                 addRemove:(NSString*)addOrRemove;
+
++ (CartItem*)getTempCartItem:(NSNumber*)thisItemID;
+
++(void)addToSelectedIngredients:(NSNumber*)thisIngredientID;
 
 @end

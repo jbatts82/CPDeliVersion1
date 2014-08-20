@@ -81,12 +81,11 @@ static NSMutableArray *tempShoppingCart; //only one type of individual object pe
    // [shoppingCart addObject:item];
 }
 
-+ (void)modifyCartItem:(NSNumber*)itemID
++ (void)modifyTempCartItem:(NSNumber*)itemID
+                 addRemove:(NSString*)addOrRemove
 {
-    //get item for that individual object
     
-    
-    
+
     
 }
 
@@ -100,8 +99,38 @@ static NSMutableArray *tempShoppingCart; //only one type of individual object pe
     [shoppingCart removeAllObjects];
 }
 
++ (CartItem*)getTempCartItem:(NSNumber*)thisItemID
+{
+    CartItem *theCartItem = [[CartItem alloc]init];
+    
+    for(int i = 0; i<tempShoppingCart.count; i++)
+    {
+        if([[[[tempShoppingCart objectAtIndex:i] theItem] itemID] isEqualToNumber:thisItemID])
+        {
+            theCartItem = [tempShoppingCart objectAtIndex:i];
+        }
+    }
+    
+    return theCartItem;
+}
 
-
-
++(void)addToSelectedIngredients:(NSNumber*)thisIngredientID
+{
+    //add to selected ingredient array and remove from unselected if there
+    
+    for(int i = 0; i<tempShoppingCart.count; i++)
+    {
+        for(int j = 0; j<[[tempShoppingCart objectAtIndex:i] selectedIngredients].count; j++)
+        {
+            if(![[[[[tempShoppingCart objectAtIndex:i] selectedIngredients] objectAtIndex:j] ingredientsID] isEqualToNumber:thisIngredientID])
+            {
+                [[[tempShoppingCart objectAtIndex:i] unselectedIngredients] addObject:[[[tempShoppingCart objectAtIndex:i] selectedIngredients] objectAtIndex:j]];
+                
+                [[[tempShoppingCart objectAtIndex:i] selectedIngredients] removeObjectAtIndex:j];
+            }
+        }
+        
+    }
+}
 
 @end

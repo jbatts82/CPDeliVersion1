@@ -230,7 +230,6 @@ didReceiveResponse:(NSURLResponse *)response {
     didReceiveData:(NSData *)data {
     // Append the new data to the instance variable you declared
     [responseData appendData:data];
-    [self.tableView reloadData];
 }
     
 - (NSCachedURLResponse *)connection:(NSURLConnection *)connection
@@ -400,7 +399,7 @@ foundCharacters:(NSString *)string
             NSString *iIngredients = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"Ingredients"];
             NSData *jsonIngredients =[iIngredients dataUsingEncoding:NSUTF8StringEncoding];
             NSArray *theIngredientsGroup = [NSJSONSerialization JSONObjectWithData:jsonIngredients options:0 error:&error4];
-            NSLog(@"%@", theIngredientsGroup);
+            //NSLog(@"%@", theIngredientsGroup);
             
             NSString *iDeluxeIngredients = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"DeluxeIngredients"];
             NSNumber *iParentGroup = [[tempIndividualItemArray objectAtIndex:i] objectForKey:@"ParentGroup"];

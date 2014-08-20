@@ -19,6 +19,8 @@
 
 @implementation SelectionTableViewController
 
+CartItem *refCartItem;
+
 @synthesize ingredientsTable, ingredientsGroupTable, ingredientsGroupItemTable, anotherIncomingObject, oldIndexPath;;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -37,7 +39,7 @@
     ingredientsTable = [IngredientsTable getIngredientsTable];
     ingredientsGroupTable = [IngredientsTable getIngredientsGroupTable];
     ingredientsGroupItemTable = [IngredientsTable getIngredientsGroupItemTable];
-    
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -66,12 +68,52 @@
     return anotherIncomingObject.arrayOfChoice.count;
 }
 
+// old tableView:cellForRowAtIndexPath, using default settings
+// switching to more dynamic method. getting from tempArray
+/*
+ switch(anotherIncomingObject.typeOfChoice.intValue)
+ {
+ case ingredientsSection:
+ {
+ 
+ for(int i = 0; i<ingredientsTable.count ; i++)
+ {
+ if([[[ingredientsTable objectAtIndex:i] ingredientsID] isEqualToNumber:anotherIncomingObject.arrayOfChoice[indexPath.row]] )
+ {
+ cell.choiceItem.text = [[ingredientsTable objectAtIndex:i] ingredientsName];
+ }
+ }
+ cell.accessoryType = UITableViewCellAccessoryCheckmark;
+ return cell;
+ break;
+ }
+ case choiceSection:
+ {
+ cell.choiceItem.text = [[anotherIncomingObject.arrayOfChoice objectAtIndex:indexPath.row] ItemName];
+ break;
+ }
+ case mustSection:
+ {
+ cell.choiceItem.text = [[anotherIncomingObject.arrayOfChoice objectAtIndex:indexPath.row] ItemName];
+ break;
+ }
+ default:
+ NSLog(@"unknown section");
+ 
+ 
+ }//end switch
+ 
+ */
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SelectionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"selectionCell" forIndexPath:indexPath];
-   
+    
+    //get cart Item from tempArray that references the specific itemID
+    refCartItem = [ShoppingCart getTempCartItem:[anotherIncomingObject idemID]];
+    NSNumber *theIngredientID = [[NSNumber alloc] initWithInt:0];
+    
     switch(anotherIncomingObject.typeOfChoice.intValue)
     {
         case ingredientsSection:
@@ -81,9 +123,24 @@
                 if([[[ingredientsTable objectAtIndex:i] ingredientsID] isEqualToNumber:anotherIncomingObject.arrayOfChoice[indexPath.row]] )
                 {
                     cell.choiceItem.text = [[ingredientsTable objectAtIndex:i] ingredientsName];
+                    theIngredientID = [[ingredientsTable objectAtIndex:i] ingredientsID];
                 }
             }
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            
+            //set up conditions to display checkmarks or not
+            for(int i = 0; i<refCartItem.selectedIngredients.count; i++)
+            {
+                if([theIngredientID isEqualToNumber:[[[refCartItem selectedIngredients]objectAtIndex:i] ingredientsID]])
+                {
+                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                    return cell;
+                }
+                else
+                {
+                    cell.accessoryType = UITableViewCellAccessoryNone;
+                }
+            }
+            
             return cell;
             break;
         }
@@ -99,14 +156,12 @@
         }
         default:
             NSLog(@"unknown section");
-
+            
             
     }//end switch
     
     return cell;
 }
-
-
 
 -(void)tableView:(UITableView *)theTableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -117,6 +172,12 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     
     [theTableView deselectRowAtIndexPath:[theTableView indexPathForSelectedRow] animated:NO];
     
+    //CartItem *refCartItem = [ShoppingCart getTempCartItem:[anotherIncomingObject idemID]];
+    
+    NSNumber *currentItemID;
+   // NSNumber *myNum = [NSNumber numberWithInteger:myNsIntValue];
+    
+    
     switch(anotherIncomingObject.typeOfChoice.intValue)
     {
         case ingredientsSection:
@@ -125,21 +186,31 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
             if (selectedCell.accessoryType == UITableViewCellAccessoryNone)
             {
                 selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+                NSLog(@"Clicked bitch");
                 
                 // Reflect selection in data model
-            
+                
+                //get ingredientID for selected row
+                currentItemID = [[anotherIncomingObject arrayOfChoice] objectAtIndex:indexPath.row];
+                
+                //update tempArray of cart items
+                [ShoppingCart addToSelectedIngredients:currentItemID];
+                
+    
+                // find item in
                 // delete ingredients in unselected ingredients array if there
                 // add ingreients to selected array
-                
-                [ShoppingCart modifyCartItem:[anotherIncomingObject idemID]];
-                
+            
                 
             }
             else if (selectedCell.accessoryType == UITableViewCellAccessoryCheckmark)
             {
                 selectedCell.accessoryType = UITableViewCellAccessoryNone;
-                
+                NSLog(@"Unclicked bitch");
                 // Reflect deselection in data model
+                
+                //get ingredientID for selected row
+                currentItemID = [[anotherIncomingObject arrayOfChoice] objectAtIndex:indexPath.row];
                 
                 // remove from selected ingredients
                 // add to unselected ingredients
@@ -203,9 +274,21 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         default:
             NSLog(@"unknown section");
         
-    }//end switch
+    } //end switch
     
-}//end tableView:didSelectRowAtIndexPath
+} //end tableView:didSelectRowAtIndexPath
+
+
+/*
+- (NSNumber*)getCurrentIngredientItemID:(NSArray*)theArray
+                        andIndexPathRow:(NSNumber*)theIndex
+{
+    
+    NSNumber *itemID = [theArray objectAtIndex:theIndex];
+    
+    return itemID;
+}
+*/
 
 /*
  NSLog(@"row: %lu", (unsigned long)indexPath.row);
